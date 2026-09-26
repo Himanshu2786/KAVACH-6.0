@@ -1,0 +1,120 @@
+version: '3.8'
+
+# ==============================================================================
+# KAVACH 6.0 — Multi-User Production Deployment Stack
+# Reverse Proxy (HTTPS) -> React Frontend -> FastAPI -> PostgreSQL + Server AI
+# ==============================================================================
+
+services:
+  # 1. PostgreSQL Production Database
+  kavach-postgres:
+    image: postgres:16-alpine
+    container_name: kavach-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-kavach_db}
+      POSTGRES_USER: ${POSTGRES_USER:-kavach_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-kavach_secure_production_pass_2026}
+    volumes:
+      - kavach_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-kavach_user} -d ${POSTGRES_DB:-kavach_db}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - kavach-network
+    # Database is not exposed to public internet for security
+
+  # 2. FastAPI Backend Service
+  kavach-backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: kavach-backend
+    restart: unless-stopped
+    depends_on:
+      kavach-postgres:
+        condition: service_healthy
+    environment:
+      - APP_ENV=production
+      - DEBUG=false
+      - PROJECT_NAME=KAVACH 6.0
+      - VERSION=6.0.0
+      - DATABASE_URL=postgresql://${POSTGRES_USER:-kavach_user}:${POSTGRES_PASSWORD:-kavach_secure_production_pass_2026}@kavach-postgres:5432/${POSTGRES_DB:-kavach_db}
+      - SECRET_KEY=${SECRET_KEY:-kavach_super_secret_jwt_hmac_signing_key_replace_in_prod_2026}
+      - REQUIRE_AUTH=true
+      - KAVACH_ADMIN_PASSWORD=${KAVACH_ADMIN_PASSWORD:-Kavach@Admin2026!}
+      - KAVACH_TEAM_PASSWORD=${KAVACH_TEAM_PASSWORD:-Kavach@Team2026!}
+      - OLLAMA_BASE_URL=${OLLAMA_BASE_URL:-http://kavach-ollama:11434}
+      - OLLAMA_MODEL=${OLLAMA_MODEL:-llama3}
+      - BACKEND_CORS_ORIGINS=["https://${KAVACH_DOMAIN:-kavach.example.com}","http://localhost","https://localhost"]
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://127.0.0.1:8000/api/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    networks:
+      - kavach-network
+
+  # 3. React Frontend Static App
+  kavach-frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    container_name: kavach-frontend
+    restart: unless-stopped
+    depends_on:
+      - kavach-backend
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:8080/"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    networks:
+      - kavach-network
+
+  # 4. HTTPS Reverse Proxy (Caddy with automated Let's Encrypt certificates)
+  kavach-proxy:
+    image: caddy:2-alpine
+    container_name: kavach-proxy
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      - KAVACH_DOMAIN=${KAVACH_DOMAIN:-:80}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - kavach_caddy_data:/data
+      - kavach_caddy_config:/config
+    depends_on:
+      - kavach-backend
+      - kavach-frontend
+    networks:
+      - kavach-network
+
+  # 5. Optional Server-side Ollama Engine (run with --profile with-ai)
+  kavach-ollama:
+    image: ollama/ollama:latest
+    container_name: kavach-ollama
+    restart: unless-stopped
+    profiles: ["with-ai"]
+    volumes:
+      - kavach_ollama_data:/root/.ollama
+    networks:
+      - kavach-network
+
+networks:
+  kavach-network:
+    driver: bridge
+
+volumes:
+  kavach_pgdata:
+    driver: local
+  kavach_caddy_data:
+    driver: local
+  kavach_caddy_config:
+    driver: local
+  kavach_ollama_data:
+    driver: local

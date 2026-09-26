@@ -1,0 +1,6 @@
+{
+  "status": "SUCCESS",
+  "finding_id": "KAV-2026-004",
+  "new_status": "VERIFIED",
+  "message": "Finding status transitioned to VERIFIED with audit trail recorded."
+}

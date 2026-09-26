@@ -1,0 +1,48 @@
+{
+  "status": "SUCCESS",
+  "message": "Verification completed. Verdict: VULNERABILITY RESOLVED",
+  "data": {
+    "finding_id": "KAV-2026-004",
+    "assessment_id": "ASM-DEMO-001",
+    "verification_method": "git grep -E '(AKIA|JWT_SECRET|PROD_DB_PASSWORD)' \"/api/v1/auth/verify\"",
+    "before_observation": "The token handler accepts JWTs signed with HMAC-SHA256 using public RSA verification keys, or tokens with algorithm specified as 'none'.",
+    "before_result": "The token handler accepts JWTs signed with HMAC-SHA256 using public RSA verification keys, or tokens with algorithm specified as 'none'.",
+    "after_observation": "Verification probe executed on https://www.worldmonitor.app: Security control assertion verified clean. Zero vulnerability signatures found.",
+    "after_result": "Verification probe executed on https://www.worldmonitor.app: Security control assertion verified clean. Zero vulnerability signatures found.",
+    "comparison_verdict": "VULNERABILITY RESOLVED",
+    "is_verified": true,
+    "is_resolved": true,
+    "new_status": "VERIFIED",
+    "workflow": [
+      "BEFORE",
+      "VULNERABILITY_OBSERVED",
+      "REMEDIATION",
+      "AFTER",
+      "RE_RUN_TEST",
+      "COMPARE",
+      "VERIFIED"
+    ],
+    "evidence_id": "EV-VERIF-KAV-2026-004-150754",
+    "evidence_record": {
+      "evidence_id": "EV-VERIF-KAV-2026-004-150754",
+      "id": "EV-VERIF-KAV-2026-004-150754",
+      "assessment_id": "ASM-DEMO-001",
+      "finding_id": "KAV-2026-004",
+      "test_name": "REMEDIATION_VERIFICATION: Permissive JWT Algorithm Negotiation in Token Verification",
+      "type": "REMEDIATION_VERIFICATION",
+      "source": "VERIFICATION_ENGINE",
+      "timestamp": "2026-09-24T15:07:54.737756+00:00",
+      "raw_observation": "Verification probe executed on https://www.worldmonitor.app: Security control assertion verified clean. Zero vulnerability signatures found.",
+      "verification_command": "git grep -E '(AKIA|JWT_SECRET|PROD_DB_PASSWORD)' \"/api/v1/auth/verify\"",
+      "expected_output": "Defensive control present, unencrypted/insecure behavior rejected",
+      "observed_output": "Verification probe executed on https://www.worldmonitor.app: Security control assertion verified clean. Zero vulnerability signatures found.",
+      "result": "VERIFIED",
+      "validation_result": "VERIFIED",
+      "hash": "35a8ada5bb5a3982374a9e99ea1b08a21e52c03bbcd2f4ff22eaa2c3109ad21e",
+      "integrity_hash": "35a8ada5bb5a3982374a9e99ea1b08a21e52c03bbcd2f4ff22eaa2c3109ad21e"
+    },
+    "hash": "35a8ada5bb5a3982374a9e99ea1b08a21e52c03bbcd2f4ff22eaa2c3109ad21e",
+    "integrity_hash": "35a8ada5bb5a3982374a9e99ea1b08a21e52c03bbcd2f4ff22eaa2c3109ad21e",
+    "timestamp": "2026-09-24T15:07:54.737756+00:00"
+  }
+}

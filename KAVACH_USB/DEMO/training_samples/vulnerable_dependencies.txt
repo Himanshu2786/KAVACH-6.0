@@ -1,0 +1,8 @@
+# KAVACH DEMO / TRAINING ARTIFACT - SAMPLE DEPENDENCY MANIFEST WITH KNOWN CVE PROFILES
+# Used for testing reliable software identification and CVE applicability checks
+urllib3==1.26.4
+requests==2.25.1
+pyyaml==5.3.1
+flask==1.1.2
+jinja2==2.11.2
+cryptography==3.3.1

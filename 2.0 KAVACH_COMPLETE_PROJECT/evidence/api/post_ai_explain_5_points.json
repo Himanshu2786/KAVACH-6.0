@@ -1,0 +1,22 @@
+{
+  "success": true,
+  "finding_id": "KAV-2026-004",
+  "data": {
+    "simple_explanation": "KAVACH identified a high-severity issue in /api/v1/auth/verify. Exposed high-entropy synthetic secret or plaintext credential detected in /api/v1/auth/verify.",
+    "technical_explanation": "Technical analysis: Exposed high-entropy synthetic secret or plaintext credential detected in /api/v1/auth/verify. Root Cause: Hardcoded credentials in distributed code or environment manifests risk unauthorized cloud infrastructure access. Verification assertion: Scan git history using local entropy checks and confirm rotated credential returns 401 Unauthorized.",
+    "impact_explanation": "Compromise of backend databases, unauthorized cloud resource orchestration, lateral movement.",
+    "remediation_explanation": "Immediately revoke and rotate the exposed credential and migrate secrets to a dedicated vault.\nImplementation:\n1. Revoke the credential in the respective provider IAM console.\n2. Add configuration manifest to .gitignore.\n3. Inject credentials via secure runtime secret managers (e.g. AWS Secrets Manager / Vault).\nVerification Method:\nScan git history using local entropy checks and confirm rotated credential returns 401 Unauthorized.",
+    "judge_friendly_explanation": "1. Observation: Exposed high-entropy synthetic secret or plaintext credential detected | 2. Finding: Permissive JWT Algorithm Negotiation in Token Verification (HIGH) | 3. Evidence: Linked to /api/v1/auth/verify | 4. Impact: Compromise of backend databases, unauthorized cloud resource orchestra | 5. Remediation: Immediately revoke and rotate the exposed credential and migrate secre",
+    "provenance": "DETERMINISTIC",
+    "discovered_by": "Detector/Security Engine",
+    "analyzed_by": "Deterministic Analysis Engine",
+    "truth_hierarchy": [
+      "REAL_OBSERVATION",
+      "REAL_SOURCE_CODE",
+      "REAL_TOOL_OUTPUT",
+      "DETERMINISTIC_DETECTION",
+      "AI_INTERPRETATION"
+    ],
+    "insufficient_evidence": false
+  }
+}

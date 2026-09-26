@@ -1,0 +1,4 @@
+# KAVACH 6.0 Desktop — Python Requirements
+PySide6>=6.6.0
+requests>=2.31.0
+pyinstaller>=6.0.0

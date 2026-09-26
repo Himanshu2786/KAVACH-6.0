@@ -1,0 +1,197 @@
+{
+  "timestamp": "2026-09-24T20:36:34.508496",
+  "passed": 25,
+  "total": 27,
+  "pass_rate": "92.6%",
+  "results": [
+    {
+      "name": "Health Check",
+      "status": 200,
+      "pass": true,
+      "url": "/api/health",
+      "method": "GET"
+    },
+    {
+      "name": "System Status",
+      "status": 200,
+      "pass": true,
+      "url": "/api/system/status",
+      "method": "GET"
+    },
+    {
+      "name": "AI Status",
+      "status": 200,
+      "pass": true,
+      "url": "/api/ai/status",
+      "method": "GET"
+    },
+    {
+      "name": "RAG Status",
+      "status": 200,
+      "pass": true,
+      "url": "/api/rag/status",
+      "method": "GET"
+    },
+    {
+      "name": "Ollama Status",
+      "status": 200,
+      "pass": true,
+      "url": "/api/system/ollama",
+      "method": "GET"
+    },
+    {
+      "name": "List Assessments",
+      "status": 401,
+      "pass": false,
+      "url": "/api/assessments",
+      "method": "GET"
+    },
+    {
+      "name": "Create Assessment",
+      "status": 401,
+      "pass": false,
+      "url": "/api/assessments",
+      "method": "POST"
+    },
+    {
+      "name": "World Monitor Events",
+      "status": 200,
+      "pass": true,
+      "url": "/api/world-monitor/events",
+      "method": "GET"
+    },
+    {
+      "name": "World Monitor Sources",
+      "status": 200,
+      "pass": true,
+      "url": "/api/world-monitor/sources",
+      "method": "GET"
+    },
+    {
+      "name": "World Monitor Refresh",
+      "status": 200,
+      "pass": true,
+      "url": "/api/world-monitor/refresh",
+      "method": "POST"
+    },
+    {
+      "name": "Knowledge Base List",
+      "status": 200,
+      "pass": true,
+      "url": "/api/knowledge",
+      "method": "GET"
+    },
+    {
+      "name": "Evidence List",
+      "status": 200,
+      "pass": true,
+      "url": "/api/evidence",
+      "method": "GET"
+    },
+    {
+      "name": "Findings List",
+      "status": 200,
+      "pass": true,
+      "url": "/api/findings",
+      "method": "GET"
+    },
+    {
+      "name": "Portable Permissions",
+      "status": 200,
+      "pass": true,
+      "url": "/api/portable/permissions",
+      "method": "GET"
+    },
+    {
+      "name": "Portable Demo Samples",
+      "status": 200,
+      "pass": true,
+      "url": "/api/portable/demo-samples",
+      "method": "GET"
+    },
+    {
+      "name": "Portable Results",
+      "status": 200,
+      "pass": true,
+      "url": "/api/portable/results",
+      "method": "GET"
+    },
+    {
+      "name": "Team Members",
+      "status": 200,
+      "pass": true,
+      "url": "/api/team/members",
+      "method": "GET"
+    },
+    {
+      "name": "Team Assignments",
+      "status": 200,
+      "pass": true,
+      "url": "/api/team/assignments",
+      "method": "GET"
+    },
+    {
+      "name": "Experience Summary",
+      "status": 200,
+      "pass": true,
+      "url": "/api/experience/summary",
+      "method": "GET"
+    },
+    {
+      "name": "Re-verifications",
+      "status": 200,
+      "pass": true,
+      "url": "/api/experience/re-verifications",
+      "method": "GET"
+    },
+    {
+      "name": "False Positives",
+      "status": 200,
+      "pass": true,
+      "url": "/api/experience/false-positives",
+      "method": "GET"
+    },
+    {
+      "name": "Test Center Suites",
+      "status": 200,
+      "pass": true,
+      "url": "/api/test-center/suites",
+      "method": "GET"
+    },
+    {
+      "name": "System Geolocate",
+      "status": 200,
+      "pass": true,
+      "url": "/api/system/geolocate",
+      "method": "GET"
+    },
+    {
+      "name": "System Audit",
+      "status": 200,
+      "pass": true,
+      "url": "/api/system/audit",
+      "method": "GET"
+    },
+    {
+      "name": "RAG Query",
+      "status": 200,
+      "pass": true,
+      "url": "/api/rag/query",
+      "method": "POST"
+    },
+    {
+      "name": "URL Check Scan",
+      "status": 200,
+      "pass": true,
+      "url": "/api/url-check/scan",
+      "method": "POST"
+    },
+    {
+      "name": "URL Check Latest",
+      "status": 200,
+      "pass": true,
+      "url": "/api/url-check/latest",
+      "method": "GET"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "service_name": "KAVACH Demo Backend Gateway",
+  "environment": "staging",
+  "port": 8080,
+  "debug": true,
+  "allow_root_login": true,
+  "cors_allow_origins": ["*"],
+  "session_cookie": {
+    "http_only": false,
+    "secure": false
+  },
+  "jwt_secret": "dummy_secret_key_hardcoded_1234567890",
+  "rate_limiting": {
+    "enabled": false
+  }
+}

@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <base href="/" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Mobile viewport: use dvh/interactive viewport for correct phone height -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=5" />
+
+    <!-- iOS Safari specific -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="KAVACH" />
+
+    <!-- Android Chrome / PWA -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="theme-color" content="#000000" />
+    <link rel="manifest" href="/manifest.json" />
+
+    <!-- SEO & sharing -->
+    <title>KAVACH 6.0 — Evidence-Driven Security Assessment Platform</title>
+    <meta name="description" content="KAVACH is an evidence-first cybersecurity assessment platform. Every finding is backed by SHA-256 hashed technical proof. AI Hypothesizes. Evidence Confirms." />
+    <meta name="keywords" content="cybersecurity, security assessment, vulnerability scanner, KAVACH, SIH 2026, evidence-driven" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Safe-area CSS variables support -->
+    <style>
+      /* Use dvh (dynamic viewport height) where supported for correct mobile height.
+         Falls back to vh on older browsers. Prevents issues with iOS Safari toolbar */
+      :root {
+        --app-height: 100vh;
+        /* iOS safe area insets — padding for notch/home-bar */
+        --safe-top: env(safe-area-inset-top, 0px);
+        --safe-bottom: env(safe-area-inset-bottom, 0px);
+        --safe-left: env(safe-area-inset-left, 0px);
+        --safe-right: env(safe-area-inset-right, 0px);
+      }
+      @supports (height: 100dvh) {
+        :root { --app-height: 100dvh; }
+      }
+      html, body {
+        height: 100%;
+        margin: 0; padding: 0;
+        background: #000000 !important;
+        background-color: #000000 !important;
+        overscroll-behavior: none;
+      }
+      #root, #app {
+        height: var(--app-height);
+        background: #000000 !important;
+        background-color: #000000 !important;
+        min-height: 100%;
+      }
+      /* Global High-Contrast Text Selection Style */
+      ::selection {
+        background-color: #263238 !important;
+        background: #263238 !important;
+        color: #ffffff !important;
+        -webkit-text-fill-color: #ffffff !important;
+      }
+      ::-moz-selection {
+        background-color: #263238 !important;
+        background: #263238 !important;
+        color: #ffffff !important;
+        -webkit-text-fill-color: #ffffff !important;
+      }
+      *::selection {
+        background-color: #263238 !important;
+        background: #263238 !important;
+        color: #ffffff !important;
+        -webkit-text-fill-color: #ffffff !important;
+      }
+      *::-moz-selection {
+        background-color: #263238 !important;
+        background: #263238 !important;
+        color: #ffffff !important;
+        -webkit-text-fill-color: #ffffff !important;
+      }
+    </style>
+  </head>
+  <body class="bg-[#000000] text-slate-100 antialiased" style="background-color: #000000 !important;">
+    <div id="root" style="background-color: #000000 !important;"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

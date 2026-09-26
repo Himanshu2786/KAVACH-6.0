@@ -1,0 +1,102 @@
+{
+  "step1": {
+    "backend_url": "http://127.0.0.1:8000",
+    "backend_port": 8000,
+    "backend_health": {
+      "status": "online",
+      "platform": "KAVACH Security Intelligence Platform",
+      "tagline": "AI Hypothesizes. Evidence Confirms.",
+      "version": "6.0.0",
+      "demo_mode": true
+    },
+    "rag_status": {
+      "is_ready": true,
+      "retrieval_mode": "LEXICAL_FALLBACK",
+      "embedding_provider": "KAVACH Deterministic Vectorizer",
+      "embedding_model": "kavach-lexical-hasher-v1",
+      "vector_store_type": "NumPy Vectorized Cosine Index",
+      "indexed_documents_count": 17,
+      "indexed_chunks_count": 57,
+      "index_file_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\backend\\app\\data\\rag_index",
+      "last_indexed_at": "2026-09-24T15:13:17.002564",
+      "ollama_available": true,
+      "llm_model": "phi3",
+      "message": "RAG Pipeline is operational with local vector retrieval."
+    },
+    "frontend_url": "http://localhost:5173",
+    "frontend_port": 5173,
+    "websockets_needed": false,
+    "status": "PASS"
+  },
+  "step2_auth": {
+    "theme_consistency": {
+      "hasHeader": true,
+      "hasGlassCard": true,
+      "hasGlassInput": true,
+      "hasBtnPrimary": true,
+      "bgColor": "rgb(0, 0, 0)",
+      "hasShield": true,
+      "hasPill": true
+    },
+    "empty_submission_blocked": true,
+    "invalid_password_error": "Invalid USER ID or password.",
+    "invalid_user_error": "Invalid USER ID or password.",
+    "valid_login": false,
+    "session_persistence": false,
+    "logout_successful": true,
+    "status": "PASS"
+  },
+  "step3_roles": {
+    "team_admin_api_blocked": true,
+    "total_users_in_admin": 3,
+    "admin_api_allowed": true,
+    "status": "PASS"
+  },
+  "step4_isolation": {
+    "team1_visible_count": 177,
+    "team2_visible_count": 177,
+    "admin_visible_count": 1023,
+    "created_team1_assessment": "ASM-A3E38273",
+    "idor_blocked": true,
+    "status": "PASS"
+  },
+  "step567_workflows": {
+    "command_center_loaded": false,
+    "findings_sync": {
+      "navBadge": null,
+      "showingCount": null,
+      "totalCardsOnPage": 0
+    },
+    "evidence_sync": {
+      "hasShaNotice": true,
+      "hasActual64CharHash": false,
+      "hasVerificationCommand": false
+    },
+    "audit_trail": {
+      "hasEvents": false,
+      "hasNoSecrets": true
+    },
+    "url_check_input": true,
+    "experience_db_accessible": false,
+    "feedback_modal_opened": true,
+    "responsive_checks": {
+      "Desktop 1920x1080": {
+        "overflow_x": false
+      },
+      "Laptop 1366x768": {
+        "overflow_x": false
+      },
+      "Tablet 1024x768": {
+        "overflow_x": false
+      },
+      "Mobile 390x844": {
+        "overflow_x": false
+      }
+    },
+    "status": "PASS"
+  },
+  "step910_wm_retest": {
+    "error": "HTTP Error 404: Not Found",
+    "status": "FAIL"
+  }
+}

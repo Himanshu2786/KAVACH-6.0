@@ -1,0 +1,21 @@
+{
+  "id": "KAVACH-WM-20260924-4182",
+  "name": "SIH Real-Target Assessment Validation",
+  "target_url": "https://www.worldmonitor.app",
+  "description": "Audited 6/7 SIH security domains across World Monitor target. Identified 1 confirmed findings across 13 verified evidence records.",
+  "environment": "Testing Environment",
+  "scope": "Full Application",
+  "authorization_confirmed": null,
+  "modules_enabled": [],
+  "status": "COMPLETED",
+  "progress": 100,
+  "current_stage": "COMPLETE",
+  "started_at": "2026-09-24T15:07:52.575957+00:00",
+  "completed_at": "2026-09-24T15:07:52.575957+00:00",
+  "is_demo": false,
+  "assessment_type": "WORLD_MONITOR_EMPIRICAL",
+  "parent_assessment_id": null,
+  "created_by": "ADMIN001",
+  "total_findings": 1,
+  "confirmed_findings": 1
+}

@@ -1,0 +1,943 @@
+{
+  "info": {
+    "embedding_model": "kavach-lexical-hasher-v1",
+    "retrieval_mode": "LEXICAL_FALLBACK",
+    "chunks_count": 57,
+    "vector_dim": 384,
+    "last_indexed_at": "2026-09-26T11:35:27.048710",
+    "storage_version": "1.0.0"
+  },
+  "chunks": [
+    {
+      "chunk_id": "CHK-DOC-CWE-798-SECRETS-CONCEPT",
+      "document_id": "DOC-CWE-798-SECRETS",
+      "title": "Hardcoded Credentials & Sensitive Cloud Secret Exposure \u2014 Overview & Threat Definition",
+      "text": "VULNERABILITY STANDARD: Hardcoded Credentials & Sensitive Cloud Secret Exposure\nCategory: Sensitive Data Exposure | Severity: CRITICAL\nIdentifiers: CWE-798 | OWASP-A02:2021 - Cryptographic Failures\nCore Analysis:\nCWE-798: Use of Hard-coded Credentials. The software contains hard-coded credentials, such as a password, cryptographic key, AWS Access Key ID, secret key, or private token, which are used for authentication or inbound/outbound authorization. Hardcoded cloud secrets in source repositories or distributed configurations allow unauthorized actors to hijack cloud infrastructure, access sensitive databases, and escalate privileges across cloud tenants without multi-factor authentication.",
+      "chunk_type": "concept",
+      "source": "MITRE CWE & KAVACH Cloud Security",
+      "category": "Sensitive Data Exposure",
+      "cwe_id": "CWE-798",
+      "owasp_category": "OWASP-A02:2021 - Cryptographic Failures",
+      "metadata": {
+        "severity": "CRITICAL",
+        "section": "concept",
+        "doc_title": "Hardcoded Credentials & Sensitive Cloud Secret Exposure"
+      }
+    },
+    {
+      "chunk_id": "CHK-DOC-CWE-798-SECRETS-REMEDIATION",
+      "document_id": "DOC-CWE-798-SECRETS",
+      "title": "Hardcoded Credentials & Sensitive Cloud Secret Exposure \u2014 Step-by-Step Remediation",
+      "text": "REMEDIATION & HARDENING GUIDANCE FOR Hardcoded Credentials & Sensitive Cloud Secret Exposure (CWE-798):\nRecommended Engineering Actions:\n1. Immediately invalidate and rotate all exposed API tokens, AWS Access Keys, and database credentials in the cloud provider IAM console.\n2. Migrate hardcoded secrets to an encrypted secret management vault (e.g. AWS Secrets Manager, HashiCorp Vault, Azure Key Vault).\n3. Enforce automated pre-commit hooks (e.g. git-secrets, detect-secrets, TruffleHog) to prevent future secret commits.\n4. Verify that environment manifests and credentials files (.env, credentials.json, id_rsa) are listed in .gitignore.\nCompliance & Reference Standards: https://cwe.mitre.org/data/definitions/798.html, https://owasp.org/Top10/A02_2021-Cryptographic_Failures/, https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html",
+      "chunk_type": "remediation",
+      "source": "MITRE CWE & KAVACH Cloud Security",
+      "category": "Sensitive Data Exposure",
+      "cwe_id": "CWE-798",
+      "owasp_category": "OWASP-A02:2021 - Cryptographic Failures",
+      "metadata": {
+        "severity": "CRITICAL",
+        "section": "remediation",
+        "doc_title": "Hardcoded Credentials & Sensitive Cloud Secret Exposure",
+        "steps_count": 4
+      }
+    },
+    {
+      "chunk_id": "CHK-DOC-CWE-798-SECRETS-VERIFY",
+      "document_id": "DOC-CWE-798-SECRETS",
+      "title": "Hardcoded Credentials & Sensitive Cloud Secret Exposure \u2014 Technical Verification & Validation",
+      "text": "SECURITY VERIFICATION PROBE FOR Hardcoded Credentials & Sensitive Cloud Secret Exposure (CWE-798):\nTo verify defensive resolution, execute targeted security probes or regression checks against the affected endpoint.\nEnsure boundary validation returns appropriate defensive status codes (e.g. 401/403 for access control, clean parameterized failure without error disclosure for injection flaws, or 401/403/404 for protected documentation endpoints).",
+      "chunk_type": "verification",
+      "source": "MITRE CWE & KAVACH Cloud Security",
+      "category": "Sensitive Data Exposure",
+      "cwe_id": "CWE-798",
+      "owasp_category": "OWASP-A02:2021 - Cryptographic Failures",
+      "metadata": {
+        "severity": "CRITICAL",
+        "section": "verification",
+        "doc_title": "Hardcoded Credentials & Sensitive Cloud Secret Exposure"
+      }
+    },
+    {
+      "chunk_id": "CHK-DOC-CWE-89-SQLI-CONCEPT",
+      "document_id": "DOC-CWE-89-SQLI",
+      "title": "SQL Injection (SQLi) Prevention and Parameterized Query Architecture \u2014 Overview & Threat Definition",
+      "text": "VULNERABILITY STANDARD: SQL Injection (SQLi) Prevention and Parameterized Query Architecture\nCategory: Injection | Severity: CRITICAL\nIdentifiers: CWE-89 | OWASP-A03:2021 - Injection\nCore Analysis:\nCWE-89: Improper Neutralization of Special Elements in SQL Command (SQL Injection). The application constructs dynamic database queries by directly concatenating user-controlled input into SQL strings without parameter binding. An attacker can craft malicious inputs containing quotes, boolean conditions, or UNION operators to bypass authentication, dump entire database tables, modify records, or execute administrative stored procedures.",
+      "chunk_type": "concept",
+      "source": "MITRE CWE & OWASP Foundation",
+      "category": "Injection",
+      "cwe_id": "CWE-89",
+      "owasp_category": "OWASP-A03:2021 - Injection",
+      "metadata": {
+        "severity": "CRITICAL",
+        "section": "concept",
+        "doc_title": "SQL Injection (SQLi) Prevention and Parameterized Query Architecture"
+      }
+    },
+    {
+      "chunk_id": "CHK-DOC-CWE-89-SQLI-REMEDIATION",
+      "document_id": "DOC-CWE-89-SQLI",
+      "title": "SQL Injection (SQLi) Prevention and Parameterized Query Architecture \u2014 Step-by-Step Remediation",
+      "text": "REMEDIATION & HARDENING GUIDANCE FOR SQL Injection (SQLi) Prevention and Parameterized Query Architecture (CWE-89):\nRecommended Engineering Actions:\n1. Use parameterized SQL queries and prepared statements exclusively for all database interactions.\n2. Leverage modern ORM layers (such as SQLAlchemy, Hibernate, or Prisma) with bound query variables.\n3. Apply the principle of least privilege to database service accounts, restricting DROP, ALTER, and cross-schema access.\n4. Implement automated input validation and centralized typing controls before query dispatch.\nCompliance & Reference Standards: https://cwe.mitre.org/data/definitions/89.html, https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html",
+      "chunk_type": "remediation",
+      "source": "MITRE CWE & OWASP Foundation",
+      "category": "Injection",
+      "cwe_id": "CWE-89",
+      "owasp_category": "OWASP-A03:2021 - Injection",
+      "metadata": {
+        "severity": "CRITICAL",
+        "section": "remediation",
+        "doc_title": "SQL Injection (SQLi) Prevention and Parameterized Query Architecture",
+        "steps_count": 4
+      }
+    },
+    {
+      "chunk_id": "CHK-DOC-CWE-89-SQLI-VERIFY",
+      "document_id": "DOC-CWE-89-SQLI",
+      "title": "SQL Injection (SQLi) Prevention and Parameterized Query Architecture \u2014 Technical Verification & Validation",
+      "text": "SECURITY VERIFICATION PROBE FOR SQL Injection (SQLi) Prevention and Parameterized Query Architecture (CWE-89):\nTo verify defensive resolution, execute targeted security probes or regression checks against the affected endpoint.\nEnsure boundary validation returns appropriate defensive status codes (e.g. 401/403 for access control, clean parameterized failure without error disclosure for injection flaws, or 401/403/404 for protected documentation endpoints).",
+      "chunk_type": "verification",
+      "source": "MITRE CWE & OWASP Foundation",
+      "category": "Injection",
+      "cwe_id": "CWE-89",
+      "owasp_category": "OWASP-A03:2021 - Injection",
+      "metadata": {
+        "severity": "CRITICAL",
+        "section": "verification",
+        "doc_title": "SQL Injection (SQLi) Prevention and Parameterized Query Architecture"
+      }
+    },
+    {
+      "chunk_id": "CHK-DOC-CWE-639-IDOR-CONCEPT",
+      "document_id": "DOC-CWE-639-IDOR",
+      "title": "Insecure Direct Object Reference (IDOR) & Broken Object Level Authorization \u2014 Overview & Threat Definition",
+      "text": "VULNERABILITY STANDARD: Insecure Direct Object Reference (IDOR) & Broken Object Level Authorization\nCategory: Broken Access Control | Severity: HIGH\nIdentifiers: CWE-639 | OWASP-A01:2021 - Broken Access Control\nCore Analysis:\nCWE-639: Authorization Bypass Through User-Controlled Key (IDOR / BOLA). The system accesses internal resources using user-supplied identifiers (such as record IDs in URLs or request bodies) without verifying whether the authenticated user has legitimate authorization to access that specific entity. This permits horizontal privilege escalation where User A retrieves private data belonging to User B.",
+      "chunk_type": "concept",
+      "source": "OWASP API Security & MITRE CWE",
+      "category": "Broken Access Control",
+      "cwe_id": "CWE-639",
+      "owasp_category": "OWASP-A01:2021 - Broken Access Control",
+      "metadata": {
+        "severity": "HIGH",
+        "section": "concept",
+        "doc_title": "Insecure Direct Object Reference (IDOR) & Broken Object Level Authorization"
+      }
+    },
+    {
+      "chunk_id": "CHK-DOC-CWE-639-IDOR-REMEDIATION",
+      "document_id": "DOC-CWE-639-IDOR",
+      "title": "Insecure Direct Object Reference (IDOR) & Broken Object Level Authorization \u2014 Step-by-Step Remediation",
+      "text": "REMEDIATION & HARDENING GUIDANCE FOR Insecure Direct Object Reference (IDOR) & Broken Object Level Authorization (CWE-639):\nRecommended Engineering Actions:\n1. Enforce strict server-side tenant ownership validation on every entity query: filter(Record.id == id, Record.owner_id == user.id).\n2. Replace sequential integer identifiers with non-enumerable cryptographic UUIDv4 tokens.\n3. Implement declarative authorization guards or middleware checks before executing business logic.\n4. Perform automated multi-tenant authorization unit and integration testing.\nCompliance & Reference Standards: https://cwe.mitre.org/data/definitions/639.html, https://owasp.org/API-Security/editions/2023/en/0xa1-broken-object-level-authorization/",
+      "chunk_type": "remediation",
+      "source": "OWASP API Security & MITRE CWE",
+      "category": "Broken Access Control",
+      "cwe_id": "CWE-639",
+      "owasp_category": "OWASP-A01:2021 - Broken Access Control",
+      "metadata": {
+        "severity": "HIGH",
+        "section": "remediation",
+        "doc_title": "Insecure Direct Object Reference (IDOR) & Broken Object Level Authorization",
+        "steps_count": 4
+      }
+    },
+    {
+      "chunk_id": "CHK-DOC-CWE-639-IDOR-VERIFY",
+      "document_id": "DOC-CWE-639-IDOR",
+      "title": "Insecure Direct Object Reference (IDOR) & Broken Object Level Authorization \u2014 Technical Verification & Validation",
+      "text": "SECURITY VERIFICATION PROBE FOR Insecure Direct Object Reference (IDOR) & Broken Object Level Authorization (CWE-639):\nTo verify defensive resolution, execute targeted security probes or regression checks against the affected endpoint.\nEnsure boundary validation returns appropriate defensive status codes (e.g. 401/403 for access control, clean parameterized failure without error disclosure for injection flaws, or 401/403/404 for protected documentation endpoints).",
+      "chunk_type": "verification",
+      "source": "OWASP API Security & MITRE CWE",
+      "category": "Broken Access Control",
+      "cwe_id": "CWE-639",
+      "owasp_category": "OWASP-A01:2021 - Broken Access Control",
+      "metadata": {
+        "severity": "HIGH",
+        "section": "verification",
+        "doc_title": "Insecure Direct Object Reference (IDOR) & Broken Object Level Authorization"
+      }
+    },
+    {
+      "chunk_id": "CHK-DOC-CWE-79-XSS-CONCEPT",
+      "document_id": "DOC-CWE-79-XSS",
+      "title": "Cross-Site Scripting (XSS) Mitigation & Context-Aware Output Encoding \u2014 Overview & Threat Definition",
+      "text": "VULNERABILITY STANDARD: Cross-Site Scripting (XSS) Mitigation & Context-Aware Output Encoding\nCategory: Input Validation | Severity: HIGH\nIdentifiers: CWE-79 | OWASP-A03:2021 - Injection\nCore Analysis:\nCWE-79: Improper Neutralization of Input During Web Page Generation (XSS). User-supplied input is embedded in web page output without proper contextual encoding or sanitization, allowing malicious scripts to execute in victim browsers. Reflected, stored, and DOM-based XSS can hijack session cookies, redirect victims to phishing portals, or perform actions on behalf of the user.",
+      "chunk_type": "concept",
+      "source": "MITRE CWE & OWASP Foundation",
+      "category": "Input Validation",
+      "cwe_id": "CWE-79",
+      "owasp_category": "OWASP-A03:2021 - Injection",
+      "metadata": {
+        "severity": "HIGH",
+        "section": "concept",
+        "doc_title": "Cross-Site Scripting (XSS) Mitigation & Context-Aware Output Encoding"
+      }
+    },
+    {
+      "chunk_id": "CHK-DOC-CWE-79-XSS-REMEDIATION",
+      "document_id": "DOC-CWE-79-XSS",
+      "title": "Cross-Site Scripting (XSS) Mitigation & Context-Aware Output Encoding \u2014 Step-by-Step Remediation",
+      "text": "REMEDIATION & HARDENING GUIDANCE FOR Cross-Site Scripting (XSS) Mitigation & Context-Aware Output Encoding (CWE-79):\nRecommended Engineering Actions:\n1. Apply contextual output encoding (HTML entity encoding, JavaScript variable escaping, URL encoding) prior to DOM insertion.\n2. Deploy a strict Content Security Policy (CSP) header: Content-Security-Policy: default-src 'self'; script-src 'self'.\n3. Mark session and authentication cookies with the HttpOnly flag to prevent script-based cookie extraction.\n4. Utilize modern front-end frameworks (React, Angular, Vue) that escape output variables by default.\nCompliance & Reference Standards: https://cwe.mitre.org/data/definitions/79.html, https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html",
+      "chunk_type": "remediation",
+      "source": "MITRE CWE & OWASP Foundation",
+      "category": "Input Validation",
+      "cwe_id": "CWE-79",
+      "owasp_category": "OWASP-A03:2021 - Injection",
+      "metadata": {
+        "severity": "HIGH",
+        "section": "remediation",
+        "doc_title": "Cross-Site Scripting (XSS) Mitigation & Context-Aware Output Encoding",
+        "steps_count": 4
+      }
+    },
+    {
+      "chunk_id": "CHK-DOC-CWE-79-XSS-VERIFY",
+      "document_id": "DOC-CWE-79-XSS",
+      "title": "Cross-Site Scripting (XSS) Mitigation & Context-Aware Output Encoding \u2014 Technical Verification & Validation",
+      "text": "SECURITY VERIFICATION PROBE FOR Cross-Site Scripting (XSS) Mitigation & Context-Aware Output Encoding (CWE-79):\nTo verify defensive resolution, execute targeted security probes or regression checks against the affected endpoint.\nEnsure boundary validation returns appropriate defensive status codes (e.g. 401/403 for access control, clean parameterized failure without error disclosure for injection flaws, or 401/403/404 for protected documentation endpoints).",
+      "chunk_type": "verification",
+      "source": "MITRE CWE & OWASP Foundation",
+      "category": "Input Validation",
+      "cwe_id": "CWE-79",
+      "owasp_category": "OWASP-A03:2021 - Injection",
+      "metadata": {
+        "severity": "HIGH",
+        "section": "verification",
+        "doc_title": "Cross-Site Scripting (XSS) Mitigation & Context-Aware Output Encoding"
+      }
+    },
+    {
+      "chunk_id": "CHK-DOC-CWE-16-HEADERS-CONCEPT",
+      "document_id": "DOC-CWE-16-HEADERS",
+      "title": "Defensive HTTP Security Response Headers & Edge Gateway Hardening \u2014 Overview & Threat Definition",
+      "text": "VULNERABILITY STANDARD: Defensive HTTP Security Response Headers & Edge Gateway Hardening\nCategory: Security Misconfiguration | Severity: MEDIUM\nIdentifiers: CWE-16 | OWASP-A05:2021 - Security Misconfiguration\nCore Analysis:\nCWE-16: Configuration Weakness / Missing Defensive Headers. Web applications lacking essential HTTP security response headers expose users to MIME-type sniffing, cross-origin data leakage, and iframe framing attacks. Key headers include Content-Security-Policy, Strict-Transport-Security (HSTS), X-Content-Type-Options, X-Frame-Options, and Referrer-Policy.",
+      "chunk_type": "concept",
+      "source": "OWASP Secure Headers Project",
+      "category": "Security Misconfiguration",
+      "cwe_id": "CWE-16",
+      "owasp_category": "OWASP-A05:2021 - Security Misconfiguration",
+      "metadata": {
+        "severity": "MEDIUM",
+        "section": "concept",
+        "doc_title": "Defensive HTTP Security Response Headers & Edge Gateway Hardening"
+      }
+    },
+    {
+      "chunk_id": "CHK-DOC-CWE-16-HEADERS-REMEDIATION",
+      "document_id": "DOC-CWE-16-HEADERS",
+      "title": "Defensive HTTP Security Response Headers & Edge Gateway Hardening \u2014 Step-by-Step Remediation",
+      "text": "REMEDIATION & HARDENING GUIDANCE FOR Defensive HTTP Security Response Headers & Edge Gateway Hardening (CWE-16):\nRecommended Engineering Actions:\n1. Configure X-Content-Type-Options: nosniff on all static assets and API endpoints to prevent MIME-sniffing exploits.\n2. Add X-Frame-Options: DENY or CSP frame-ancestors 'none' to eliminate UI redressing (Clickjacking).\n3. Enforce Strict-Transport-Security: max-age=31536000; includeSubDomains; preload across all HTTPS listeners.\n4. Set Referrer-Policy: strict-origin-when-cross-origin to protect sensitive query parameters.\nCompliance & Reference Standards: https://cwe.mitre.org/data/definitions/16.html, https://owasp.org/www-project-secure-headers/",
+      "chunk_type": "remediation",
+      "source": "OWASP Secure Headers Project",
+      "category": "Security Misconfiguration",
+      "cwe_id": "CWE-16",
+      "owasp_category": "OWASP-A05:2021 - Security Misconfiguration",
+      "metadata": {
+        "severity": "MEDIUM",
+        "section": "remediation",
+        "doc_title": "Defensive HTTP Security Response Headers & Edge Gateway Hardening",
+        "steps_count": 4
+      }
+    },
+    {
+      "chunk_id": "CHK-DOC-CWE-16-HEADERS-VERIFY",
+      "document_id": "DOC-CWE-16-HEADERS",
+      "title": "Defensive HTTP Security Response Headers & Edge Gateway Hardening \u2014 Technical Verification & Validation",
+      "text": "SECURITY VERIFICATION PROBE FOR Defensive HTTP Security Response Headers & Edge Gateway Hardening (CWE-16):\nTo verify defensive resolution, execute targeted security probes or regression checks against the affected endpoint.\nEnsure boundary validation returns appropriate defensive status codes (e.g. 401/403 for access control, clean parameterized failure without error disclosure for injection flaws, or 401/403/404 for protected documentation endpoints).",
+      "chunk_type": "verification",
+      "source": "OWASP Secure Headers Project",
+      "category": "Security Misconfiguration",
+      "cwe_id": "CWE-16",
+      "owasp_category": "OWASP-A05:2021 - Security Misconfiguration",
+      "metadata": {
+        "severity": "MEDIUM",
+        "section": "verification",
+        "doc_title": "Defensive HTTP Security Response Headers & Edge Gateway Hardening"
+      }
+    },
+    {
+      "chunk_id": "CHK-DOC-CWE-306-AUTH-CONCEPT",
+      "document_id": "DOC-CWE-306-AUTH",
+      "title": "Authentication Architecture & Multi-Factor Security Enforcement \u2014 Overview & Threat Definition",
+      "text": "VULNERABILITY STANDARD: Authentication Architecture & Multi-Factor Security Enforcement\nCategory: Authentication | Severity: HIGH\nIdentifiers: CWE-306 | OWASP-A07:2021 - Identification and Authentication Failures\nCore Analysis:\nCWE-306: Missing Authentication for Critical Function. The application does not verify user identity before permitting access to critical business functions, administrative APIs, or sensitive data exports. Lacking authentication boundaries enables unauthenticated attackers to execute management tasks or exfiltrate core database records.",
+      "chunk_type": "concept",
+      "source": "MITRE CWE & OWASP ASVS",
+      "category": "Authentication",
+      "cwe_id": "CWE-306",
+      "owasp_category": "OWASP-A07:2021 - Identification and Authentication Failures",
+      "metadata": {
+        "severity": "HIGH",
+        "section": "concept",
+        "doc_title": "Authentication Architecture & Multi-Factor Security Enforcement"
+      }
+    },
+    {
+      "chunk_id": "CHK-DOC-CWE-306-AUTH-REMEDIATION",
+      "document_id": "DOC-CWE-306-AUTH",
+      "title": "Authentication Architecture & Multi-Factor Security Enforcement \u2014 Step-by-Step Remediation",
+      "text": "REMEDIATION & HARDENING GUIDANCE FOR Authentication Architecture & Multi-Factor Security Enforcement (CWE-306):\nRecommended Engineering Actions:\n1. Require authenticated session tokens or cryptographically signed JWTs on every API endpoint by default.\n2. Enforce Multi-Factor Authentication (MFA / WebAuthn) for privileged and administrative portals.\n3. Implement centralized authentication middleware that denies unauthenticated requests with HTTP 401.\n4. Prevent broken object level and function level authorization via granular RBAC/ABAC role checks.\nCompliance & Reference Standards: https://cwe.mitre.org/data/definitions/306.html, https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html",
+      "chunk_type": "remediation",
+      "source": "MITRE CWE & OWASP ASVS",
+      "category": "Authentication",
+      "cwe_id": "CWE-306",
+      "owasp_category": "OWASP-A07:2021 - Identification and Authentication Failures",
+      "metadata": {
+        "severity": "HIGH",
+        "section": "remediation",
+        "doc_title": "Authentication Architecture & Multi-Factor Security Enforcement",
+        "steps_count": 4
+      }
+    },
+    {
+      "chunk_id": "CHK-DOC-CWE-306-AUTH-VERIFY",
+      "document_id": "DOC-CWE-306-AUTH",
+      "title": "Authentication Architecture & Multi-Factor Security Enforcement \u2014 Technical Verification & Validation",
+      "text": "SECURITY VERIFICATION PROBE FOR Authentication Architecture & Multi-Factor Security Enforcement (CWE-306):\nTo verify defensive resolution, execute targeted security probes or regression checks against the affected endpoint.\nEnsure boundary validation returns appropriate defensive status codes (e.g. 401/403 for access control, clean parameterized failure without error disclosure for injection flaws, or 401/403/404 for protected documentation endpoints).",
+      "chunk_type": "verification",
+      "source": "MITRE CWE & OWASP ASVS",
+      "category": "Authentication",
+      "cwe_id": "CWE-306",
+      "owasp_category": "OWASP-A07:2021 - Identification and Authentication Failures",
+      "metadata": {
+        "severity": "HIGH",
+        "section": "verification",
+        "doc_title": "Authentication Architecture & Multi-Factor Security Enforcement"
+      }
+    },
+    {
+      "chunk_id": "CHK-DOC-CWE-918-SSRF-CONCEPT",
+      "document_id": "DOC-CWE-918-SSRF",
+      "title": "Server-Side Request Forgery (SSRF) Prevention & Network Segmentation \u2014 Overview & Threat Definition",
+      "text": "VULNERABILITY STANDARD: Server-Side Request Forgery (SSRF) Prevention & Network Segmentation\nCategory: Network & Server Security | Severity: HIGH\nIdentifiers: CWE-918 | OWASP-A10:2021 - Server-Side Request Forgery (SSRF)\nCore Analysis:\nCWE-918: Server-Side Request Forgery (SSRF). The web server fetches a remote resource without validating the user-supplied destination URL. An attacker can force the server to issue requests to internal cloud metadata services (e.g. 169.254.169.254), loopback addresses (127.0.0.1), or private subnet microservices, leaking cloud IAM credentials and internal secrets.",
+      "chunk_type": "concept",
+      "source": "OWASP Top 10 & MITRE CWE",
+      "category": "Network & Server Security",
+      "cwe_id": "CWE-918",
+      "owasp_category": "OWASP-A10:2021 - Server-Side Request Forgery (SSRF)",
+      "metadata": {
+        "severity": "HIGH",
+        "section": "concept",
+        "doc_title": "Server-Side Request Forgery (SSRF) Prevention & Network Segmentation"
+      }
+    },
+    {
+      "chunk_id": "CHK-DOC-CWE-918-SSRF-REMEDIATION",
+      "document_id": "DOC-CWE-918-SSRF",
+      "title": "Server-Side Request Forgery (SSRF) Prevention & Network Segmentation \u2014 Step-by-Step Remediation",
+      "text": "REMEDIATION & HARDENING GUIDANCE FOR Server-Side Request Forgery (SSRF) Prevention & Network Segmentation (CWE-918):\nRecommended Engineering Actions:\n1. Strictly whitelist allowed destination hostnames and protocols (enforce https:// only).\n2. Block private IP ranges (RFC 1918, 127.0.0.0/8, 169.254.169.254) at both DNS resolution and network firewall layers.\n3. Disable HTTP redirection following in backend HTTP client libraries.\n4. Deploy IMDSv2 with token hops restricted to 1 on AWS cloud instances.\nCompliance & Reference Standards: https://cwe.mitre.org/data/definitions/918.html, https://cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html",
+      "chunk_type": "remediation",
+      "source": "OWASP Top 10 & MITRE CWE",
+      "category": "Network & Server Security",
+      "cwe_id": "CWE-918",
+      "owasp_category": "OWASP-A10:2021 - Server-Side Request Forgery (SSRF)",
+      "metadata": {
+        "severity": "HIGH",
+        "section": "remediation",
+        "doc_title": "Server-Side Request Forgery (SSRF) Prevention & Network Segmentation",
+        "steps_count": 4
+      }
+    },
+    {
+      "chunk_id": "CHK-DOC-CWE-918-SSRF-VERIFY",
+      "document_id": "DOC-CWE-918-SSRF",
+      "title": "Server-Side Request Forgery (SSRF) Prevention & Network Segmentation \u2014 Technical Verification & Validation",
+      "text": "SECURITY VERIFICATION PROBE FOR Server-Side Request Forgery (SSRF) Prevention & Network Segmentation (CWE-918):\nTo verify defensive resolution, execute targeted security probes or regression checks against the affected endpoint.\nEnsure boundary validation returns appropriate defensive status codes (e.g. 401/403 for access control, clean parameterized failure without error disclosure for injection flaws, or 401/403/404 for protected documentation endpoints).",
+      "chunk_type": "verification",
+      "source": "OWASP Top 10 & MITRE CWE",
+      "category": "Network & Server Security",
+      "cwe_id": "CWE-918",
+      "owasp_category": "OWASP-A10:2021 - Server-Side Request Forgery (SSRF)",
+      "metadata": {
+        "severity": "HIGH",
+        "section": "verification",
+        "doc_title": "Server-Side Request Forgery (SSRF) Prevention & Network Segmentation"
+      }
+    },
+    {
+      "chunk_id": "CHK-DOC-CWE-200-APIDOCS-CONCEPT",
+      "document_id": "DOC-CWE-200-APIDOCS",
+      "title": "CWE-200: Public Exposure of API Schema & Interactive Documentation \u2014 Overview & Threat Definition",
+      "text": "VULNERABILITY STANDARD: CWE-200: Public Exposure of API Schema & Interactive Documentation\nCategory: API Security | Severity: MEDIUM\nIdentifiers: CWE-200 | OWASP-A05:2021 - Security Misconfiguration\nCore Analysis:\nCWE-200: Exposure of Sensitive Information to an Unauthorized Actor. Public exposure of interactive API schema definitions and documentation (e.g., /openapi.json, /docs, /swagger.json, /redoc) discloses internal route structures, parameter types, authentication schemes, and API operations to unauthenticated external actors. How public API schemas aid reconnaissance: While interactive documentation aids legitimate client integration, unrestricted public access provides external attackers with comprehensive blueprints for automated reconnaissance, endpoint discovery, and targeted boundary fuzzing without requiring prior reconnaissance. Important Context: Exposure of API documentation or OpenAPI schemas is an informational exposure weakness and is NOT automatically proof of unauthorized API access, broken object level authorization, or confirmed backend data breach. Actual real-world impact depends strictly on whether sensitive internal endpoints, administrative operations, deprecated parameters, or proprietary operational data structures are disclosed in the published schema.",
+      "chunk_type": "concept",
+      "source": "MITRE CWE & OWASP API Security",
+      "category": "API Security",
+      "cwe_id": "CWE-200",
+      "owasp_category": "OWASP-A05:2021 - Security Misconfiguration",
+      "metadata": {
+        "severity": "MEDIUM",
+        "section": "concept",
+        "doc_title": "CWE-200: Public Exposure of API Schema & Interactive Documentation"
+      }
+    },
+    {
+      "chunk_id": "CHK-DOC-CWE-200-APIDOCS-REMEDIATION",
+      "document_id": "DOC-CWE-200-APIDOCS",
+      "title": "CWE-200: Public Exposure of API Schema & Interactive Documentation \u2014 Step-by-Step Remediation",
+      "text": "REMEDIATION & HARDENING GUIDANCE FOR CWE-200: Public Exposure of API Schema & Interactive Documentation (CWE-200):\nRecommended Engineering Actions:\n1. Restrict or disable interactive API documentation (/docs, /redoc, /openapi.json) in production environments unless explicitly required for public third-party APIs.\n2. Protect sensitive schema and documentation routes with reverse proxy access controls, API gateway authentication, or IP whitelisting.\n3. Remove internal, administrative, debug, and deprecated endpoints from publicly accessible schema definitions using schema filters or route tags.\n4. Validate that public documentation schemas do not expose internal backend architecture, proprietary data models, or sensitive operational details.\nCompliance & Reference Standards: https://cwe.mitre.org/data/definitions/200.html, https://owasp.org/API-Security/editions/2023/en/0xa8-security-misconfiguration/, https://cheatsheetseries.owasp.org/cheatsheets/REST_Security_Cheat_Sheet.html",
+      "chunk_type": "remediation",
+      "source": "MITRE CWE & OWASP API Security",
+      "category": "API Security",
+      "cwe_id": "CWE-200",
+      "owasp_category": "OWASP-A05:2021 - Security Misconfiguration",
+      "metadata": {
+        "severity": "MEDIUM",
+        "section": "remediation",
+        "doc_title": "CWE-200: Public Exposure of API Schema & Interactive Documentation",
+        "steps_count": 4
+      }
+    },
+    {
+      "chunk_id": "CHK-DOC-CWE-200-APIDOCS-VERIFY",
+      "document_id": "DOC-CWE-200-APIDOCS",
+      "title": "CWE-200: Public Exposure of API Schema & Interactive Documentation \u2014 Technical Verification & Validation",
+      "text": "SECURITY VERIFICATION PROBE FOR CWE-200: Public Exposure of API Schema & Interactive Documentation (CWE-200):\nTo verify defensive resolution, execute targeted security probes or regression checks against the affected endpoint.\nRecommended Probe Command: curl -k -s -o /dev/null -w \"HTTP %{http_code}\\n\" \"https://<target>/openapi.json\" (Expect HTTP 401/403/404 on production deployments)\nEnsure boundary validation returns appropriate defensive status codes (e.g. 401/403 for access control, clean parameterized failure without error disclosure for injection flaws, or 401/403/404 for protected documentation endpoints).",
+      "chunk_type": "verification",
+      "source": "MITRE CWE & OWASP API Security",
+      "category": "API Security",
+      "cwe_id": "CWE-200",
+      "owasp_category": "OWASP-A05:2021 - Security Misconfiguration",
+      "metadata": {
+        "severity": "MEDIUM",
+        "section": "verification",
+        "doc_title": "CWE-200: Public Exposure of API Schema & Interactive Documentation"
+      }
+    },
+    {
+      "chunk_id": "CHK-DOC-DB-CWE-639-CONCEPT",
+      "document_id": "DOC-DB-CWE-639",
+      "title": "CWE-639: Authorization Bypass Through User-Controlled Key (IDOR) \u2014 Overview & Threat Definition",
+      "text": "VULNERABILITY STANDARD: CWE-639: Authorization Bypass Through User-Controlled Key (IDOR)\nCategory: Broken Access Control | Severity: HIGH\nIdentifiers: CWE-639 | OWASP-A01:2021 - Broken Access Control\nCore Analysis:\nThe system's authorization functionality does not prevent one user from accessing, modifying, or creating data belonging to another user when a user-controlled parameter (such as an ID) is manipulated.",
+      "chunk_type": "concept",
+      "source": "KAVACH Knowledge Engine (CWE)",
+      "category": "Broken Access Control",
+      "cwe_id": "CWE-639",
+      "owasp_category": "OWASP-A01:2021 - Broken Access Control",
+      "metadata": {
+        "severity": "HIGH",
+        "section": "concept",
+        "doc_title": "CWE-639: Authorization Bypass Through User-Controlled Key (IDOR)"
+      }
+    },
+    {
+      "chunk_id": "CHK-DOC-DB-CWE-639-REMEDIATION",
+      "document_id": "DOC-DB-CWE-639",
+      "title": "CWE-639: Authorization Bypass Through User-Controlled Key (IDOR) \u2014 Step-by-Step Remediation",
+      "text": "REMEDIATION & HARDENING GUIDANCE FOR CWE-639: Authorization Bypass Through User-Controlled Key (IDOR) (CWE-639):\nRecommended Engineering Actions:\n1. Implement server-side ownership verification on each database entity lookup.\n2. Use non-enumerable cryptographic identifiers (UUIDv4) instead of sequential integers.\n3. Enforce tenant-isolated contextual access filters.\nCompliance & Reference Standards: https://cwe.mitre.org/data/definitions/639.html",
+      "chunk_type": "remediation",
+      "source": "KAVACH Knowledge Engine (CWE)",
+      "category": "Broken Access Control",
+      "cwe_id": "CWE-639",
+      "owasp_category": "OWASP-A01:2021 - Broken Access Control",
+      "metadata": {
+        "severity": "HIGH",
+        "section": "remediation",
+        "doc_title": "CWE-639: Authorization Bypass Through User-Controlled Key (IDOR)",
+        "steps_count": 3
+      }
+    },
+    {
+      "chunk_id": "CHK-DOC-DB-CWE-639-VERIFY",
+      "document_id": "DOC-DB-CWE-639",
+      "title": "CWE-639: Authorization Bypass Through User-Controlled Key (IDOR) \u2014 Technical Verification & Validation",
+      "text": "SECURITY VERIFICATION PROBE FOR CWE-639: Authorization Bypass Through User-Controlled Key (IDOR) (CWE-639):\nTo verify defensive resolution, execute targeted security probes or regression checks against the affected endpoint.\nEnsure boundary validation returns appropriate defensive status codes (e.g. 401/403 for access control, clean parameterized failure without error disclosure for injection flaws, or 401/403/404 for protected documentation endpoints).",
+      "chunk_type": "verification",
+      "source": "KAVACH Knowledge Engine (CWE)",
+      "category": "Broken Access Control",
+      "cwe_id": "CWE-639",
+      "owasp_category": "OWASP-A01:2021 - Broken Access Control",
+      "metadata": {
+        "severity": "HIGH",
+        "section": "verification",
+        "doc_title": "CWE-639: Authorization Bypass Through User-Controlled Key (IDOR)"
+      }
+    },
+    {
+      "chunk_id": "CHK-DOC-DB-CWE-284-CONCEPT",
+      "document_id": "DOC-DB-CWE-284",
+      "title": "CWE-284: Improper Access Control \u2014 Overview & Threat Definition",
+      "text": "VULNERABILITY STANDARD: CWE-284: Improper Access Control\nCategory: Broken Access Control | Severity: MEDIUM\nIdentifiers: CWE-284 | OWASP-A01:2021 - Broken Access Control\nCore Analysis:\nThe software does not restrict or incorrectly restricts access to a resource from an unauthorized actor.",
+      "chunk_type": "concept",
+      "source": "KAVACH Knowledge Engine (CWE)",
+      "category": "Broken Access Control",
+      "cwe_id": "CWE-284",
+      "owasp_category": "OWASP-A01:2021 - Broken Access Control",
+      "metadata": {
+        "severity": "MEDIUM",
+        "section": "concept",
+        "doc_title": "CWE-284: Improper Access Control"
+      }
+    },
+    {
+      "chunk_id": "CHK-DOC-DB-CWE-284-REMEDIATION",
+      "document_id": "DOC-DB-CWE-284",
+      "title": "CWE-284: Improper Access Control \u2014 Step-by-Step Remediation",
+      "text": "REMEDIATION & HARDENING GUIDANCE FOR CWE-284: Improper Access Control (CWE-284):\nRecommended Engineering Actions:\n1. Adopt Role-Based (RBAC) or Attribute-Based Access Control (ABAC).\n2. Deny access by default across all routes.\n3. Verify access control checks on every server-side operation.\nCompliance & Reference Standards: https://cwe.mitre.org/data/definitions/284.html",
+      "chunk_type": "remediation",
+      "source": "KAVACH Knowledge Engine (CWE)",
+      "category": "Broken Access Control",
+      "cwe_id": "CWE-284",
+      "owasp_category": "OWASP-A01:2021 - Broken Access Control",
+      "metadata": {
+        "severity": "MEDIUM",
+        "section": "remediation",
+        "doc_title": "CWE-284: Improper Access Control",
+        "steps_count": 3
+      }
+    },
+    {
+      "chunk_id": "CHK-DOC-DB-CWE-284-VERIFY",
+      "document_id": "DOC-DB-CWE-284",
+      "title": "CWE-284: Improper Access Control \u2014 Technical Verification & Validation",
+      "text": "SECURITY VERIFICATION PROBE FOR CWE-284: Improper Access Control (CWE-284):\nTo verify defensive resolution, execute targeted security probes or regression checks against the affected endpoint.\nEnsure boundary validation returns appropriate defensive status codes (e.g. 401/403 for access control, clean parameterized failure without error disclosure for injection flaws, or 401/403/404 for protected documentation endpoints).",
+      "chunk_type": "verification",
+      "source": "KAVACH Knowledge Engine (CWE)",
+      "category": "Broken Access Control",
+      "cwe_id": "CWE-284",
+      "owasp_category": "OWASP-A01:2021 - Broken Access Control",
+      "metadata": {
+        "severity": "MEDIUM",
+        "section": "verification",
+        "doc_title": "CWE-284: Improper Access Control"
+      }
+    },
+    {
+      "chunk_id": "CHK-DOC-DB-CWE-89-CONCEPT",
+      "document_id": "DOC-DB-CWE-89",
+      "title": "CWE-89: Improper Neutralization of Special Elements in SQL Command (SQL Injection) \u2014 Overview & Threat Definition",
+      "text": "VULNERABILITY STANDARD: CWE-89: Improper Neutralization of Special Elements in SQL Command (SQL Injection)\nCategory: Injection | Severity: HIGH\nIdentifiers: CWE-89 | OWASP-A03:2021 - Injection\nCore Analysis:\nThe software constructs all or part of an SQL command using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements.",
+      "chunk_type": "concept",
+      "source": "KAVACH Knowledge Engine (CWE)",
+      "category": "Injection",
+      "cwe_id": "CWE-89",
+      "owasp_category": "OWASP-A03:2021 - Injection",
+      "metadata": {
+        "severity": "HIGH",
+        "section": "concept",
+        "doc_title": "CWE-89: Improper Neutralization of Special Elements in SQL Command (SQL Injection)"
+      }
+    },
+    {
+      "chunk_id": "CHK-DOC-DB-CWE-89-REMEDIATION",
+      "document_id": "DOC-DB-CWE-89",
+      "title": "CWE-89: Improper Neutralization of Special Elements in SQL Command (SQL Injection) \u2014 Step-by-Step Remediation",
+      "text": "REMEDIATION & HARDENING GUIDANCE FOR CWE-89: Improper Neutralization of Special Elements in SQL Command (SQL Injection) (CWE-89):\nRecommended Engineering Actions:\n1. Use parameterized queries / prepared statements exclusively.\n2. Utilize modern ORMs with bound query variables.\n3. Employ least-privilege database user credentials.\nCompliance & Reference Standards: https://cwe.mitre.org/data/definitions/89.html",
+      "chunk_type": "remediation",
+      "source": "KAVACH Knowledge Engine (CWE)",
+      "category": "Injection",
+      "cwe_id": "CWE-89",
+      "owasp_category": "OWASP-A03:2021 - Injection",
+      "metadata": {
+        "severity": "HIGH",
+        "section": "remediation",
+        "doc_title": "CWE-89: Improper Neutralization of Special Elements in SQL Command (SQL Injection)",
+        "steps_count": 3
+      }
+    },
+    {
+      "chunk_id": "CHK-DOC-DB-CWE-89-VERIFY",
+      "document_id": "DOC-DB-CWE-89",
+      "title": "CWE-89: Improper Neutralization of Special Elements in SQL Command (SQL Injection) \u2014 Technical Verification & Validation",
+      "text": "SECURITY VERIFICATION PROBE FOR CWE-89: Improper Neutralization of Special Elements in SQL Command (SQL Injection) (CWE-89):\nTo verify defensive resolution, execute targeted security probes or regression checks against the affected endpoint.\nEnsure boundary validation returns appropriate defensive status codes (e.g. 401/403 for access control, clean parameterized failure without error disclosure for injection flaws, or 401/403/404 for protected documentation endpoints).",
+      "chunk_type": "verification",
+      "source": "KAVACH Knowledge Engine (CWE)",
+      "category": "Injection",
+      "cwe_id": "CWE-89",
+      "owasp_category": "OWASP-A03:2021 - Injection",
+      "metadata": {
+        "severity": "HIGH",
+        "section": "verification",
+        "doc_title": "CWE-89: Improper Neutralization of Special Elements in SQL Command (SQL Injection)"
+      }
+    },
+    {
+      "chunk_id": "CHK-DOC-DB-CWE-79-CONCEPT",
+      "document_id": "DOC-DB-CWE-79",
+      "title": "CWE-79: Improper Neutralization of Input During Web Page Generation (Cross-site Scripting) \u2014 Overview & Threat Definition",
+      "text": "VULNERABILITY STANDARD: CWE-79: Improper Neutralization of Input During Web Page Generation (Cross-site Scripting)\nCategory: Input Validation | Severity: MEDIUM\nIdentifiers: CWE-79 | OWASP-A03:2021 - Injection\nCore Analysis:\nThe software does not neutralize or incorrectly neutralizes user-controllable input before it is placed in output that is used as a web page that is served to other users.",
+      "chunk_type": "concept",
+      "source": "KAVACH Knowledge Engine (CWE)",
+      "category": "Input Validation",
+      "cwe_id": "CWE-79",
+      "owasp_category": "OWASP-A03:2021 - Injection",
+      "metadata": {
+        "severity": "MEDIUM",
+        "section": "concept",
+        "doc_title": "CWE-79: Improper Neutralization of Input During Web Page Generation (Cross-site Scripting)"
+      }
+    },
+    {
+      "chunk_id": "CHK-DOC-DB-CWE-79-REMEDIATION",
+      "document_id": "DOC-DB-CWE-79",
+      "title": "CWE-79: Improper Neutralization of Input During Web Page Generation (Cross-site Scripting) \u2014 Step-by-Step Remediation",
+      "text": "REMEDIATION & HARDENING GUIDANCE FOR CWE-79: Improper Neutralization of Input During Web Page Generation (Cross-site Scripting) (CWE-79):\nRecommended Engineering Actions:\n1. Contextually encode user output before rendering in DOM.\n2. Deploy a restrictive Content Security Policy (CSP).\n3. Utilize secure UI frameworks with automatic template escaping.\nCompliance & Reference Standards: https://cwe.mitre.org/data/definitions/79.html",
+      "chunk_type": "remediation",
+      "source": "KAVACH Knowledge Engine (CWE)",
+      "category": "Input Validation",
+      "cwe_id": "CWE-79",
+      "owasp_category": "OWASP-A03:2021 - Injection",
+      "metadata": {
+        "severity": "MEDIUM",
+        "section": "remediation",
+        "doc_title": "CWE-79: Improper Neutralization of Input During Web Page Generation (Cross-site Scripting)",
+        "steps_count": 3
+      }
+    },
+    {
+      "chunk_id": "CHK-DOC-DB-CWE-79-VERIFY",
+      "document_id": "DOC-DB-CWE-79",
+      "title": "CWE-79: Improper Neutralization of Input During Web Page Generation (Cross-site Scripting) \u2014 Technical Verification & Validation",
+      "text": "SECURITY VERIFICATION PROBE FOR CWE-79: Improper Neutralization of Input During Web Page Generation (Cross-site Scripting) (CWE-79):\nTo verify defensive resolution, execute targeted security probes or regression checks against the affected endpoint.\nEnsure boundary validation returns appropriate defensive status codes (e.g. 401/403 for access control, clean parameterized failure without error disclosure for injection flaws, or 401/403/404 for protected documentation endpoints).",
+      "chunk_type": "verification",
+      "source": "KAVACH Knowledge Engine (CWE)",
+      "category": "Input Validation",
+      "cwe_id": "CWE-79",
+      "owasp_category": "OWASP-A03:2021 - Injection",
+      "metadata": {
+        "severity": "MEDIUM",
+        "section": "verification",
+        "doc_title": "CWE-79: Improper Neutralization of Input During Web Page Generation (Cross-site Scripting)"
+      }
+    },
+    {
+      "chunk_id": "CHK-DOC-DB-CWE-306-CONCEPT",
+      "document_id": "DOC-DB-CWE-306",
+      "title": "CWE-306: Missing Authentication for Critical Function \u2014 Overview & Threat Definition",
+      "text": "VULNERABILITY STANDARD: CWE-306: Missing Authentication for Critical Function\nCategory: Authentication | Severity: MEDIUM\nIdentifiers: CWE-306 | OWASP-A07:2021 - Identification and Authentication Failures\nCore Analysis:\nThe software does not perform authentication for functionality that requires a provable user identity or that consumes a significant amount of resources.",
+      "chunk_type": "concept",
+      "source": "KAVACH Knowledge Engine (CWE)",
+      "category": "Authentication",
+      "cwe_id": "CWE-306",
+      "owasp_category": "OWASP-A07:2021 - Identification and Authentication Failures",
+      "metadata": {
+        "severity": "MEDIUM",
+        "section": "concept",
+        "doc_title": "CWE-306: Missing Authentication for Critical Function"
+      }
+    },
+    {
+      "chunk_id": "CHK-DOC-DB-CWE-306-REMEDIATION",
+      "document_id": "DOC-DB-CWE-306",
+      "title": "CWE-306: Missing Authentication for Critical Function \u2014 Step-by-Step Remediation",
+      "text": "REMEDIATION & HARDENING GUIDANCE FOR CWE-306: Missing Authentication for Critical Function (CWE-306):\nRecommended Engineering Actions:\n1. Require strong multi-factor authentication for sensitive management APIs.\n2. Verify authentication tokens across all microservices.\n3. Centralize identity verification in API Gateway.\nCompliance & Reference Standards: https://cwe.mitre.org/data/definitions/306.html",
+      "chunk_type": "remediation",
+      "source": "KAVACH Knowledge Engine (CWE)",
+      "category": "Authentication",
+      "cwe_id": "CWE-306",
+      "owasp_category": "OWASP-A07:2021 - Identification and Authentication Failures",
+      "metadata": {
+        "severity": "MEDIUM",
+        "section": "remediation",
+        "doc_title": "CWE-306: Missing Authentication for Critical Function",
+        "steps_count": 3
+      }
+    },
+    {
+      "chunk_id": "CHK-DOC-DB-CWE-306-VERIFY",
+      "document_id": "DOC-DB-CWE-306",
+      "title": "CWE-306: Missing Authentication for Critical Function \u2014 Technical Verification & Validation",
+      "text": "SECURITY VERIFICATION PROBE FOR CWE-306: Missing Authentication for Critical Function (CWE-306):\nTo verify defensive resolution, execute targeted security probes or regression checks against the affected endpoint.\nEnsure boundary validation returns appropriate defensive status codes (e.g. 401/403 for access control, clean parameterized failure without error disclosure for injection flaws, or 401/403/404 for protected documentation endpoints).",
+      "chunk_type": "verification",
+      "source": "KAVACH Knowledge Engine (CWE)",
+      "category": "Authentication",
+      "cwe_id": "CWE-306",
+      "owasp_category": "OWASP-A07:2021 - Identification and Authentication Failures",
+      "metadata": {
+        "severity": "MEDIUM",
+        "section": "verification",
+        "doc_title": "CWE-306: Missing Authentication for Critical Function"
+      }
+    },
+    {
+      "chunk_id": "CHK-DOC-DB-CWE-16-CONCEPT",
+      "document_id": "DOC-DB-CWE-16",
+      "title": "CWE-16: Configuration Weakness \u2014 Overview & Threat Definition",
+      "text": "VULNERABILITY STANDARD: CWE-16: Configuration Weakness\nCategory: Security Misconfiguration | Severity: MEDIUM\nIdentifiers: CWE-16 | OWASP-A05:2021 - Security Misconfiguration\nCore Analysis:\nA configuration weakness is an issue that is introduced during configuration of the application or environment.",
+      "chunk_type": "concept",
+      "source": "KAVACH Knowledge Engine (CWE)",
+      "category": "Security Misconfiguration",
+      "cwe_id": "CWE-16",
+      "owasp_category": "OWASP-A05:2021 - Security Misconfiguration",
+      "metadata": {
+        "severity": "MEDIUM",
+        "section": "concept",
+        "doc_title": "CWE-16: Configuration Weakness"
+      }
+    },
+    {
+      "chunk_id": "CHK-DOC-DB-CWE-16-REMEDIATION",
+      "document_id": "DOC-DB-CWE-16",
+      "title": "CWE-16: Configuration Weakness \u2014 Step-by-Step Remediation",
+      "text": "REMEDIATION & HARDENING GUIDANCE FOR CWE-16: Configuration Weakness (CWE-16):\nRecommended Engineering Actions:\n1. Harden web servers and reverse proxies with strict defensive headers.\n2. Disable debug endpoints and default administrative accounts in production.\n3. Automate infrastructure configuration auditing with baseline compliance.\nCompliance & Reference Standards: https://cwe.mitre.org/data/definitions/16.html",
+      "chunk_type": "remediation",
+      "source": "KAVACH Knowledge Engine (CWE)",
+      "category": "Security Misconfiguration",
+      "cwe_id": "CWE-16",
+      "owasp_category": "OWASP-A05:2021 - Security Misconfiguration",
+      "metadata": {
+        "severity": "MEDIUM",
+        "section": "remediation",
+        "doc_title": "CWE-16: Configuration Weakness",
+        "steps_count": 3
+      }
+    },
+    {
+      "chunk_id": "CHK-DOC-DB-CWE-16-VERIFY",
+      "document_id": "DOC-DB-CWE-16",
+      "title": "CWE-16: Configuration Weakness \u2014 Technical Verification & Validation",
+      "text": "SECURITY VERIFICATION PROBE FOR CWE-16: Configuration Weakness (CWE-16):\nTo verify defensive resolution, execute targeted security probes or regression checks against the affected endpoint.\nEnsure boundary validation returns appropriate defensive status codes (e.g. 401/403 for access control, clean parameterized failure without error disclosure for injection flaws, or 401/403/404 for protected documentation endpoints).",
+      "chunk_type": "verification",
+      "source": "KAVACH Knowledge Engine (CWE)",
+      "category": "Security Misconfiguration",
+      "cwe_id": "CWE-16",
+      "owasp_category": "OWASP-A05:2021 - Security Misconfiguration",
+      "metadata": {
+        "severity": "MEDIUM",
+        "section": "verification",
+        "doc_title": "CWE-16: Configuration Weakness"
+      }
+    },
+    {
+      "chunk_id": "CHK-DOC-DB-CWE-1021-CONCEPT",
+      "document_id": "DOC-DB-CWE-1021",
+      "title": "CWE-1021: Improper Restriction of Rendered UI Layers or Frames (Clickjacking) \u2014 Overview & Threat Definition",
+      "text": "VULNERABILITY STANDARD: CWE-1021: Improper Restriction of Rendered UI Layers or Frames (Clickjacking)\nCategory: Security Headers | Severity: MEDIUM\nIdentifiers: CWE-1021 | OWASP-A05:2021 - Security Misconfiguration\nCore Analysis:\nThe web application allows itself to be rendered within an iframe, frame, or object tag on an untrusted third-party domain.",
+      "chunk_type": "concept",
+      "source": "KAVACH Knowledge Engine (CWE)",
+      "category": "Security Headers",
+      "cwe_id": "CWE-1021",
+      "owasp_category": "OWASP-A05:2021 - Security Misconfiguration",
+      "metadata": {
+        "severity": "MEDIUM",
+        "section": "concept",
+        "doc_title": "CWE-1021: Improper Restriction of Rendered UI Layers or Frames (Clickjacking)"
+      }
+    },
+    {
+      "chunk_id": "CHK-DOC-DB-CWE-1021-REMEDIATION",
+      "document_id": "DOC-DB-CWE-1021",
+      "title": "CWE-1021: Improper Restriction of Rendered UI Layers or Frames (Clickjacking) \u2014 Step-by-Step Remediation",
+      "text": "REMEDIATION & HARDENING GUIDANCE FOR CWE-1021: Improper Restriction of Rendered UI Layers or Frames (Clickjacking) (CWE-1021):\nRecommended Engineering Actions:\n1. Add X-Frame-Options: DENY to all HTTP responses.\n2. Implement Content-Security-Policy with frame-ancestors 'none'.\nCompliance & Reference Standards: https://cwe.mitre.org/data/definitions/1021.html",
+      "chunk_type": "remediation",
+      "source": "KAVACH Knowledge Engine (CWE)",
+      "category": "Security Headers",
+      "cwe_id": "CWE-1021",
+      "owasp_category": "OWASP-A05:2021 - Security Misconfiguration",
+      "metadata": {
+        "severity": "MEDIUM",
+        "section": "remediation",
+        "doc_title": "CWE-1021: Improper Restriction of Rendered UI Layers or Frames (Clickjacking)",
+        "steps_count": 2
+      }
+    },
+    {
+      "chunk_id": "CHK-DOC-DB-CWE-1021-VERIFY",
+      "document_id": "DOC-DB-CWE-1021",
+      "title": "CWE-1021: Improper Restriction of Rendered UI Layers or Frames (Clickjacking) \u2014 Technical Verification & Validation",
+      "text": "SECURITY VERIFICATION PROBE FOR CWE-1021: Improper Restriction of Rendered UI Layers or Frames (Clickjacking) (CWE-1021):\nTo verify defensive resolution, execute targeted security probes or regression checks against the affected endpoint.\nEnsure boundary validation returns appropriate defensive status codes (e.g. 401/403 for access control, clean parameterized failure without error disclosure for injection flaws, or 401/403/404 for protected documentation endpoints).",
+      "chunk_type": "verification",
+      "source": "KAVACH Knowledge Engine (CWE)",
+      "category": "Security Headers",
+      "cwe_id": "CWE-1021",
+      "owasp_category": "OWASP-A05:2021 - Security Misconfiguration",
+      "metadata": {
+        "severity": "MEDIUM",
+        "section": "verification",
+        "doc_title": "CWE-1021: Improper Restriction of Rendered UI Layers or Frames (Clickjacking)"
+      }
+    },
+    {
+      "chunk_id": "CHK-DOC-DB-OWASP-A01-CONCEPT",
+      "document_id": "DOC-DB-OWASP-A01",
+      "title": "OWASP-A01: A01:2021 - Broken Access Control \u2014 Overview & Threat Definition",
+      "text": "VULNERABILITY STANDARD: OWASP-A01: A01:2021 - Broken Access Control\nCategory: Broken Access Control | Severity: MEDIUM\nIdentifiers: N/A | OWASP Top 10:2021 #1\nCore Analysis:\nAccess control enforces policy such that users cannot act outside of their intended permissions. Failures typically lead to unauthorized information disclosure, modification, or destruction.",
+      "chunk_type": "concept",
+      "source": "KAVACH Knowledge Engine (OWASP)",
+      "category": "Broken Access Control",
+      "cwe_id": null,
+      "owasp_category": "OWASP Top 10:2021 #1",
+      "metadata": {
+        "severity": "MEDIUM",
+        "section": "concept",
+        "doc_title": "OWASP-A01: A01:2021 - Broken Access Control"
+      }
+    },
+    {
+      "chunk_id": "CHK-DOC-DB-OWASP-A01-REMEDIATION",
+      "document_id": "DOC-DB-OWASP-A01",
+      "title": "OWASP-A01: A01:2021 - Broken Access Control \u2014 Step-by-Step Remediation",
+      "text": "REMEDIATION & HARDENING GUIDANCE FOR OWASP-A01: A01:2021 - Broken Access Control (Broken Access Control):\nRecommended Engineering Actions:\n1. Enforce record ownership checks on every request.\n2. Disable client-side only security checks.\n3. Log all access control failures to SIEM.\nCompliance & Reference Standards: KAVACH Defensive Standard",
+      "chunk_type": "remediation",
+      "source": "KAVACH Knowledge Engine (OWASP)",
+      "category": "Broken Access Control",
+      "cwe_id": null,
+      "owasp_category": "OWASP Top 10:2021 #1",
+      "metadata": {
+        "severity": "MEDIUM",
+        "section": "remediation",
+        "doc_title": "OWASP-A01: A01:2021 - Broken Access Control",
+        "steps_count": 3
+      }
+    },
+    {
+      "chunk_id": "CHK-DOC-DB-OWASP-A01-VERIFY",
+      "document_id": "DOC-DB-OWASP-A01",
+      "title": "OWASP-A01: A01:2021 - Broken Access Control \u2014 Technical Verification & Validation",
+      "text": "SECURITY VERIFICATION PROBE FOR OWASP-A01: A01:2021 - Broken Access Control (Broken Access Control):\nTo verify defensive resolution, execute targeted security probes or regression checks against the affected endpoint.\nEnsure boundary validation returns appropriate defensive status codes (e.g. 401/403 for access control, clean parameterized failure without error disclosure for injection flaws, or 401/403/404 for protected documentation endpoints).",
+      "chunk_type": "verification",
+      "source": "KAVACH Knowledge Engine (OWASP)",
+      "category": "Broken Access Control",
+      "cwe_id": null,
+      "owasp_category": "OWASP Top 10:2021 #1",
+      "metadata": {
+        "severity": "MEDIUM",
+        "section": "verification",
+        "doc_title": "OWASP-A01: A01:2021 - Broken Access Control"
+      }
+    },
+    {
+      "chunk_id": "CHK-DOC-DB-OWASP-A03-CONCEPT",
+      "document_id": "DOC-DB-OWASP-A03",
+      "title": "OWASP-A03: A03:2021 - Injection \u2014 Overview & Threat Definition",
+      "text": "VULNERABILITY STANDARD: OWASP-A03: A03:2021 - Injection\nCategory: Injection | Severity: HIGH\nIdentifiers: N/A | OWASP Top 10:2021 #3\nCore Analysis:\nUser-supplied data is not validated, filtered, or sanitized by the application and is interpreted as code or queries.",
+      "chunk_type": "concept",
+      "source": "KAVACH Knowledge Engine (OWASP)",
+      "category": "Injection",
+      "cwe_id": null,
+      "owasp_category": "OWASP Top 10:2021 #3",
+      "metadata": {
+        "severity": "HIGH",
+        "section": "concept",
+        "doc_title": "OWASP-A03: A03:2021 - Injection"
+      }
+    },
+    {
+      "chunk_id": "CHK-DOC-DB-OWASP-A03-REMEDIATION",
+      "document_id": "DOC-DB-OWASP-A03",
+      "title": "OWASP-A03: A03:2021 - Injection \u2014 Step-by-Step Remediation",
+      "text": "REMEDIATION & HARDENING GUIDANCE FOR OWASP-A03: A03:2021 - Injection (Injection):\nRecommended Engineering Actions:\n1. Adopt parameterized queries and secure query builders.\n2. Enforce strict positive input validation.\nCompliance & Reference Standards: KAVACH Defensive Standard",
+      "chunk_type": "remediation",
+      "source": "KAVACH Knowledge Engine (OWASP)",
+      "category": "Injection",
+      "cwe_id": null,
+      "owasp_category": "OWASP Top 10:2021 #3",
+      "metadata": {
+        "severity": "HIGH",
+        "section": "remediation",
+        "doc_title": "OWASP-A03: A03:2021 - Injection",
+        "steps_count": 2
+      }
+    },
+    {
+      "chunk_id": "CHK-DOC-DB-OWASP-A03-VERIFY",
+      "document_id": "DOC-DB-OWASP-A03",
+      "title": "OWASP-A03: A03:2021 - Injection \u2014 Technical Verification & Validation",
+      "text": "SECURITY VERIFICATION PROBE FOR OWASP-A03: A03:2021 - Injection (Injection):\nTo verify defensive resolution, execute targeted security probes or regression checks against the affected endpoint.\nEnsure boundary validation returns appropriate defensive status codes (e.g. 401/403 for access control, clean parameterized failure without error disclosure for injection flaws, or 401/403/404 for protected documentation endpoints).",
+      "chunk_type": "verification",
+      "source": "KAVACH Knowledge Engine (OWASP)",
+      "category": "Injection",
+      "cwe_id": null,
+      "owasp_category": "OWASP Top 10:2021 #3",
+      "metadata": {
+        "severity": "HIGH",
+        "section": "verification",
+        "doc_title": "OWASP-A03: A03:2021 - Injection"
+      }
+    },
+    {
+      "chunk_id": "CHK-DOC-DB-OWASP-A05-CONCEPT",
+      "document_id": "DOC-DB-OWASP-A05",
+      "title": "OWASP-A05: A05:2021 - Security Misconfiguration \u2014 Overview & Threat Definition",
+      "text": "VULNERABILITY STANDARD: OWASP-A05: A05:2021 - Security Misconfiguration\nCategory: Security Misconfiguration | Severity: MEDIUM\nIdentifiers: N/A | OWASP Top 10:2021 #5\nCore Analysis:\nMissing appropriate security hardening across any part of the application stack, or improperly configured permissions on cloud services.",
+      "chunk_type": "concept",
+      "source": "KAVACH Knowledge Engine (OWASP)",
+      "category": "Security Misconfiguration",
+      "cwe_id": null,
+      "owasp_category": "OWASP Top 10:2021 #5",
+      "metadata": {
+        "severity": "MEDIUM",
+        "section": "concept",
+        "doc_title": "OWASP-A05: A05:2021 - Security Misconfiguration"
+      }
+    },
+    {
+      "chunk_id": "CHK-DOC-DB-OWASP-A05-REMEDIATION",
+      "document_id": "DOC-DB-OWASP-A05",
+      "title": "OWASP-A05: A05:2021 - Security Misconfiguration \u2014 Step-by-Step Remediation",
+      "text": "REMEDIATION & HARDENING GUIDANCE FOR OWASP-A05: A05:2021 - Security Misconfiguration (Security Misconfiguration):\nRecommended Engineering Actions:\n1. Harden platform configuration and remove unnecessary features.\n2. Send security headers: CSP, HSTS, X-Content-Type-Options.\nCompliance & Reference Standards: KAVACH Defensive Standard",
+      "chunk_type": "remediation",
+      "source": "KAVACH Knowledge Engine (OWASP)",
+      "category": "Security Misconfiguration",
+      "cwe_id": null,
+      "owasp_category": "OWASP Top 10:2021 #5",
+      "metadata": {
+        "severity": "MEDIUM",
+        "section": "remediation",
+        "doc_title": "OWASP-A05: A05:2021 - Security Misconfiguration",
+        "steps_count": 2
+      }
+    },
+    {
+      "chunk_id": "CHK-DOC-DB-OWASP-A05-VERIFY",
+      "document_id": "DOC-DB-OWASP-A05",
+      "title": "OWASP-A05: A05:2021 - Security Misconfiguration \u2014 Technical Verification & Validation",
+      "text": "SECURITY VERIFICATION PROBE FOR OWASP-A05: A05:2021 - Security Misconfiguration (Security Misconfiguration):\nTo verify defensive resolution, execute targeted security probes or regression checks against the affected endpoint.\nEnsure boundary validation returns appropriate defensive status codes (e.g. 401/403 for access control, clean parameterized failure without error disclosure for injection flaws, or 401/403/404 for protected documentation endpoints).",
+      "chunk_type": "verification",
+      "source": "KAVACH Knowledge Engine (OWASP)",
+      "category": "Security Misconfiguration",
+      "cwe_id": null,
+      "owasp_category": "OWASP Top 10:2021 #5",
+      "metadata": {
+        "severity": "MEDIUM",
+        "section": "verification",
+        "doc_title": "OWASP-A05: A05:2021 - Security Misconfiguration"
+      }
+    },
+    {
+      "chunk_id": "CHK-DOC-DB-CWE-200-CONCEPT",
+      "document_id": "DOC-DB-CWE-200",
+      "title": "CWE-200: Exposure of Sensitive Information to an Unauthorized Actor \u2014 Overview & Threat Definition",
+      "text": "VULNERABILITY STANDARD: CWE-200: Exposure of Sensitive Information to an Unauthorized Actor\nCategory: Security Misconfiguration | Severity: MEDIUM\nIdentifiers: CWE-200 | OWASP-A05:2021 - Security Misconfiguration\nCore Analysis:\nThe product exposes sensitive information to an actor that is not explicitly authorized to have access to that information.",
+      "chunk_type": "concept",
+      "source": "KAVACH Knowledge Engine (CWE)",
+      "category": "Security Misconfiguration",
+      "cwe_id": "CWE-200",
+      "owasp_category": "OWASP-A05:2021 - Security Misconfiguration",
+      "metadata": {
+        "severity": "MEDIUM",
+        "section": "concept",
+        "doc_title": "CWE-200: Exposure of Sensitive Information to an Unauthorized Actor"
+      }
+    },
+    {
+      "chunk_id": "CHK-DOC-DB-CWE-200-REMEDIATION",
+      "document_id": "DOC-DB-CWE-200",
+      "title": "CWE-200: Exposure of Sensitive Information to an Unauthorized Actor \u2014 Step-by-Step Remediation",
+      "text": "REMEDIATION & HARDENING GUIDANCE FOR CWE-200: Exposure of Sensitive Information to an Unauthorized Actor (CWE-200):\nRecommended Engineering Actions:\n1. Disable interactive API documentation endpoints (/docs, /openapi.json, /swagger) in production environments.\n2. Enforce authentication and role-based access control on sensitive schema endpoints.\n3. Filter API schemas to exclude internal, administrative, or deprecated routes.\nCompliance & Reference Standards: https://cwe.mitre.org/data/definitions/200.html",
+      "chunk_type": "remediation",
+      "source": "KAVACH Knowledge Engine (CWE)",
+      "category": "Security Misconfiguration",
+      "cwe_id": "CWE-200",
+      "owasp_category": "OWASP-A05:2021 - Security Misconfiguration",
+      "metadata": {
+        "severity": "MEDIUM",
+        "section": "remediation",
+        "doc_title": "CWE-200: Exposure of Sensitive Information to an Unauthorized Actor",
+        "steps_count": 3
+      }
+    },
+    {
+      "chunk_id": "CHK-DOC-DB-CWE-200-VERIFY",
+      "document_id": "DOC-DB-CWE-200",
+      "title": "CWE-200: Exposure of Sensitive Information to an Unauthorized Actor \u2014 Technical Verification & Validation",
+      "text": "SECURITY VERIFICATION PROBE FOR CWE-200: Exposure of Sensitive Information to an Unauthorized Actor (CWE-200):\nTo verify defensive resolution, execute targeted security probes or regression checks against the affected endpoint.\nEnsure boundary validation returns appropriate defensive status codes (e.g. 401/403 for access control, clean parameterized failure without error disclosure for injection flaws, or 401/403/404 for protected documentation endpoints).",
+      "chunk_type": "verification",
+      "source": "KAVACH Knowledge Engine (CWE)",
+      "category": "Security Misconfiguration",
+      "cwe_id": "CWE-200",
+      "owasp_category": "OWASP-A05:2021 - Security Misconfiguration",
+      "metadata": {
+        "severity": "MEDIUM",
+        "section": "verification",
+        "doc_title": "CWE-200: Exposure of Sensitive Information to an Unauthorized Actor"
+      }
+    }
+  ]
+}

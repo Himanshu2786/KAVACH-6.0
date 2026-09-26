@@ -1,0 +1,35 @@
+{
+  "success": true,
+  "team_members": [
+    {
+      "id": "secops_lead",
+      "name": "Lead SecOps Engineer",
+      "role": "Triage & Escalation",
+      "initials": "SO"
+    },
+    {
+      "id": "appsec_engineer",
+      "name": "AppSec Specialist",
+      "role": "Verification & Probing",
+      "initials": "AS"
+    },
+    {
+      "id": "dev_lead",
+      "name": "Backend Development Lead",
+      "role": "Code Remediation & Patching",
+      "initials": "DL"
+    },
+    {
+      "id": "compliance_officer",
+      "name": "Compliance & Audit Officer",
+      "role": "ISO/OWASP Verification",
+      "initials": "CO"
+    },
+    {
+      "id": "incident_responder",
+      "name": "SOC Incident Responder",
+      "role": "Active Monitoring",
+      "initials": "IR"
+    }
+  ]
+}

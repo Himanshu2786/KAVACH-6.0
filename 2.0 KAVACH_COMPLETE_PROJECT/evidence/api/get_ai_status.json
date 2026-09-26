@@ -1,0 +1,15 @@
+{
+  "success": true,
+  "lifecycle_state": "AI READY",
+  "status_code": "ready",
+  "status_dot": "\ud83d\udfe2",
+  "endpoint": "http://127.0.0.1:11434",
+  "selected_model": "phi3",
+  "available_models": [
+    "phi3:latest"
+  ],
+  "has_configured_model": true,
+  "response_time_ms": 169.75,
+  "ollama_binary": "C:\\Users\\Himanshu Raj\\AppData\\Local\\Programs\\Ollama\\ollama.EXE",
+  "message": "Local Ollama engine online with model 'phi3'."
+}

@@ -1,0 +1,22 @@
+{
+  "name": "KAVACH — Security Assessment Platform",
+  "short_name": "KAVACH",
+  "description": "Evidence-driven cybersecurity assessment platform. AI Hypothesizes. Evidence Confirms.",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["security", "utilities", "developer"],
+  "lang": "en",
+  "dir": "ltr",
+  "scope": "/"
+}

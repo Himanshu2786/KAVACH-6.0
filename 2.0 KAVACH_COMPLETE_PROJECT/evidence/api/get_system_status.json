@@ -1,0 +1,13 @@
+{
+  "frontend_status": "ONLINE",
+  "backend_status": "ONLINE",
+  "ollama_status": "ONLINE",
+  "ollama_model": "phi3",
+  "ollama_base_url": "http://127.0.0.1:11434",
+  "database_status": "ONLINE",
+  "knowledge_engine": "READY (11 records)",
+  "assessment_engine": "READY",
+  "validation_engine": "READY",
+  "active_assessment_count": 182,
+  "total_findings_count": 1273
+}

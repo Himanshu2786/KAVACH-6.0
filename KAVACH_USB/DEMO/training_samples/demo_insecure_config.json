@@ -1,0 +1,18 @@
+{
+  "_comment": "KAVACH DEMO / TRAINING ARTIFACT - SAFE INTENTIONALLY VULNERABLE SYNTHETIC SAMPLE FOR ASSESSMENT VERIFICATION",
+  "app_name": "WorldMonitor-Telemetry-Gateway",
+  "environment": "development-sandbox",
+  "debug": true,
+  "allow_insecure_transport": true,
+  "cors_allow_origins": ["*"],
+  "jwt_secret": "insecure_hardcoded_dummy_secret_for_sih_training_only",
+  "session_cookie": {
+    "http_only": false,
+    "secure": false,
+    "same_site": "none"
+  },
+  "logging": {
+    "verbose_tracebacks": true,
+    "log_raw_request_headers": true
+  }
+}

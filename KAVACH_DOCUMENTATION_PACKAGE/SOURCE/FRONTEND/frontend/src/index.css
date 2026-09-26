@@ -1,0 +1,615 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* Pure Minimalist Palette: True Black Canvas (#000000) */
+    --bg-void: #000000;
+    --bg-surface: #000000;
+    --bg-subtle: #080808;
+    
+    /* Centralized Glassmorphism Tokens (floating over pure black) */
+    --glass-base: rgba(0, 0, 0, 0.75);
+    --glass-surface: rgba(10, 10, 10, 0.65);
+    --glass-surface-hover: rgba(18, 18, 18, 0.75);
+    --glass-surface-active: rgba(24, 24, 24, 0.85);
+    --glass-modal: rgba(8, 8, 8, 0.95);
+    --glass-terminal: #000000;
+    
+    /* Hairline Glass Borders */
+    --border-glass: rgba(255, 255, 255, 0.08);
+    --border-glass-subtle: rgba(255, 255, 255, 0.05);
+    --border-glass-hover: rgba(255, 255, 255, 0.18);
+    --border-glass-active: rgba(255, 255, 255, 0.32);
+    
+    /* Glass Layered Highlights & Shadows */
+    --glass-highlight: inset 0 1px 0 0 rgba(255, 255, 255, 0.09);
+    --glass-highlight-subtle: inset 0 1px 0 0 rgba(255, 255, 255, 0.04);
+    --glass-highlight-strong: inset 0 1px 0 0 rgba(255, 255, 255, 0.16);
+    --glass-shadow-sm: 0 4px 16px -2px rgba(0, 0, 0, 0.5);
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.65);
+    --glass-shadow-lg: 0 16px 48px -4px rgba(0, 0, 0, 0.82);
+    --glass-shadow-modal: 0 24px 64px -8px rgba(0, 0, 0, 0.95);
+    
+    /* High Contrast Typography */
+    --text-primary: #ffffff;
+    --text-secondary: #a1a1aa;
+    --text-muted: #52525b;
+    
+    /* Subtle Status Accents */
+    --accent-electric: #ffffff;
+    --accent-glow: rgba(255, 255, 255, 0.12);
+    --status-warning: #fbbf24;
+    --status-danger: #f43f5e;
+    --status-success: #34d399;
+    --status-info: #38bdf8;
+    
+    /* Cursor Reflection Coordinates (updated via CursorLight listener) */
+    --mouse-x: 50%;
+    --mouse-y: 50%;
+  }
+
+  html, body, #root, #app {
+    background-color: #000000 !important;
+    background: #000000 !important;
+    min-height: 100%;
+  }
+
+  body {
+    background-color: #000000 !important;
+    background: #000000 !important;
+    color: var(--text-primary);
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter', 'Segoe UI', Roboto, sans-serif;
+    overflow-x: hidden;
+    letter-spacing: -0.015em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, Monaco, monospace;
+  }
+
+  /* Global High-Contrast Text Selection Rules */
+  ::selection,
+  *::selection {
+    background-color: #263238 !important;
+    background: #263238 !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+  }
+
+  ::-moz-selection,
+  *::-moz-selection {
+    background-color: #263238 !important;
+    background: #263238 !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+  }
+}
+
+/* ==========================================================================
+   CENTRALIZED MULTI-DEPTH GLASSMORPHISM SYSTEM
+   ========================================================================== */
+
+/* Glass Level 1: Subnav, Toolbars, Floating Header Strips */
+.glass-level-1 {
+  background: var(--glass-base);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid var(--border-glass-subtle);
+  box-shadow: var(--glass-shadow-sm), var(--glass-highlight-subtle);
+}
+
+/* Glass Level 2: Standard Floating Panels & Dashboard Cards */
+.glass-level-2,
+.glass-card,
+.glass-panel {
+  position: relative;
+  background: var(--glass-surface);
+  backdrop-filter: blur(20px) saturate(170%);
+  -webkit-backdrop-filter: blur(20px) saturate(170%);
+  border: 1px solid var(--border-glass);
+  box-shadow: var(--glass-shadow), var(--glass-highlight);
+  transition: border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Subtle Cursor Light Reflection Overlay */
+.glass-level-2::before,
+.glass-card::before,
+.glass-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    450px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(255, 255, 255, 0.035),
+    transparent 80%
+  );
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.glass-level-2:hover::before,
+.glass-card:hover::before,
+.glass-panel:hover::before {
+  opacity: 1;
+}
+
+/* Interactive Glass Elevation */
+.glass-card-interactive {
+  cursor: pointer;
+}
+
+.glass-card-interactive:hover,
+.glass-level-2:hover,
+.glass-card:hover,
+.glass-panel:hover {
+  background: var(--glass-surface-hover);
+  border-color: var(--border-glass-hover);
+  box-shadow: var(--glass-shadow-lg), var(--glass-highlight-strong);
+  transform: translateY(-1.5px);
+}
+
+/* Glass Level 3: Active / Selected / Focal Elements */
+.glass-level-3,
+.glass-card-active,
+.glass-card-selected {
+  position: relative;
+  background: var(--glass-surface-active);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid var(--border-glass-active);
+  box-shadow: var(--glass-shadow-lg), var(--glass-highlight-strong), 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+/* Glass Level 4: Modals, Popovers, & Overlay Dialogs */
+.glass-level-4,
+.glass-modal {
+  background: var(--glass-modal);
+  backdrop-filter: blur(32px) saturate(200%);
+  -webkit-backdrop-filter: blur(32px) saturate(200%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: var(--glass-shadow-modal), inset 0 1px 0 0 rgba(255, 255, 255, 0.18);
+}
+
+/* ==========================================================================
+   GLASS INPUTS, SELECTS, & CONTROLS
+   ========================================================================== */
+
+.glass-input {
+  background: rgba(7, 9, 15, 0.65) !important;
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid var(--border-glass) !important;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4), var(--glass-highlight-subtle);
+  color: #ffffff !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-input:hover {
+  border-color: var(--border-glass-hover) !important;
+  background: rgba(10, 13, 22, 0.72) !important;
+}
+
+.glass-input:focus {
+  border-color: rgba(255, 255, 255, 0.35) !important;
+  background: rgba(12, 16, 26, 0.85) !important;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2), inset 0 1px 2px rgba(0, 0, 0, 0.3);
+  outline: none !important;
+}
+
+.glass-select {
+  background: rgba(7, 9, 15, 0.65) !important;
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid var(--border-glass) !important;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3), var(--glass-highlight-subtle);
+  color: #e4e4e7 !important;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-select:hover {
+  border-color: var(--border-glass-hover) !important;
+  background: rgba(11, 14, 23, 0.75) !important;
+  color: #ffffff !important;
+}
+
+.glass-select:focus {
+  border-color: rgba(255, 255, 255, 0.35) !important;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2);
+  outline: none !important;
+}
+
+.glass-select option {
+  background: #090a10;
+  color: #ffffff;
+  padding: 8px 12px;
+}
+
+/* ==========================================================================
+   GLASS TERMINAL & CODE BLOCKS
+   ========================================================================== */
+
+.glass-terminal,
+.glass-code {
+  position: relative;
+  background: var(--glass-terminal);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.6), var(--glass-highlight-subtle);
+  border-radius: 0.75rem;
+}
+
+.glass-terminal-header {
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* ==========================================================================
+   GLASS BADGES & STATUS PILLS
+   ========================================================================== */
+
+.glass-badge,
+.glass-pill {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: var(--glass-highlight-subtle);
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+/* ==========================================================================
+   MINIMALIST PREMIUM BUTTONS (Layered Translucent Glass)
+   ========================================================================== */
+
+/* Universal Button Responsive Foundations */
+.btn-primary,
+.btn-secondary,
+.btn-danger {
+  box-sizing: border-box;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 2.25rem;
+  line-height: 1.25;
+  text-align: center;
+  word-break: break-word;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: #ffffff;
+  color: #000000;
+  font-weight: 600;
+  font-size: 0.8125rem;
+  padding: 0.55rem 1.15rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 255, 255, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  user-select: none;
+}
+
+.btn-primary:hover {
+  background: #f4f4f5;
+  box-shadow: 0 4px 24px rgba(255, 255, 255, 0.32);
+  transform: translateY(-1.5px);
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  color: #e4e4e7;
+  font-weight: 500;
+  font-size: 0.8125rem;
+  padding: 0.55rem 1.15rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(14px) saturate(180%);
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
+  box-shadow: var(--glass-highlight-subtle), var(--glass-shadow-sm);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  user-select: none;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.10);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.22);
+  box-shadow: var(--glass-highlight), var(--glass-shadow);
+  transform: translateY(-1.5px);
+}
+
+.btn-secondary:active {
+  background: rgba(255, 255, 255, 0.04);
+  transform: scale(0.98);
+}
+
+.btn-danger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: rgba(244, 63, 94, 0.12);
+  color: #fb7185;
+  font-weight: 500;
+  font-size: 0.8125rem;
+  padding: 0.55rem 1.15rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(244, 63, 94, 0.28);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: inset 0 1px 0 0 rgba(244, 63, 94, 0.2), var(--glass-shadow-sm);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  user-select: none;
+}
+
+.btn-danger:hover {
+  background: rgba(244, 63, 94, 0.20);
+  color: #f43f5e;
+  border-color: rgba(244, 63, 94, 0.45);
+  box-shadow: inset 0 1px 0 0 rgba(244, 63, 94, 0.3), 0 4px 16px rgba(244, 63, 94, 0.2);
+  transform: translateY(-1.5px);
+}
+
+.btn-danger:active {
+  transform: scale(0.98);
+}
+
+/* ==========================================================================
+   GLOBAL RESPONSIVE BUTTON GROUPS
+   ========================================================================== */
+
+.button-group,
+.btn-group,
+.btn-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.625rem;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+/* Fluid Responsive Button Group (Adaptive stacking on mobile screens) */
+.btn-group-responsive {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+@media (min-width: 640px) {
+  .btn-group-responsive {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .btn-group-responsive > * {
+    flex: 0 1 auto;
+  }
+}
+
+@media (max-width: 639px) {
+  .btn-group-responsive > button,
+  .btn-group-responsive > .btn-primary,
+  .btn-group-responsive > .btn-secondary,
+  .btn-group-responsive > .btn-danger,
+  .btn-group-responsive > a {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+}
+
+/* ==========================================================================
+   CINEMATIC BACKGROUND LAYERS (Replacing grid backgrounds)
+   ========================================================================== */
+
+.cinematic-bg-void {
+  background-color: var(--bg-void);
+  background-image: 
+    radial-gradient(ellipse 80% 50% at 25% -10%, rgba(255, 255, 255, 0.04), transparent 70%),
+    radial-gradient(ellipse 60% 40% at 75% 110%, rgba(255, 255, 255, 0.02), transparent 70%);
+}
+
+/* Micro-noise texture simulation via SVG filter */
+.noise-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.022'/%3E%3C/svg%3E");
+}
+
+/* Subtle ambient breathing illumination */
+@keyframes ambientDrift {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translateY(-20px) scale(1.05);
+    opacity: 0.65;
+  }
+}
+
+.ambient-light-drift {
+  animation: ambientDrift 18s ease-in-out infinite;
+}
+
+/* ==========================================================================
+   MINIMAL CUSTOM SCROLLBAR
+   ========================================================================== */
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.24);
+}
+
+/* ==========================================================================
+   ACCESSIBILITY: REDUCED MOTION
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVE / MOBILE UTILITIES
+   ========================================================================== */
+
+/* Prevent horizontal overflow on all layouts */
+.overflow-x-safe {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+/* Touch-friendly minimum tap target for interactive elements */
+.touch-target {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Responsive table that becomes card-stack on mobile */
+@media (max-width: 639px) {
+  .responsive-table thead {
+    display: none;
+  }
+  .responsive-table tr {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 0.75rem;
+    margin-bottom: 0.75rem;
+    padding: 0.75rem;
+    background: rgba(13, 13, 16, 0.62);
+  }
+  .responsive-table td {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.25rem 0;
+    font-size: 0.75rem;
+    border: none;
+  }
+  .responsive-table td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.45);
+    text-transform: uppercase;
+    font-size: 0.625rem;
+    letter-spacing: 0.05em;
+    margin-right: 0.5rem;
+    flex-shrink: 0;
+  }
+}
+
+/* Horizontal scroll container with visible scrollbar hint */
+.h-scroll-container {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+.h-scroll-container::-webkit-scrollbar {
+  height: 3px;
+}
+
+/* Safe-area aware padding for fixed bottom bars */
+.safe-bottom {
+  padding-bottom: max(1rem, env(safe-area-inset-bottom));
+}
+
+/* Improved focus ring for keyboard navigation */
+:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.6);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Better text selection on mobile */
+@media (max-width: 767px) {
+  .font-mono {
+    word-break: break-all;
+  }
+
+  /* Ensure buttons have enough tap size on mobile */
+  button, [role="button"] {
+    min-height: 36px;
+  }
+
+  /* Prevent very small text on mobile */
+  .text-\[10px\] {
+    font-size: 11px;
+  }
+}
+
+/* Tooltip styles — accessible on both hover and focus */
+[data-tooltip] {
+  position: relative;
+}
+[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(10, 10, 14, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 11px;
+  padding: 5px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  z-index: 100;
+  max-width: 220px;
+  white-space: normal;
+  text-align: center;
+}
+[data-tooltip]:hover::after,
+[data-tooltip]:focus-visible::after {
+  opacity: 1;
+}
+

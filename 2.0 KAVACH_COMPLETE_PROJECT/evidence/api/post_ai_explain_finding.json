@@ -1,0 +1,90 @@
+{
+  "success": true,
+  "finding_id": "KAV-2026-004",
+  "explanation": {
+    "what_was_found": "Exposed high-entropy synthetic secret or plaintext credential detected in /api/v1/auth/verify.",
+    "where": "Endpoint: /api/v1/auth/verify",
+    "why_it_matters": "Hardcoded credentials in distributed code or environment manifests risk unauthorized cloud infrastructure access.",
+    "possible_impact": "Compromise of backend databases, unauthorized cloud resource orchestration, lateral movement.",
+    "recommended_action": "Immediately revoke and rotate the exposed credential and migrate secrets to a dedicated vault.",
+    "how_to_fix": "1. Revoke the credential in the respective provider IAM console.\n2. Add configuration manifest to .gitignore.\n3. Inject credentials via secure runtime secret managers (e.g. AWS Secrets Manager / Vault).",
+    "how_to_verify": "Scan git history using local entropy checks and confirm rotated credential returns 401 Unauthorized.",
+    "simple_explanation": "KAVACH identified a high-severity issue in /api/v1/auth/verify. Exposed high-entropy synthetic secret or plaintext credential detected in /api/v1/auth/verify.",
+    "technical_explanation": "Technical analysis: Exposed high-entropy synthetic secret or plaintext credential detected in /api/v1/auth/verify. Root Cause: Hardcoded credentials in distributed code or environment manifests risk unauthorized cloud infrastructure access. Verification assertion: Scan git history using local entropy checks and confirm rotated credential returns 401 Unauthorized.",
+    "impact_explanation": "Compromise of backend databases, unauthorized cloud resource orchestration, lateral movement.",
+    "remediation_explanation": "Immediately revoke and rotate the exposed credential and migrate secrets to a dedicated vault.\nImplementation:\n1. Revoke the credential in the respective provider IAM console.\n2. Add configuration manifest to .gitignore.\n3. Inject credentials via secure runtime secret managers (e.g. AWS Secrets Manager / Vault).\nVerification Method:\nScan git history using local entropy checks and confirm rotated credential returns 401 Unauthorized.",
+    "judge_friendly_explanation": "1. Observation: Exposed high-entropy synthetic secret or plaintext credential detected | 2. Finding: Permissive JWT Algorithm Negotiation in Token Verification (HIGH) | 3. Evidence: Linked to /api/v1/auth/verify | 4. Impact: Compromise of backend databases, unauthorized cloud resource orchestra | 5. Remediation: Immediately revoke and rotate the exposed credential and migrate secre",
+    "provenance": "DETERMINISTIC",
+    "discovered_by": "DETERMINISTIC_DETECTOR",
+    "analyzed_by": "DETERMINISTIC (Rule Template Engine)",
+    "truth_hierarchy": [
+      "REAL_OBSERVATION",
+      "REAL_SOURCE_CODE",
+      "REAL_TOOL_OUTPUT",
+      "DETERMINISTIC_DETECTION",
+      "AI_INTERPRETATION"
+    ],
+    "insufficient_evidence": false,
+    "ai_mode": "DETERMINISTIC_RULE_FALLBACK",
+    "model_used": "KAVACH-RuleEngine",
+    "core_principle": "AI Confidence != Vulnerability Confirmation.",
+    "ai_confidence_principle": "AI Confidence != Vulnerability Confirmation.",
+    "retrieval_mode": "LEXICAL_FALLBACK",
+    "embedding_model": "kavach-lexical-hasher-v1",
+    "retrieved_sources": [
+      {
+        "chunk_id": "CHK-DOC-DB-CWE-306-REMEDIATION",
+        "document_id": "DOC-DB-CWE-306",
+        "title": "CWE-306: Missing Authentication for Critical Function \u2014 Step-by-Step Remediation",
+        "category": "Authentication",
+        "cwe_id": "CWE-306",
+        "owasp_category": "OWASP-A07:2021 - Identification and Authentication Failures",
+        "source": "KAVACH Knowledge Engine (CWE)",
+        "text": "REMEDIATION & HARDENING GUIDANCE FOR CWE-306: Missing Authentication for Critical Function (CWE-306):\nRecommended Engineering Actions:\n1. Require strong multi-factor authentication for sensitive management APIs.\n2. Verify authentication tokens across all microservices.\n3. Centralize identity verification in API Gateway.\nCompliance & Reference Standards: https://cwe.mitre.org/data/definitions/306.html",
+        "score": 1.0,
+        "chunk_type": "remediation",
+        "metadata": {
+          "severity": "MEDIUM",
+          "section": "remediation",
+          "doc_title": "CWE-306: Missing Authentication for Critical Function",
+          "steps_count": 3
+        }
+      },
+      {
+        "chunk_id": "CHK-DOC-CWE-306-AUTH-REMEDIATION",
+        "document_id": "DOC-CWE-306-AUTH",
+        "title": "Authentication Architecture & Multi-Factor Security Enforcement \u2014 Step-by-Step Remediation",
+        "category": "Authentication",
+        "cwe_id": "CWE-306",
+        "owasp_category": "OWASP-A07:2021 - Identification and Authentication Failures",
+        "source": "MITRE CWE & OWASP ASVS",
+        "text": "REMEDIATION & HARDENING GUIDANCE FOR Authentication Architecture & Multi-Factor Security Enforcement (CWE-306):\nRecommended Engineering Actions:\n1. Require authenticated session tokens or cryptographically signed JWTs on every API endpoint by default.\n2. Enforce Multi-Factor Authentication (MFA / WebAuthn) for privileged and administrative portals.\n3. Implement centralized authentication middleware that denies unauthenticated requests with HTTP 401.\n4. Prevent broken object level and function level authorization via granular RBAC/ABAC role checks.\nCompliance & Reference Standards: https://cwe.mitre.org/data/definitions/306.html, https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html",
+        "score": 1.0,
+        "chunk_type": "remediation",
+        "metadata": {
+          "severity": "HIGH",
+          "section": "remediation",
+          "doc_title": "Authentication Architecture & Multi-Factor Security Enforcement",
+          "steps_count": 4
+        }
+      },
+      {
+        "chunk_id": "CHK-DOC-DB-CWE-306-CONCEPT",
+        "document_id": "DOC-DB-CWE-306",
+        "title": "CWE-306: Missing Authentication for Critical Function \u2014 Overview & Threat Definition",
+        "category": "Authentication",
+        "cwe_id": "CWE-306",
+        "owasp_category": "OWASP-A07:2021 - Identification and Authentication Failures",
+        "source": "KAVACH Knowledge Engine (CWE)",
+        "text": "VULNERABILITY STANDARD: CWE-306: Missing Authentication for Critical Function\nCategory: Authentication | Severity: MEDIUM\nIdentifiers: CWE-306 | OWASP-A07:2021 - Identification and Authentication Failures\nCore Analysis:\nThe software does not perform authentication for functionality that requires a provable user identity or that consumes a significant amount of resources.",
+        "score": 1.0,
+        "chunk_type": "concept",
+        "metadata": {
+          "severity": "MEDIUM",
+          "section": "concept",
+          "doc_title": "CWE-306: Missing Authentication for Critical Function"
+        }
+      }
+    ]
+  }
+}

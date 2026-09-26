@@ -1,0 +1,36 @@
+{
+  "total_audit_events": 10933,
+  "chain_tamper_evident": true,
+  "sample_events": [
+    {
+      "id": "AUD-27bbb1892b0a",
+      "action": "EXECUTED",
+      "actor": "SYSTEM",
+      "timestamp": "2026-09-24T20:26:57.491211+05:30"
+    },
+    {
+      "id": "AUD-3285d10eab69",
+      "action": "EXECUTED",
+      "actor": "SYSTEM",
+      "timestamp": "2026-09-24T20:26:57.508693+05:30"
+    },
+    {
+      "id": "AUD-c8919e17be83",
+      "action": "EXECUTED",
+      "actor": "SYSTEM",
+      "timestamp": "2026-09-24T20:26:57.586075+05:30"
+    },
+    {
+      "id": "AUD-d6c552d72d95",
+      "action": "EXECUTED",
+      "actor": "SYSTEM",
+      "timestamp": "2026-09-24T20:35:55.863631+05:30"
+    },
+    {
+      "id": "AUD-42f8bd557593",
+      "action": "EXECUTED",
+      "actor": "SYSTEM",
+      "timestamp": "2026-09-24T20:36:34.310783+05:30"
+    }
+  ]
+}

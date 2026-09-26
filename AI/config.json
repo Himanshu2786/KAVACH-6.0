@@ -1,0 +1,20 @@
+{
+  "provider": "ollama",
+  "model_name": "phi3",
+  "endpoint": "http://127.0.0.1:11434",
+  "timeout_seconds": 30.0,
+  "enabled": true,
+  "auto_start": true,
+  "fallback_to_rules": true,
+  "mask_sensitive_data": true,
+  "supported_models": [
+    "llama3",
+    "llama3.1",
+    "mistral",
+    "phi3",
+    "qwen2.5-coder",
+    "deepseek-r1"
+  ],
+  "description": "KAVACH Centralized Local AI Explanation Engine Configuration",
+  "security_principle": "AI Hypothesizes. Evidence Confirms. Ollama is NOT the detector."
+}

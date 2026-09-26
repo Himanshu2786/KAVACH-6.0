@@ -1,0 +1,6 @@
+# KAVACH Training Sample: Harmless double extension test fixture
+# This is a safe mock file designed to test file extension masquerading detection.
+# NOT a real binary executable.
+Invoice Ref: #INV-2026-99412
+Amount: $4,200.00
+Status: Pending Verification

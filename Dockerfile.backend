@@ -31,6 +31,8 @@ RUN pip install --no-cache-dir --upgrade pip && \
 COPY backend /app/backend
 COPY core /app/core
 COPY services /app/services
+COPY app /app/app
+COPY demo /app/demo
 
 # Create non-root user for container security hardening
 RUN useradd -m -u 1000 kavach && \

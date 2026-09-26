@@ -10,3 +10,4 @@ python-multipart>=0.0.9  # used for handling file uploads in FastAPI
 python-dotenv>=1.0.0  # used for managing environment variables and secrets
 PyJWT>=2.8.0
 psycopg2-binary>=2.9.9
+psycopg[binary]>=3.2.0,<4

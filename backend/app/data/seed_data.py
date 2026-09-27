@@ -4,6 +4,7 @@ from backend.app.core.time import ist_isoformat, ist_formatted
 from sqlalchemy.orm import Session
 from backend.app.models.models import Assessment, Finding, EvidenceRecord, DiscoveryItem, KnowledgeRecord, AuditEvent, User
 from backend.app.services.evidence_service import evidence_service
+from backend.app.services.discovery_service import discovery_service
 from backend.app.core.security import hash_password, verify_password
 
 def seed_team_users(db: Session):

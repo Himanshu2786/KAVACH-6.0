@@ -34,6 +34,7 @@ class Settings(BaseSettings):
     
     # Centralized Ollama AI Configuration (Loaded from AI/config.json with env/default fallback)
     OLLAMA_BASE_URL: str = os.getenv("OLLAMA_BASE_URL", _ai_file_cfg.get("endpoint", "http://127.0.0.1:11434"))
+    OLLAMA_API_KEY: str = os.getenv("OLLAMA_API_KEY", "")
     OLLAMA_MODEL: str = os.getenv("OLLAMA_MODEL", _ai_file_cfg.get("model_name", "llama3"))
     AI_TIMEOUT: float = float(os.getenv("AI_TIMEOUT", str(_ai_file_cfg.get("timeout_seconds", 30.0))))
     AI_ENABLED: bool = os.getenv("AI_ENABLED", str(_ai_file_cfg.get("enabled", True))).lower() in ("true", "1", "yes")

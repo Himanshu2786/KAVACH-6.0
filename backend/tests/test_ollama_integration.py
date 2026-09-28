@@ -7,6 +7,10 @@ Unit tests for KAVACH Local Ollama AI Explanation Engine Integration:
 - 100% deterministic rule fallback when AI is offline
 """
 
+import pytest
+import asyncio
+from unittest.mock import patch, MagicMock
+import httpx
 from fastapi.testclient import TestClient
 from backend.app.main import app
 from backend.app.services.ollama_service import ollama_service
@@ -128,3 +132,95 @@ def test_threat_alert_explanation():
     assert "why_it_matters" in alert_exp
     assert "how_to_fix" in alert_exp
     assert "how_to_verify" in alert_exp
+
+
+def test_ollama_auth_headers_empty_key(monkeypatch):
+    """A. Verify no Authorization header is produced when OLLAMA_API_KEY is empty."""
+    monkeypatch.setattr(settings, "OLLAMA_API_KEY", "")
+    headers = ollama_service._get_headers()
+    assert "Authorization" not in headers
+
+
+def test_ollama_auth_headers_configured_key(monkeypatch):
+    """B. Verify Authorization header is formatted as Bearer <key> when OLLAMA_API_KEY is set."""
+    dummy_key = "test_cloud_api_key_sample"
+    monkeypatch.setattr(settings, "OLLAMA_API_KEY", dummy_key)
+    headers = ollama_service._get_headers()
+    assert headers.get("Authorization") == f"Bearer {dummy_key}"
+
+
+def test_ollama_health_check_mocked_200(monkeypatch):
+    """C. Verify health check succeeds and detects models with mocked HTTP 200."""
+    async def _run():
+        dummy_key = "test_cloud_api_key_sample"
+        monkeypatch.setattr(settings, "OLLAMA_API_KEY", dummy_key)
+        monkeypatch.setattr(ollama_service, "selected_model", "llama3")
+
+        mock_resp = MagicMock()
+        mock_resp.status_code = 200
+        mock_resp.json.return_value = {
+            "models": [{"name": "llama3:latest"}, {"name": "phi3:latest"}]
+        }
+
+        captured_headers = {}
+
+        async def mock_get(url, *args, **kwargs):
+            nonlocal captured_headers
+            captured_headers = kwargs.get("headers", {})
+            return mock_resp
+
+        with patch("httpx.AsyncClient.get", new=mock_get):
+            health = await ollama_service.check_health()
+            assert health["status"] == "online"
+            assert health["lifecycle_state"] == "AI READY"
+            assert health["status_code"] == "ready"
+            assert health["status_dot"] == "🟢"
+            assert captured_headers.get("Authorization") == f"Bearer {dummy_key}"
+
+    asyncio.run(_run())
+
+
+def test_ollama_failure_returns_deterministic_fallback(monkeypatch):
+    """D. Verify connection failure returns deterministic fallback and AI OFFLINE lifecycle state."""
+    async def _run():
+        monkeypatch.setattr(settings, "OLLAMA_API_KEY", "")
+        with patch("httpx.AsyncClient.get", side_effect=httpx.ConnectError("Connection refused")):
+            health = await ollama_service.check_health()
+            assert health["status"] == "offline"
+            assert health["lifecycle_state"] == "AI OFFLINE"
+            assert health["status_code"] == "offline"
+            assert health["status_dot"] == "🔴"
+            assert "deterministic rule mode" in health["message"]
+
+    asyncio.run(_run())
+
+
+def test_api_key_never_exposed_in_status_or_errors(monkeypatch):
+    """E. Verify API key is strictly excluded from status payload, messages, and masked from output."""
+    async def _run():
+        dummy_secret = "super_secret_test_ollama_token_98765"
+        monkeypatch.setattr(settings, "OLLAMA_API_KEY", dummy_secret)
+
+        # 1. Check health check status payload
+        mock_resp = MagicMock()
+        mock_resp.status_code = 200
+        mock_resp.json.return_value = {"models": [{"name": "llama3:latest"}]}
+
+        with patch("httpx.AsyncClient.get", return_value=mock_resp):
+            health = await ollama_service.check_health()
+            for k, v in health.items():
+                assert dummy_secret not in str(v), f"Secret exposed in health field '{k}'"
+
+        # 2. Check offline error response
+        with patch("httpx.AsyncClient.get", side_effect=httpx.ConnectError("Connection refused")):
+            offline_health = await ollama_service.check_health()
+            for k, v in offline_health.items():
+                assert dummy_secret not in str(v), f"Secret exposed in offline field '{k}'"
+
+        # 3. Check sensitive data masking helper
+        sample_text = f"Ollama cloud returned auth Bearer {dummy_secret}"
+        masked = ollama_service.mask_sensitive_data(sample_text)
+        assert dummy_secret not in masked
+        assert "[MASKED_BEARER_TOKEN]" in masked
+
+    asyncio.run(_run())

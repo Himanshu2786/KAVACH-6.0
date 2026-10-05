@@ -2,7 +2,7 @@
 
 **System**: KAVACH 6.0 Sovereign Security & Cyber Intelligence Platform  
 **Target Application**: World Monitor Situational Intelligence Application  
-**SIH Problem Statement**: 26163  
+**SIH Problem Statement**: Enterprise VAPT  
 **Complete End-User Manual**: See [INFO/USER_MANUAL.md](USER_MANUAL.md) for the 25-chapter operator manual and demonstration index.
 
 ---
@@ -24,7 +24,7 @@ High-definition (1280x720) demonstration recordings are available in `docs/user_
 2. `url_check.mp4` — Instant Standalone HTTP & TLS Security Audit
 3. `ai_ready.mp4` — Local Ollama Lifecycle & Sensitive Regex Masking
 4. `assess_target.mp4` — 17-Step Autonomous Assessment Pipeline
-5. `world_monitor.mp4` — World Monitor Dual-Mode Target Audit (PS 26163)
+5. `world_monitor.mp4` — World Monitor Dual-Mode Target Audit (Enterprise VAPT)
 6. `local_posture.mp4` — Portable USB Zero-Collection Host Scanner
 7. `finding.mp4` — Finding Structure, CWE/OWASP Mapping, and Triage
 8. `evidence.mp4` — Bitwise SHA-256 Hashes and Terminal Commands
@@ -35,7 +35,7 @@ High-definition (1280x720) demonstration recordings are available in `docs/user_
 13. `user_manual.mp4` — End-User Manual & Interactive Video Player
 14. `report_generation.mp4` — Standalone HTML Dossier & JSON Manifest
 15. `retest.mp4` — BEFORE vs AFTER Differential State Verification
-16. `full_sih_demo.mp4` — Full 17-Step SIH Problem Statement 26163 Demo
+16. `full_enterprise_demo.mp4` — Full 17-Step Enterprise Security Audit Standard Demo
 
 ---
 
@@ -46,7 +46,7 @@ High-definition (1280x720) demonstration recordings are available in `docs/user_
 - **Output**: Real response headers, TLS handshake details, and identified misconfigurations with SHA-256 evidence.
 
 ### 2. World Monitor Assessment
-- **Purpose**: Deep security assessment of the World Monitor application across all 7 SIH categories:
+- **Purpose**: Deep security assessment of the World Monitor application across all 7 security categories:
   1. Authentication (JWT algorithms, session tokens)
   2. Authorization & Access Control (IDOR, role escalation)
   3. Input Validation & Data Handling (SQLi, XSS fuzzing)
@@ -83,14 +83,14 @@ High-definition (1280x720) demonstration recordings are available in `docs/user_
 
 ---
 
-## 4. SIH PS 26163 Demonstration Quick Start
+## 4. KAVACH Enterprise Demonstration Quick Start
 
 ```bash
 # 1. Full-stack development launch (FastAPI + React 19)
 "START KAVACH 1.0 .bat"
 
 # 2. Automated clean-state SIH demonstration execution
-python scripts/run_sih_demo.py
+python scripts/run_enterprise_demo.py
 
 # 3. Comprehensive automated test suite
 TEST_KAVACH.bat

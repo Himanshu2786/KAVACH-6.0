@@ -4,6 +4,7 @@ from backend.app.core.time import ist_isoformat, ist_formatted
 from sqlalchemy.orm import Session
 from backend.app.models.models import Assessment, Finding, EvidenceRecord, DiscoveryItem, KnowledgeRecord, AuditEvent, User
 from backend.app.services.evidence_service import evidence_service
+from backend.app.services.discovery_service import discovery_service
 from backend.app.core.security import hash_password, verify_password
 
 def seed_team_users(db: Session):
@@ -293,7 +294,7 @@ def seed_database(db: Session):
     # Seed Discovery items for demo assessment
     discovery_service.seed_demo_discovery(db, demo_asm_id)
 
-    # Seed Demo Findings covering all 7 SIH PS 26163 Categories
+    # Seed Demo Findings covering all 7 KAVACH Enterprise Categories
     demo_findings = [
         {
             "id": "KAV-2026-001",
@@ -660,4 +661,4 @@ def seed_database(db: Session):
             evidence_nature="DEMO DATA"
         )
 
-    print("KAVACH demo scenario ('World Monitor Application') seeded successfully with 7 SIH categories.")
+    print("KAVACH demo scenario ('World Monitor Application') seeded successfully with 7 security categories.")

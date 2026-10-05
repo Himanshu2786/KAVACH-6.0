@@ -4,7 +4,7 @@
 > **Documentation Status:** CURRENT (IMPLEMENTED + VERIFIED)  
 > **Last Updated:** 2026-09-23  
 > **Platform Tagline:** *"AI Hypothesizes. Evidence Confirms."*  
-> **Alignment:** Smart India Hackathon (SIH) 2026 — PS 26163 (Reusable Defensive Security Assessment Platform & World Monitor Target Demonstration)  
+> **Standard:** KAVACH Enterprise VAPT (Reusable Defensive Security Assessment Platform & World Monitor Target Demonstration)  
 
 ---
 
@@ -18,16 +18,16 @@ Unlike conventional scanners that generate speculative, ungrounded alerts or clo
 
 ## 2. Key Master Documents
 
-- 📘 **[KAVACH_DEVELOPER_DOCUMENTATION.md](file:///c:/Users/Himanshu%20Raj/OneDrive/Desktop/KHAALI%20KAVACH/KAVACH%206.0/KAVACH_DEVELOPER_DOCUMENTATION.md)**: Master technical manual covering all 40 subsystems with dual Simple & Technical explanations.
-- 🌐 **[TEAM_WEB_GUIDE.md](file:///c:/Users/Himanshu%20Raj/OneDrive/Desktop/KHAALI%20KAVACH/KAVACH%206.0/TEAM_WEB_GUIDE.md)**: Master beginner-friendly + technical guide for team browser deployment, authentication, and usage.
-- 👥 **[TEAM_ACCOUNT_SYSTEM.md](file:///c:/Users/Himanshu%20Raj/OneDrive/Desktop/KHAALI%20KAVACH/KAVACH%206.0/TEAM_ACCOUNT_SYSTEM.md)**: Complete guide to USER ID/password authentication, PBKDF2 hashing, and RBAC.
-- 📈 **[TEAM_ACTIVITY_TRACKING.md](file:///c:/Users/Himanshu%20Raj/OneDrive/Desktop/KHAALI%20KAVACH/KAVACH%206.0/TEAM_ACTIVITY_TRACKING.md)**: Deterministic event logging, privacy boundaries, and owner analytics.
-- 🔒 **[PERMISSION_SYSTEM.md](file:///c:/Users/Himanshu%20Raj/OneDrive/Desktop/KHAALI%20KAVACH/KAVACH%206.0/PERMISSION_SYSTEM.md)**: Point-of-use permission prompting, denial handling, and host boundary constraints.
-- 🚀 **[TEAM_WEB_DEPLOYMENT.md](file:///c:/Users/Himanshu%20Raj/OneDrive/Desktop/KHAALI%20KAVACH/KAVACH%206.0/TEAM_WEB_DEPLOYMENT.md)**: Production architecture, Nginx config, HTTPS, and multi-user scaling.
-- 📋 **[TEAM_WEB_IMPLEMENTATION_REPORT.md](file:///c:/Users/Himanshu%20Raj/OneDrive/Desktop/KHAALI%20KAVACH/KAVACH%206.0/TEAM_WEB_IMPLEMENTATION_REPORT.md)**: Formal verification report and 20-point architectural breakdown.
-- 🛠️ **[CHALLENGES_TO_SOLUTIONS.md](file:///c:/Users/Himanshu%20Raj/OneDrive/Desktop/KHAALI%20KAVACH/KAVACH%206.0/CHALLENGES_TO_SOLUTIONS.md)**: 32 engineering challenges solved during development and QA using standardized case-study templates.
-- 📊 **[INFO/FINAL_WORKING_STATUS.md](file:///c:/Users/Himanshu%20Raj/OneDrive/Desktop/KHAALI%20KAVACH/KAVACH%206.0/INFO/FINAL_WORKING_STATUS.md)**: Verified A018 assessment state, completed QA fixes, and SIH demo readiness.
-- 📋 **[INFO/PS_26163_COMPLIANCE.md](file:///c:/Users/Himanshu%20Raj/OneDrive/Desktop/KHAALI%20KAVACH/KAVACH%206.0/INFO/PS_26163_COMPLIANCE.md)**: Requirement-by-requirement SIH PS 26163 compliance verification matrix.
+- 📘 **[KAVACH_DEVELOPER_DOCUMENTATION.md](file:///c:/Users/Himanshu%20Raj/OneDrive/Desktop/KHAALI%20KAVACH/KAVACH%206.0/docs/KAVACH_DEVELOPER_DOCUMENTATION.md)**: Master technical manual covering all 40 subsystems with dual Simple & Technical explanations.
+- 🌐 **[TEAM_WEB_GUIDE.md](file:///c:/Users/Himanshu%20Raj/OneDrive/Desktop/KHAALI%20KAVACH/KAVACH%206.0/docs/TEAM_WEB_GUIDE.md)**: Master beginner-friendly + technical guide for team browser deployment, authentication, and usage.
+- 👥 **[TEAM_ACCOUNT_SYSTEM.md](file:///c:/Users/Himanshu%20Raj/OneDrive/Desktop/KHAALI%20KAVACH/KAVACH%206.0/docs/TEAM_ACCOUNT_SYSTEM.md)**: Complete guide to USER ID/password authentication, PBKDF2 hashing, and RBAC.
+- 📈 **[TEAM_ACTIVITY_TRACKING.md](file:///c:/Users/Himanshu%20Raj/OneDrive/Desktop/KHAALI%20KAVACH/KAVACH%206.0/docs/TEAM_ACTIVITY_TRACKING.md)**: Deterministic event logging, privacy boundaries, and owner analytics.
+- 🔒 **[PERMISSION_SYSTEM.md](file:///c:/Users/Himanshu%20Raj/OneDrive/Desktop/KHAALI%20KAVACH/KAVACH%206.0/docs/PERMISSION_SYSTEM.md)**: Point-of-use permission prompting, denial handling, and host boundary constraints.
+- 🚀 **[TEAM_WEB_DEPLOYMENT.md](file:///c:/Users/Himanshu%20Raj/OneDrive/Desktop/KHAALI%20KAVACH/KAVACH%206.0/docs/TEAM_WEB_DEPLOYMENT.md)**: Production architecture, Nginx config, HTTPS, and multi-user scaling.
+- 📋 **[TEAM_WEB_IMPLEMENTATION_REPORT.md](file:///c:/Users/Himanshu%20Raj/OneDrive/Desktop/KHAALI%20KAVACH/KAVACH%206.0/docs/TEAM_WEB_IMPLEMENTATION_REPORT.md)**: Formal verification report and 20-point architectural breakdown.
+- 🛠️ **[CHALLENGES_TO_SOLUTIONS.md](file:///c:/Users/Himanshu%20Raj/OneDrive/Desktop/KHAALI%20KAVACH/KAVACH%206.0/docs/CHALLENGES_TO_SOLUTIONS.md)**: 32 engineering challenges solved during development and QA using standardized case-study templates.
+- 📊 **[INFO/FINAL_WORKING_STATUS.md](file:///c:/Users/Himanshu%20Raj/OneDrive/Desktop/KHAALI%20KAVACH/KAVACH%206.0/INFO/FINAL_WORKING_STATUS.md)**: Verified A018 assessment state, completed QA fixes, and enterprise demo readiness.
+- 📋 **[INFO/ENTERPRISE_COMPLIANCE.md](file:///c:/Users/Himanshu%20Raj/OneDrive/Desktop/KHAALI%20KAVACH/KAVACH%206.0/INFO/ENTERPRISE_COMPLIANCE.md)**: Requirement-by-requirement Enterprise VAPT compliance verification matrix.
 
 ---
 
@@ -38,8 +38,8 @@ Launch KAVACH instantly on Windows:
 ```
 📁 KAVACH 6.0\
  ├── 🚀 "START KAVACH 1.0 .bat"   <-- Double-click to launch the Full-Stack Workstation (FastAPI Backend + React Web UI)
- ├── ⚙️ "START KAVACH 2.0 .bat"   <-- Dev launcher with environment initialization
- └── 🧪 "TEST_KAVACH.bat"         <-- Run automated test suites
+ ├── ⚙️ "START KAVACH 2.0 .bat"   <-- Dev launcher with environment initialization (scripts/START KAVACH 2.0 .bat)
+ └── 🧪 "TEST_KAVACH.bat"         <-- Run automated test suites (or scripts/TEST_KAVACH.bat)
 ```
 
 Default Web Dashboard: **`http://localhost:5173`**  
@@ -62,7 +62,7 @@ Default test credentials:
 - Developer/Owner: `ADMIN001` / `Admin@Kavach2026!`
 - Team Members: `TEAM001` through `TEAM010` / `Team@Kavach2026!`
 
-See [TEAM_WEB_GUIDE.md](file:///c:/Users/Himanshu%20Raj/OneDrive/Desktop/KHAALI%20KAVACH/KAVACH%206.0/TEAM_WEB_GUIDE.md) for full setup instructions.
+See [TEAM_WEB_GUIDE.md](file:///c:/Users/Himanshu%20Raj/OneDrive/Desktop/KHAALI%20KAVACH/KAVACH%206.0/docs/TEAM_WEB_GUIDE.md) for full setup instructions.
 
 ---
 

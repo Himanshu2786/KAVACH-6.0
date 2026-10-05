@@ -1,0 +1,51 @@
+# ==============================================================================
+# KAVACH 6.0 — Production Backend Dockerfile
+# Python 3.11 Slim with Fast API, Uvicorn, and PostgreSQL support
+# ==============================================================================
+
+FROM python:3.11-slim as base
+
+# Set environment variables
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PYTHONPATH=/app \
+    APP_ENV=production \
+    DEBUG=false
+
+WORKDIR /app
+
+# Install system dependencies for cryptography and network probing
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    libpq-dev \
+    curl \
+    iputils-ping \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install Python requirements
+COPY backend/requirements.txt /app/backend/requirements.txt
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir -r /app/backend/requirements.txt
+
+# Copy backend source code and necessary support modules
+COPY backend /app/backend
+COPY core /app/core
+COPY services /app/services
+COPY app /app/app
+COPY demo /app/demo
+
+# Create non-root user for container security hardening
+RUN useradd -m -u 1000 kavach && \
+    chown -R kavach:kavach /app
+
+USER kavach
+
+# Expose internal backend port (not directly exposed to public internet)
+EXPOSE 8000
+
+# Health check against local API health endpoint
+HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
+    CMD curl -f http://127.0.0.1:8000/api/health || exit 1
+
+# Production Uvicorn command with trusted proxy headers
+CMD ["uvicorn", "backend.app.main:app", "--host", "0.0.0.0", "--port", "8000", "--proxy-headers", "--forwarded-allow-ips=*", "--workers", "1"]

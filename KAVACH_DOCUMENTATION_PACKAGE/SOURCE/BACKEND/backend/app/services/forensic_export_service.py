@@ -4,7 +4,7 @@ Builds comprehensive, self-contained, reproducible forensic audit packages.
 
 Mandatory Contents:
 1. assessment_metadata
-2. target & scope (7 SIH categories)
+2. target & scope (7 security categories)
 3. tests (executed probes & verification commands)
 4. findings (with 5-point judge traceability)
 5. evidence (technical raw data & SHA-256 hashes)
@@ -120,7 +120,7 @@ class ForensicExportService:
             "started_at": created_at,
             "exported_at": now_str,
             "exported_by": actor,
-            "reproducibility_standard": "SIH PS 26163 / ISO-17025 Digital Forensics"
+            "reproducibility_standard": "KAVACH Enterprise / ISO-17025 Digital Forensics"
         }
 
         # Section B: Target & Scope
@@ -486,7 +486,7 @@ class ForensicExportService:
     <div class="header">
         <div>
             <h1>🛡️ KAVACH 6.0 — Forensic Assessment & Reproducibility Package</h1>
-            <div class="subtitle">Sovereign Evidence Intelligence & Tamper-Evident Forensic Dossier (SIH PS 26163)</div>
+            <div class="subtitle">Sovereign Evidence Intelligence & Tamper-Evident Forensic Dossier (KAVACH Enterprise)</div>
         </div>
         <div style="text-align: right;">
             <div class="badge" style="background:#10b981; color:#fff;">INTEGRITY VERIFIED</div>

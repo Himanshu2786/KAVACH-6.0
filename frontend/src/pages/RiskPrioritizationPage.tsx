@@ -128,45 +128,49 @@ export const RiskPrioritizationPage: React.FC = () => {
               {isExpanded && (
                 <div className="mt-4 pt-4 border-t border-slate-800/80 space-y-4 animate-fadeIn font-mono-code text-xs">
                   {/* Summary Statement */}
-                  <div className="p-3 rounded-lg bg-slate-900/90 border border-cyan-500/20 text-cyan-300">
-                    <strong className="block text-slate-200 uppercase mb-0.5">WHY THIS IS PRIORITIZED:</strong>
-                    {item.explanation.summary_statement}
-                  </div>
+                  {item.explanation?.summary_statement && (
+                    <div className="p-3 rounded-lg bg-slate-900/90 border border-cyan-500/20 text-cyan-300">
+                      <strong className="block text-slate-200 uppercase mb-0.5">WHY THIS IS PRIORITIZED:</strong>
+                      {item.explanation.summary_statement}
+                    </div>
+                  )}
 
                   {/* Factor Matrix */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                    <div className="p-3 rounded-lg bg-slate-900/60 border border-slate-800">
-                      <div className="flex items-center justify-between mb-1">
-                        <span className="text-slate-400 font-bold uppercase">Base Severity (30%)</span>
-                        <span className="text-cyan-400 font-bold">{item.explanation.base_severity.score}/10</span>
+                  {item.explanation && (
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                      <div className="p-3 rounded-lg bg-slate-900/60 border border-slate-800">
+                        <div className="flex items-center justify-between mb-1">
+                          <span className="text-slate-400 font-bold uppercase">Base Severity (30%)</span>
+                          <span className="text-cyan-400 font-bold">{item.explanation.base_severity?.score ?? 0}/10</span>
+                        </div>
+                        <p className="text-slate-300 text-[11px]">{item.explanation.base_severity?.rationale || 'N/A'}</p>
                       </div>
-                      <p className="text-slate-300 text-[11px]">{item.explanation.base_severity.rationale}</p>
-                    </div>
 
-                    <div className="p-3 rounded-lg bg-slate-900/60 border border-slate-800">
-                      <div className="flex items-center justify-between mb-1">
-                        <span className="text-slate-400 font-bold uppercase">Component Criticality (25%)</span>
-                        <span className="text-cyan-400 font-bold">{item.explanation.component_criticality.score}/10</span>
+                      <div className="p-3 rounded-lg bg-slate-900/60 border border-slate-800">
+                        <div className="flex items-center justify-between mb-1">
+                          <span className="text-slate-400 font-bold uppercase">Component Criticality (25%)</span>
+                          <span className="text-cyan-400 font-bold">{item.explanation.component_criticality?.score ?? 0}/10</span>
+                        </div>
+                        <p className="text-slate-300 text-[11px]">{item.explanation.component_criticality?.rationale || 'N/A'}</p>
                       </div>
-                      <p className="text-slate-300 text-[11px]">{item.explanation.component_criticality.rationale}</p>
-                    </div>
 
-                    <div className="p-3 rounded-lg bg-slate-900/60 border border-slate-800">
-                      <div className="flex items-center justify-between mb-1">
-                        <span className="text-slate-400 font-bold uppercase">Data Sensitivity (20%)</span>
-                        <span className="text-cyan-400 font-bold">{item.explanation.data_sensitivity.score}/10</span>
+                      <div className="p-3 rounded-lg bg-slate-900/60 border border-slate-800">
+                        <div className="flex items-center justify-between mb-1">
+                          <span className="text-slate-400 font-bold uppercase">Data Sensitivity (20%)</span>
+                          <span className="text-cyan-400 font-bold">{item.explanation.data_sensitivity?.score ?? 0}/10</span>
+                        </div>
+                        <p className="text-slate-300 text-[11px]">{item.explanation.data_sensitivity?.rationale || 'N/A'}</p>
                       </div>
-                      <p className="text-slate-300 text-[11px]">{item.explanation.data_sensitivity.rationale}</p>
-                    </div>
 
-                    <div className="p-3 rounded-lg bg-slate-900/60 border border-slate-800">
-                      <div className="flex items-center justify-between mb-1">
-                        <span className="text-slate-400 font-bold uppercase">Evidence Strength (15%)</span>
-                        <span className="text-emerald-400 font-bold">{item.explanation.evidence_strength.score}/10</span>
+                      <div className="p-3 rounded-lg bg-slate-900/60 border border-slate-800">
+                        <div className="flex items-center justify-between mb-1">
+                          <span className="text-slate-400 font-bold uppercase">Evidence Strength (15%)</span>
+                          <span className="text-emerald-400 font-bold">{item.explanation.evidence_strength?.score ?? 0}/10</span>
+                        </div>
+                        <p className="text-slate-300 text-[11px]">{item.explanation.evidence_strength?.rationale || 'N/A'}</p>
                       </div>
-                      <p className="text-slate-300 text-[11px]">{item.explanation.evidence_strength.rationale}</p>
                     </div>
-                  </div>
+                  )}
 
                   <div className="flex items-center justify-end space-x-3 pt-2">
                     <button

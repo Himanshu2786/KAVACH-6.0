@@ -15,7 +15,7 @@
 6. [Web Application Architecture (React 19 + Vite)](#6-web-application)
 7. [Desktop Application Architecture (PySide6 / PyInstaller)](#7-desktop-application)
 8. [World Monitor Integration (Target Application)](#8-world-monitor-integration)
-9. [SIH Requirement Mapping (Problem Statement 26163)](#9-sih-requirement-mapping)
+9. [SIH Requirement Mapping (Problem Statement Enterprise VAPT)](#9-sih-requirement-mapping)
 10. [Assessment Engine Lifecycle & Pipeline](#10-assessment-engine)
 11. [Security Checks & Detection Rules](#11-security-checks)
 12. [Finding Data Model & Anti-Fabrication Controls](#12-finding-model)
@@ -51,8 +51,8 @@
 - **Project Name:** KAVACH 6.0 (Sovereign Security Intelligence Platform)
 - **Version:** 5.0.0 (Internal references align with KAVACH 6.0 schema)
 - **Primary Purpose:** Offline-first, autonomous, deterministic cybersecurity vulnerability assessment and continuous posture validation platform designed for modern web applications and critical national digital infrastructure.
-- **SIH Problem Statement:** Smart India Hackathon (SIH) Problem Statement **PS 26163** — *"AI-based Cyber Security Assessment Tool / Framework for Web Applications"*.
-- **Problem Statement Number:** `PS 26163` (Theme: Cyber Security, Category: Software)
+- **SIH Problem Statement:** KAVACH Enterprise VAPT Benchmark — *"AI-based Cyber Security Assessment Tool / Framework for Web Applications"*.
+- **Problem Statement Number:** `Enterprise VAPT` (Theme: Cyber Security, Category: Software)
 - **Target Application:** **World Monitor** (`https://www.worldmonitor.app` / Source repository: `https://github.com/koala73/worldmonitor`).
 - **Intended Users:**
   1. *National Security & Defence Cyber Teams* (Air-gapped assessments, zero external telemetry).
@@ -157,7 +157,7 @@ KAVACH 6.0/
 │   ├── KAVACH_WEBSITE_AUDIT.md                   # Target application audit results
 │   ├── LIMITATIONS.md                            # Known limitations and technical debt
 │   ├── PERMISSIONS_GUIDE.md                      # Zero-collection permission boundaries
-│   ├── PS_26163_COMPLIANCE.md                    # SIH PS 26163 compliance matrix
+│   ├── ENTERPRISE_COMPLIANCE.md                    # KAVACH Enterprise compliance matrix
 │   ├── TEST_CENTER_REAL_DETECTIONS.md            # Real detections reference guide
 │   ├── UI_CHANGELOG.md                           # UI evolution changelog
 │   ├── UI_UX_ARCHITECTURE.md                     # Design system & visual specifications
@@ -284,7 +284,7 @@ KAVACH 6.0/
 │       ├── test_priority6_forensics.py          # 8 Forensic export & dossier tests
 │       ├── test_priority7_ollama_analyst.py     # 8 AI analyst & truth hierarchy tests
 │       ├── test_rag.py                          # 7 Vector store & RAG grounding tests
-│       ├── test_sih_full_demonstration.py       # 3 Full 17-step SIH demonstration tests
+│       ├── test_enterprise_full_demonstration.py       # 3 Full 17-step SIH demonstration tests
 │       ├── test_three_real_detections.py        # 4 End-to-end real detection lifecycle tests
 │       ├── test_web_desktop_parity.py           # 6 Web vs Desktop database parity tests
 │       ├── test_world_monitor_assessment.py     # 21 CVSS 3.1 & World Monitor assessment tests
@@ -399,14 +399,14 @@ KAVACH 6.0/
 │   ├── kavach.spec                              # PyInstaller spec for portable edition
 │   └── kavach_portable.py                       # Standalone launcher auto-opening browser
 ├── reports/                                     # Generated Forensic Reports & Dossiers
-│   ├── SIH_FORENSIC_DOSSIER_*.html              # Standalone interactive HTML dossiers
-│   └── SIH_FORENSIC_PACKAGE_*.json              # Complete JSON forensic packages
+│   ├── KAVACH_FORENSIC_DOSSIER_*.html              # Standalone interactive HTML dossiers
+│   └── KAVACH_FORENSIC_PACKAGE_*.json              # Complete JSON forensic packages
 ├── requirements.txt                             # Desktop Root Python Requirements
 ├── run_tests.bat                                # Quick batch script to run tests
 ├── scratch/                                     # Temporary scripts & inspection artifacts
 ├── scripts/                                     # Automation & Demo Scripts
 │   ├── launch_kavach.py                         # Master launcher (backend + frontend/desktop)
-│   └── run_sih_demo.py                          # 17-step SIH demonstration runner script
+│   └── run_enterprise_demo.py                          # 17-step SIH demonstration runner script
 ├── services/                                    # Shared Service Layer for Desktop
 │   ├── __init__.py                              # Module init
 │   ├── location_service.py                      # Network geolocation lookup
@@ -476,7 +476,7 @@ KAVACH 6.0/
 | `frontend/src/context/AppContext.tsx` | Centralized React state management (Assessments, Findings, Active Filters, System Status) | TypeScript | CRITICAL | [IMPLEMENTED] [TESTED] |
 | `frontend/src/services/api.ts` | Complete TypeScript Axios/Fetch client implementing all 61 backend API endpoints | TypeScript | CRITICAL | [IMPLEMENTED] [TESTED] |
 | `scripts/launch_kavach.py` | Intelligent process manager, dependency verifier, database checker, server launcher | Python | HIGH | [IMPLEMENTED] [TESTED] |
-| `scripts/run_sih_demo.py` | Automated 17-step SIH demonstration runner executing clean-state evaluation pipeline | Python | HIGH | [IMPLEMENTED] [TESTED] |
+| `scripts/run_enterprise_demo.py` | Automated 17-step SIH demonstration runner executing clean-state evaluation pipeline | Python | HIGH | [IMPLEMENTED] [TESTED] |
 
 ---
 
@@ -575,7 +575,7 @@ graph TD
 ### Major UI Action Buttons & API Endpoints
 | Button / UI Control | Frontend File | Function | Backend API Endpoint | Output / Effect | Status |
 |:---|:---|:---|:---|:---|:---|
-| **Run SIH Demo** | `DemoJourneyBar.tsx` | `handleRunDemo()` | `POST /api/assessments/world-monitor` | Executes 17-step assessment & loads results | [IMPLEMENTED] [TESTED] |
+| **Run Enterprise Demo** | `DemoJourneyBar.tsx` | `handleRunDemo()` | `POST /api/assessments/world-monitor` | Executes 17-step assessment & loads results | [IMPLEMENTED] [TESTED] |
 | **Start Assessment** | `NewAssessmentPage.tsx` | `createAssessment()` | `POST /api/assessments` | Initializes assessment & advances to Discovery | [IMPLEMENTED] [TESTED] |
 | **Scan URL** | `UrlSecurityCheckPage.tsx` | `runScan()` | `POST /api/url-check/scan` | Runs live HTTP/TLS audit on target URL | [IMPLEMENTED] [TESTED] |
 | **Execute Probe** | `EvidenceValidationPage.tsx` | `runProbe()` | `POST /api/evidence/probe` | Runs safe live HTTP probe against endpoint | [IMPLEMENTED] [TESTED] |
@@ -636,7 +636,7 @@ graph TD
 
 # 9. SIH REQUIREMENT MAPPING
 
-Mapping the KAVACH 6.0 implementation to Smart India Hackathon **PS 26163**:
+Mapping the KAVACH 6.0 implementation to Enterprise Security Audit **Enterprise VAPT**:
 
 | SIH Requirement / Mandatory Category | KAVACH Component | Primary File(s) | Implemented? | Tested? | Evidence Mechanism |
 |:---|:---|:---|:---|:---|:---|
@@ -697,7 +697,7 @@ KAVACH 6.0 executes a **17-Step Verifiable Assessment Pipeline**:
 17. REPORT & DOSSIER EXPORT (Self-Contained HTML Dossier & JSON Manifest)
 ```
 
-- **Orchestration Source Files:** `backend/app/services/world_monitor_assessment_engine.py:WorldMonitorAssessmentEngine.run_assessment()`, `scripts/run_sih_demo.py:run_full_sih_demo()`.
+- **Orchestration Source Files:** `backend/app/services/world_monitor_assessment_engine.py:WorldMonitorAssessmentEngine.run_assessment()`, `scripts/run_enterprise_demo.py:run_full_enterprise_demo()`.
 
 ---
 
@@ -1011,7 +1011,7 @@ Before any finding data or context is sent to Ollama, it passes through `ollama_
 | `test_priority6_forensics.py` | 8 | PASSED | Secret redaction, forensic package, HTML dossier generation |
 | `test_priority7_ollama_analyst.py`| 8 | PASSED | Truth hierarchy, unconfirmed finding guard, 5-point explanation |
 | `test_rag.py` | 7 | PASSED | Vector indexing, cosine similarity, semantic search ranking |
-| `test_sih_full_demonstration.py` | 3 | PASSED | Full 17-step SIH demonstration, repeatability, hash integrity |
+| `test_enterprise_full_demonstration.py` | 3 | PASSED | Full 17-step SIH demonstration, repeatability, hash integrity |
 | `test_three_real_detections.py` | 4 | PASSED | Web security, network exposure, suspicious file detections |
 | `test_web_desktop_parity.py` | 6 | PASSED | Web vs Desktop database identity, finding & audit parity |
 | `test_world_monitor_assessment.py`| 21 | PASSED | CVSS 3.1 vectors, finding-evidence linking, safe PoC |
@@ -1090,7 +1090,7 @@ Before any finding data or context is sent to Ollama, it passes through `ollama_
 # 26. CURRENT READINESS
 
 - **Engineering Readiness:** **100% COMPLETE**. 61 REST APIs, 8 database models, dual frontends (Qt + React), 104 passing pytest tests.
-- **SIH Presentation Readiness:** **100% COMPLETE**. 1-click SIH Demo journey bar (`scripts/run_sih_demo.py`), pre-seeded real World Monitor findings, pre-generated HTML forensic dossiers.
+- **SIH Presentation Readiness:** **100% COMPLETE**. 1-click Enterprise Demo journey bar (`scripts/run_enterprise_demo.py`), pre-seeded real World Monitor findings, pre-generated HTML forensic dossiers.
 - **Real World Monitor Validation Readiness:** **100% COMPLETE**. Live HTTP probes testable against `https://www.worldmonitor.app` across all 7 SIH scope categories.
 - **Demo Readiness:** **100% COMPLETE**. Ready for offline air-gapped USB evaluation or local live presentation.
 
@@ -1114,11 +1114,11 @@ Before any finding data or context is sent to Ollama, it passes through `ollama_
 # 28. NEXT STEP FOR CHATGPT
 
 >>> NEXT STEP FOR CHATGPT
-Maintain and execute the existing KAVACH 6.0 codebase for the Smart India Hackathon (SIH PS 26163) presentation without making structural modifications or starting KAVACH 6.0.
+Maintain and execute the existing KAVACH 6.0 codebase for the KAVACH Enterprise VAPT presentation without making structural modifications or starting KAVACH 6.0.
 
 - **WHY:** KAVACH 6.0 is in a 100% functional, fully-tested state with all 104 backend pytest tests, 8 scanner tests, and 14 desktop GUI pages passing. The dual-client architecture (Web + Desktop) and SIH 17-step assessment demonstration are completely operational.
-- **WHAT FILES:** Focus on `scripts/run_sih_demo.py`, `scripts/launch_kavach.py`, and `INFO/DEMO_GUIDE.md`.
-- **WHAT TO VERIFY:** Execute `python scripts/run_sih_demo.py` or run `TEST_KAVACH.bat` to verify clean-state execution before any live demonstration.
+- **WHAT FILES:** Focus on `scripts/run_enterprise_demo.py`, `scripts/launch_kavach.py`, and `INFO/DEMO_GUIDE.md`.
+- **WHAT TO VERIFY:** Execute `python scripts/run_enterprise_demo.py` or run `TEST_KAVACH.bat` to verify clean-state execution before any live demonstration.
 - **EXPECTED RESULT:** 17-step assessment completes cleanly with 0 errors, generating a tamper-evident forensic dossier in `reports/`.
 
 ---
@@ -1135,7 +1135,7 @@ Maintain and execute the existing KAVACH 6.0 codebase for the Smart India Hackat
 8. Give exact file and function references when recommending changes.
 9. Before proposing large changes, inspect the existing architecture.
 10. Do not create KAVACH 6.0.
-11. Keep the SIH problem statement (PS 26163) as the primary scope.
+11. Keep the SIH problem statement (Enterprise VAPT) as the primary scope.
 12. Prioritize real assessment, evidence, validation, and remediation over UI decoration.
 13. Never claim a feature is verified merely because documentation says it is complete.
 
@@ -1179,7 +1179,7 @@ Frontend displays findings, evidence, risk matrix, and 3D globe visualization
 - **Run Full Automated Test Suite:** `pytest backend/tests -v`
 - **Run Standalone Scanner Tests:** `python test_scanner_suite.py`
 - **Run Desktop UI Smoke Test:** `python test_desktop_app.py`
-- **Execute 17-Step SIH Demo Pipeline:** `python scripts/run_sih_demo.py`
+- **Execute 17-Step Enterprise Demo Pipeline:** `python scripts/run_enterprise_demo.py`
 - **Build Standalone Desktop EXE:** `build_exe.bat`
 - **Build Portable USB Edition:** `build_portable.bat`
 

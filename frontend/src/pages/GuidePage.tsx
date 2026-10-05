@@ -61,7 +61,7 @@ export const GuidePage: React.FC = () => {
         'Unlike legacy vulnerability scanners that output ambiguous risk alerts without reproducible proof, KAVACH anchors every finding to immutable cryptographic evidence (SHA-256 network response captures).',
         'It combines deterministic security probing across 7 compliance areas with local offline LLM reasoning to explain root cause and recommend actionable fixes.'
       ],
-      technicalDetail: 'Engineered as the flagship benchmark solution for Smart India Hackathon Problem Statement 26163, auditing the World Monitor Situational Intelligence application.',
+      technicalDetail: 'Engineered as the flagship benchmark solution for Enterprise Security Audit standards, auditing the World Monitor Situational Intelligence application.',
       icon: Shield
     },
     {
@@ -186,7 +186,7 @@ export const GuidePage: React.FC = () => {
     {
       id: 'world-monitor',
       title: '05. World Monitor Assessment',
-      category: 'SIH PS 26163',
+      category: 'KAVACH Enterprise',
       duration: '1:00',
       videoFile: '/demos/05_world_monitor.mp4',
       thumbnail: '/images/05_world_monitor.png',
@@ -271,7 +271,7 @@ export const GuidePage: React.FC = () => {
       videoFile: '/demos/13_user_manual.mp4',
       thumbnail: '/images/13_user_manual.png',
       description: 'Operator manual, dual simple+technical explanations, and button catalog.',
-      keySteps: ['Browse 25 manual chapters', 'Inspect button catalog', 'Review SIH Quick Start']
+      keySteps: ['Browse 25 manual chapters', 'Inspect button catalog', 'Review Enterprise Quick Start']
     },
     {
       id: 'report-generation',
@@ -294,13 +294,13 @@ export const GuidePage: React.FC = () => {
       keySteps: ['Execute re-verification check', 'Compare side-by-side diff', 'Auto-update to RESOLVED']
     },
     {
-      id: 'full-sih-demo',
-      title: '16. Full SIH PS 26163 Demonstration',
-      category: 'SIH BENCHMARK',
+      id: 'full-enterprise-demo',
+      title: '16. Full Enterprise VAPT Demonstration',
+      category: 'ENTERPRISE BENCHMARK',
       duration: '1:30',
-      videoFile: '/demos/16_full_sih_demo.mp4',
-      thumbnail: '/images/16_full_sih_demo.png',
-      description: 'Complete 17-step end-to-end evaluation executing clean-state SIH benchmark.',
+      videoFile: '/demos/16_full_enterprise_demo.mp4',
+      thumbnail: '/images/16_full_enterprise_demo.png',
+      description: 'Complete 17-step end-to-end evaluation executing clean-state enterprise benchmark.',
       keySteps: ['Clean DB init', 'Run 17-step pipeline', 'Verify 0 errors', 'Output forensic package']
     }
   ];
@@ -328,7 +328,7 @@ export const GuidePage: React.FC = () => {
           KAVACH 6.0 Documentation & Demos
         </h1>
         <p className="text-sm text-neutral-400 max-w-2xl mx-auto leading-relaxed">
-          Comprehensive Operator Manual, Architectural Specifications, and 16 High-Definition Demonstration Recordings for Smart India Hackathon PS 26163.
+          Comprehensive Operator Manual, Architectural Specifications, and 16 High-Definition Demonstration Recordings for KAVACH Enterprise VAPT.
         </p>
 
         {/* Tab Switcher */}

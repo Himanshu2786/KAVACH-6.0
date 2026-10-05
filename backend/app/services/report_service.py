@@ -206,7 +206,8 @@ class ReportService:
                 "evidence": f_baseline_evds,
                 "retest_evidence": f_retest_evds,
                 "remediation": rem,
-                "re_verifications": retests
+                "re_verifications": retests,
+                "ai_provider": "ollama" if f.ai_analysis_status == "COMPLETED" else "fallback"
             })
 
 

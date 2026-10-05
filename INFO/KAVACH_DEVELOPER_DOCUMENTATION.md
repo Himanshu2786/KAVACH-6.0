@@ -40,7 +40,7 @@ Every subsystem, component, and feature in this documentation is labeled with it
 
 1. [Project Overview](#1-project-overview)
 2. [Problem Being Solved](#2-problem-being-solved)
-3. [SIH PS 26163 Alignment](#3-sih-ps-26163-alignment)
+3. [KAVACH Enterprise Alignment](#3-sih-ps-Enterprise VAPT-alignment)
 4. [Core Architecture](#4-core-architecture)
 5. [System Components](#5-system-components)
 6. [Frontend Architecture](#6-frontend-architecture)
@@ -112,10 +112,10 @@ Traditional scanners suffer from high false-positive rates, lack of cryptographi
 
 ---
 
-## 3. SIH PS 26163 Alignment
+## 3. KAVACH Enterprise Alignment
 
 ### Simple Explanation
-The Smart India Hackathon (SIH) Problem Statement 26163 challenges developers to build a reusable, sovereign cybersecurity testing tool that can automatically detect vulnerabilities, explain them, prioritize them, and verify fixes. KAVACH 6.0 is built specifically to satisfy all mandatory and optional requirements of PS 26163.
+The KAVACH Enterprise Security Problem Statement Enterprise VAPT challenges developers to build a reusable, sovereign cybersecurity testing tool that can automatically detect vulnerabilities, explain them, prioritize them, and verify fixes. KAVACH 6.0 is built specifically to satisfy all mandatory and optional requirements of Enterprise VAPT.
 
 ### Technical Alignment Matrix
 - **Status**: `IMPLEMENTED + VERIFIED ON AUTHORIZED WORLD MONITOR`

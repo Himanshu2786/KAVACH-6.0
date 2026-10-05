@@ -40,7 +40,7 @@ KAVACH 6.0 has completed a comprehensive QA cycle validating end-to-end function
 | Attribute | Verified Value | Ground-Truth Notes |
 | :--- | :--- | :--- |
 | **Assessment ID** | `KAVACH-WM-20260923-A018` | Primary authorized evaluation run |
-| **Target URL** | `https://www.worldmonitor.app` | Authorized target under SIH PS 26163 |
+| **Target URL** | `https://www.worldmonitor.app` | Authorized target under KAVACH Enterprise |
 | **Assessment Mode** | `HYBRID` | Live HTTP probes + local repository guard |
 | **Status / Stage / Progress** | `COMPLETED` / `REPORT` / `100%` | All 8 stages executed successfully |
 | **Verified Finding** | `WM-API-DOCS-A018` | Publicly Exposed Interactive API Schema & Documentation |
@@ -113,7 +113,7 @@ KAVACH 6.0 has completed a comprehensive QA cycle validating end-to-end function
 
 ---
 
-## H. SIH Demo Readiness
+## H. Enterprise Demo Readiness
 
 **Readiness Verdict**: **PRODUCTION READY FOR SIH DEMONSTRATION**
 

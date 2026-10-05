@@ -1,7 +1,7 @@
 """
 KAVACH 6.0 Desktop - World Monitor Page.
 Global Cyber Situational Awareness, live/demo threat feeds, and
-Real World Monitor Security Assessment (SIH Problem Statement 26163).
+Real World Monitor Security Assessment (Enterprise VAPT).
 Implements the FINDING → EVIDENCE → SAFE PoC assessment workflow.
 """
 
@@ -70,7 +70,7 @@ class WorldMonitorPage(QWidget):
         # Header
         top_row = QHBoxLayout()
         h_layout = QVBoxLayout()
-        h1 = QLabel("🌍 Global Cyber World Monitor & SIH PS 26163 Assessment")
+        h1 = QLabel("🌍 Global Cyber World Monitor & Enterprise VAPT Assessment")
         h1.setStyleSheet("font-size: 20px; font-weight: 800; color: #ffffff;")
         h_layout.addWidget(h1)
         
@@ -86,10 +86,10 @@ class WorldMonitorPage(QWidget):
         layout.addLayout(top_row)
 
         # ─────────────────────────────────────────────────────────────────────
-        # SECTION 1: REAL WORLD MONITOR SECURITY ASSESSMENT (SIH PS 26163)
+        # SECTION 1: REAL WORLD MONITOR SECURITY ASSESSMENT (ENTERPRISE VAPT)
         # ─────────────────────────────────────────────────────────────────────
         asm_card = GlassCard(
-            "World Monitor Security Assessment (SIH PS 26163)",
+            "World Monitor Security Assessment (Enterprise VAPT)",
             "Empirical non-destructive evaluation across live deployment & source repository",
             "🛡️"
         )
@@ -324,7 +324,7 @@ class WorldMonitorPage(QWidget):
         self.asm_output_layout.addWidget(hdr_card)
 
         # ─────────────────────────────────────────────────────────────────────
-        # 2. SIH 26163 DOMAIN VALIDATION COVERAGE MATRIX
+        # 2. DOMAIN VALIDATION COVERAGE MATRIX
         # ─────────────────────────────────────────────────────────────────────
         if coverage_matrix:
             cov_card = QFrame()
@@ -332,7 +332,7 @@ class WorldMonitorPage(QWidget):
             cov_layout = QVBoxLayout(cov_card)
             cov_layout.setSpacing(8)
 
-            cov_hdr = QLabel("📊 SIH Problem Statement 26163 — Domain Validation Coverage Matrix")
+            cov_hdr = QLabel("📊 Domain Validation Coverage Matrix")
             cov_hdr.setStyleSheet("font-size: 13px; font-weight: 800; color: #ffffff;")
             cov_layout.addWidget(cov_hdr)
 

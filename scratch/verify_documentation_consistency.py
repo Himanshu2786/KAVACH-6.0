@@ -18,7 +18,7 @@ docs_to_check = [
     root / "KAVACH_RAG_ARCHITECTURE.md",
     root / "INFO" / "FINAL_WORKING_STATUS.md",
     root / "INFO" / "LIMITATIONS.md",
-    root / "INFO" / "PS_26163_COMPLIANCE.md",
+    root / "INFO" / "ENTERPRISE_COMPLIANCE.md",
     root / "INFO" / "UI_CHANGELOG.md",
     root / "INFO" / "FEATURE_FILE_MAP.md",
     root / "INFO" / "ASSESSMENT_FLOW.md",

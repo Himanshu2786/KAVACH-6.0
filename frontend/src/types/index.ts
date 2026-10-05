@@ -218,6 +218,7 @@ export interface Finding {
   team_notes?: string;
   triage_status?: 'NEW' | 'ASSIGNED' | 'IN_PROGRESS' | 'RESOLVED' | 'FALSE_POSITIVE';
   evidence_records?: EvidenceRecord[];
+  ai_provider?: 'ollama' | 'fallback' | string;
 }
 
 export interface KnowledgeRecord {
@@ -523,6 +524,7 @@ export interface StructuredAiExplanation {
   retrieval_mode?: string;
   embedding_model?: string;
   retrieved_sources?: RagRetrievedSource[];
+  ai_provider?: 'ollama' | 'fallback' | string;
 }
 
 export interface RagRetrievedSource {
@@ -548,6 +550,7 @@ export interface RagResponse {
   answer: StructuredAiExplanation;
   model_used: string;
   execution_time_ms: number;
+  ai_provider?: 'ollama' | 'fallback' | string;
 }
 
 export interface RagIndexStatus {

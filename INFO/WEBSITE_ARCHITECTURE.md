@@ -62,7 +62,7 @@
    - High-impact Hero: *"Know What Is Wrong. Know Why. Verify It Yourself."*
    - Main CTA: Primary target input box with instant validation.
    - Interactive 9-Step Assessment Visual Flow.
-   - Features Grid & SIH Problem Statement 26163 alignment.
+   - Features Grid & Enterprise Security Audit Standard alignment.
 2. **Authorization Gate Modal**:
    - Triggered upon entering a target URL.
    - Requires explicit legal checkboxes: Ownership / Authorized Assessment Scope.

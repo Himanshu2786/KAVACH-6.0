@@ -120,9 +120,10 @@ def _serialize_finding(f: Finding) -> dict:
         "nvd_cvss": cve_prov["nvd_cvss"],
         "nvd_cvss_display": cve_prov["nvd_cvss_display"],
         "nvd_reference": cve_prov["nvd_reference"],
-        "created_at": f.created_at,
-        "updated_at": f.updated_at,
-        "evidence_records": evds
+        "created_at": f.created_at or "",
+        "updated_at": f.updated_at or "",
+        "evidence_records": evds,
+        "ai_provider": "ollama" if f.ai_analysis_status == "COMPLETED" else "fallback"
     }
 
 @router.get("", response_model=List[FindingResponse])
@@ -196,6 +197,7 @@ async def analyze_finding(finding_id: str, db: Session = Depends(get_db)):
     result = await ai_analysis_service.analyze_finding(db, finding)
     return {
         "success": True,
+        "ai_provider": result.get("ai_provider", "fallback"),
         "data": result,
         "updated_finding": _serialize_finding(finding)
     }

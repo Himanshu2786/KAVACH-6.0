@@ -179,7 +179,7 @@ const AppContent: React.FC = () => {
         </div>
       </main>
 
-      {/* Hackathon Demo Journey Bar — positioned with safe-area bottom offset */}
+      {/* Demo Journey Bar — positioned with safe-area bottom offset */}
       <div
         className="fixed right-3 z-40"
         style={{ bottom: "max(1rem, calc(0.5rem + env(safe-area-inset-bottom, 0px)))" }}
@@ -187,7 +187,7 @@ const AppContent: React.FC = () => {
         {showDemoBar ? (
           <div className="relative rounded-xl border border-white/[0.12] bg-neutral-950/95 backdrop-blur-xl shadow-2xl p-2.5 w-[min(calc(100vw-1.5rem),32rem)]">
             <div className="flex items-center justify-between pb-1.5 px-1 border-b border-white/[0.06] text-[10px] font-mono text-neutral-400">
-              <span className="font-semibold text-neutral-300">SIH Hackathon Presentation Bar</span>
+              <span className="font-semibold text-neutral-300">KAVACH Demo Presentation Bar</span>
               <button
                 onClick={() => setShowDemoBar(false)}
                 aria-label="Close demo bar"
@@ -203,12 +203,12 @@ const AppContent: React.FC = () => {
         ) : (
           <button
             onClick={() => setShowDemoBar(true)}
-            title="Open the SIH Hackathon guided demo flow"
-            aria-label="Open SIH Demo Flow"
+            title="Open the guided demo flow"
+            aria-label="Open Demo Flow"
             className="flex items-center space-x-1.5 px-3 py-2 rounded-full bg-neutral-900/90 border border-white/[0.1] hover:border-white/30 text-neutral-300 hover:text-white text-xs font-mono backdrop-blur-md shadow-lg transition-all min-h-[40px]"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse flex-shrink-0" />
-            <span>SIH Demo Flow</span>
+            <span>Demo Flow</span>
           </button>
         )}
       </div>

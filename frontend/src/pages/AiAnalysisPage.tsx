@@ -26,6 +26,7 @@ import { useApp } from '../context/AppContext';
 import { api } from '../services/api';
 import { GlassCard } from '../components/common/GlassCard';
 import { Badge } from '../components/common/Badge';
+import { AiProvenanceDot } from '../components/common/AiProvenanceDot';
 import { 
   Finding, 
   AiStatusResponse, 
@@ -138,37 +139,43 @@ export const AiAnalysisPage: React.FC = () => {
       if (activeFunction === 'explain_finding' && selectedFinding) {
         const res = await api.explainFinding(selectedFinding.id);
         if (res.success) {
-          setExplanation(res.explanation);
+          const prov = res.ai_provider || res.explanation.ai_provider;
+          setExplanation({ ...res.explanation, ai_provider: prov });
           showToast('success', 'RAG Grounded Explanation Generated', `Mode: ${res.explanation.ai_mode || 'OLLAMA'}`);
         }
       } else if (activeFunction === 'explain_risk' && selectedFinding) {
         const res = await api.explainRisk(selectedFinding.id);
         if (res.success) {
-          setRiskData(res.risk_explanation);
+          const prov = res.ai_provider || res.risk_explanation?.ai_provider;
+          setRiskData({ ...res.risk_explanation, ai_provider: prov });
           showToast('success', 'Risk Breakdown Ready', `Severity reasoning synthesized.`);
         }
       } else if (activeFunction === 'remediation_guide' && selectedFinding) {
         const res = await api.getRemediationGuide(selectedFinding.id);
         if (res.success) {
-          setRemediationData(res.remediation_guide);
+          const prov = res.ai_provider || res.remediation_guide?.ai_provider;
+          setRemediationData({ ...res.remediation_guide, ai_provider: prov });
           showToast('success', 'Remediation Guide Formatted', `Steps and verification checks ready.`);
         }
       } else if (activeFunction === 'assessment_summary' && activeAssessment) {
         const res = await api.getAssessmentSummary(activeAssessment.id);
         if (res.success) {
-          setAssessmentSummaryData(res.summary);
+          const prov = res.ai_provider || res.summary?.ai_provider;
+          setAssessmentSummaryData({ ...res.summary, ai_provider: prov });
           showToast('success', 'Assessment Summary Generated', `Executive context compiled.`);
         }
       } else if (activeFunction === 'audit_summary') {
         const res = await api.getAuditSummary(activeAssessment?.id);
         if (res.success) {
-          setAuditSummaryData(res.audit_summary);
+          const prov = res.ai_provider || res.audit_summary?.ai_provider;
+          setAuditSummaryData({ ...res.audit_summary, ai_provider: prov });
           showToast('success', 'Audit Forensic Summary Generated', `Re-verifications and actions reviewed.`);
         }
       } else if (activeFunction === 'threat_alert') {
         const res = await api.explainThreatAlert(threatAlertText, 'API Gateway / Auth Router', 'HIGH');
         if (res.success) {
-          setThreatAlertResult(res.alert_explanation);
+          const prov = res.ai_provider || res.alert_explanation?.ai_provider;
+          setThreatAlertResult({ ...res.alert_explanation, ai_provider: prov });
           showToast('success', 'Threat Alert Explained', `Plain language translation compiled.`);
         }
       } else if (activeFunction === 'rag_intelligence') {
@@ -571,19 +578,24 @@ export const AiAnalysisPage: React.FC = () => {
           {/* Render 7-Section Output Card when available */}
           {(explanation || assessmentSummaryData || threatAlertResult || ragResult?.answer) && (
             (() => {
-              const activeResult = (activeFunction === 'rag_intelligence' ? ragResult?.answer : null) || explanation || assessmentSummaryData || threatAlertResult;
+              const activeResult = (activeFunction === 'rag_intelligence' ? (ragResult?.answer ? { ...ragResult.answer, ai_provider: ragResult.ai_provider || (ragResult.answer as any).ai_provider, model_used: ragResult.model_used } : null) : null) || explanation || assessmentSummaryData || threatAlertResult;
               if (!activeResult) return null;
 
               return (
-                <div className="space-y-3 font-mono animate-fadeIn">
+                <div className="relative space-y-3 font-mono animate-fadeIn">
                   {/* Mode Banner */}
                   <div className="flex items-center justify-between p-2.5 rounded bg-slate-900/90 border border-slate-800 text-xs">
                     <span className="text-slate-400">Engine Source:</span>
-                    <span className="font-bold text-purple-300">
-                      {activeResult.ai_mode === 'OLLAMA_RAG' || activeResult.ai_mode === 'OLLAMA_LLM' 
-                        ? `Local Ollama (${activeResult.model_used || 'phi3'})` 
-                        : (activeResult.model_used || 'KAVACH Grounded Engine')}
-                    </span>
+                    <div className="flex items-center space-x-2">
+                      <span className="font-bold text-purple-300">
+                        {activeResult.ai_mode === 'OLLAMA_RAG' || activeResult.ai_mode === 'OLLAMA_LLM' 
+                          ? `Local Ollama (${activeResult.model_used || 'phi3'})` 
+                          : (activeResult.model_used || 'KAVACH Grounded Engine')}
+                      </span>
+                      {activeResult.ai_provider === 'ollama' && (
+                        <AiProvenanceDot provider={activeResult.ai_provider} />
+                      )}
+                    </div>
                   </div>
 
                   {/* Section 1: WHAT WAS FOUND */}
@@ -660,6 +672,18 @@ export const AiAnalysisPage: React.FC = () => {
           {/* Render Function 2: Risk Explanation */}
           {activeFunction === 'explain_risk' && riskData && (
             <div className="space-y-3 font-mono text-xs animate-fadeIn">
+              {/* Mode Banner */}
+              <div className="flex items-center justify-between p-2.5 rounded bg-slate-900/90 border border-slate-800 text-xs">
+                <span className="text-slate-400">Engine Source:</span>
+                <div className="flex items-center space-x-2">
+                  <span className="font-bold text-purple-300">
+                    {riskData.ai_provider === 'ollama' ? 'Local Ollama' : 'KAVACH Rule Engine'}
+                  </span>
+                  {riskData.ai_provider === 'ollama' && (
+                    <AiProvenanceDot provider={riskData.ai_provider} />
+                  )}
+                </div>
+              </div>
               <div className="p-4 rounded-lg bg-slate-950 border border-rose-900/50 space-y-2">
                 <div className="text-xs font-bold text-rose-400 uppercase">Reason for Severity Rating ({riskData.severity})</div>
                 <p className="text-slate-200">{riskData.reason_for_severity}</p>
@@ -678,6 +702,18 @@ export const AiAnalysisPage: React.FC = () => {
           {/* Render Function 3: Remediation Guide */}
           {activeFunction === 'remediation_guide' && remediationData && (
             <div className="space-y-3 font-mono text-xs animate-fadeIn">
+              {/* Mode Banner */}
+              <div className="flex items-center justify-between p-2.5 rounded bg-slate-900/90 border border-slate-800 text-xs">
+                <span className="text-slate-400">Engine Source:</span>
+                <div className="flex items-center space-x-2">
+                  <span className="font-bold text-purple-300">
+                    {remediationData.ai_provider === 'ollama' ? 'Local Ollama' : 'KAVACH Rule Engine'}
+                  </span>
+                  {remediationData.ai_provider === 'ollama' && (
+                    <AiProvenanceDot provider={remediationData.ai_provider} />
+                  )}
+                </div>
+              </div>
               <div className="p-4 rounded-lg bg-slate-950 border border-emerald-900/50 space-y-2">
                 <div className="text-xs font-bold text-emerald-400 uppercase">Step-by-Step Remediation Strategy</div>
                 <pre className="text-slate-200 whitespace-pre-line">{remediationData.how_to_fix}</pre>
@@ -692,6 +728,18 @@ export const AiAnalysisPage: React.FC = () => {
           {/* Render Function 5: Audit Summary */}
           {activeFunction === 'audit_summary' && auditSummaryData && (
             <div className="space-y-3 font-mono text-xs animate-fadeIn">
+              {/* Mode Banner */}
+              <div className="flex items-center justify-between p-2.5 rounded bg-slate-900/90 border border-slate-800 text-xs">
+                <span className="text-slate-400">Engine Source:</span>
+                <div className="flex items-center space-x-2">
+                  <span className="font-bold text-purple-300">
+                    {auditSummaryData.ai_provider === 'ollama' ? 'Local Ollama' : 'KAVACH Rule Engine'}
+                  </span>
+                  {auditSummaryData.ai_provider === 'ollama' && (
+                    <AiProvenanceDot provider={auditSummaryData.ai_provider} />
+                  )}
+                </div>
+              </div>
               <div className="p-4 rounded-lg bg-slate-950 border border-purple-900/50 space-y-2">
                 <div className="text-xs font-bold text-purple-400 uppercase">Forensic Ledger Overview</div>
                 <p className="text-slate-200">{auditSummaryData.what_was_found}</p>

@@ -14,7 +14,7 @@ The KAVACH user experience is modeled after modern, high-trust security intellig
       │  (Scope confirmation modal verifies authorization)
       ▼
 ③ RUN SECURITY ASSESSMENT
-      │  (Asynchronous job launched across 7 SIH categories)
+      │  (Asynchronous job launched across 7 security categories)
       ▼
 ④ REVIEW FINDINGS
       │  (Prioritized findings displayed with clear status)
@@ -52,7 +52,7 @@ The KAVACH user experience is modeled after modern, high-trust security intellig
 ### Step 3: Asynchronous Assessment Dispatch
 - The backend creates an `Assessment` record with status `QUEUED` and returns an assessment identifier (`ASM-XXXX`).
 - The frontend initiates lightweight polling against `/api/assessments/{id}/progress`.
-- Modules execute sequentially across the 7 SIH categories:
+- Modules execute sequentially across the 7 security categories:
   1. Authentication
   2. Authorization & Access Control
   3. Input Validation & Data Handling

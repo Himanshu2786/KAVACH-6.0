@@ -1,7 +1,7 @@
 # KAVACH 6.0 — Self-Updating Documentation Package Guide
 
 ## Overview
-This package (`KAVACH_DOCUMENTATION_PACKAGE`) is the authoritative, self-contained documentation and source artifact bundle for **KAVACH 6.0** (SIH Problem Statement 26163).
+This package (`KAVACH_DOCUMENTATION_PACKAGE`) is the authoritative, self-contained documentation and source artifact bundle for **KAVACH 6.0** (Enterprise Security Audit Standard).
 
 ## How to Update
 To regenerate and update the complete documentation package at any time:
@@ -15,7 +15,7 @@ To regenerate and update the complete documentation package at any time:
 ```
 KAVACH_DOCUMENTATION_PACKAGE/
 │
-├── 2.0 KAVACH_COMPLETE_PROJECT.md  <-- Master System Architecture & Implementation Document
+├── ..KAVACH_COMPLETE_PROJECT.md  <-- Master System Architecture & Implementation Document
 ├── UPDATE_KAVACH_COMPLETE_PROJECT.bat <-- The ONLY file you need to run to update docs
 ├── PROJECT_FILE_MANIFEST.md        <-- Full manifest of all included files & exclusions
 ├── UPDATE_README.md               <-- This usage guide
@@ -36,7 +36,7 @@ KAVACH_DOCUMENTATION_PACKAGE/
 ```
 
 ## Preserving Manual Documentation
-The master document `2.0 KAVACH_COMPLETE_PROJECT.md` separates generated and manual sections:
+The master document `..KAVACH_COMPLETE_PROJECT.md` separates generated and manual sections:
 - Sections between `<!-- AUTO-GENERATED:START -->` and `<!-- AUTO-GENERATED:END -->` are updated dynamically from source code.
 - Any notes, appendices, or diagrams added outside these tags are **strictly preserved** across subsequent runs.
 

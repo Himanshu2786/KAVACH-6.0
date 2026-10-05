@@ -55,7 +55,7 @@
     "index": 5,
     "filename": "05_world_monitor.mp4",
     "title": "World Monitor Assessment",
-    "category": "SIH PS 26163",
+    "category": "KAVACH Enterprise",
     "duration": "1:00",
     "status": "VERIFIED_RECORDED",
     "description": "Dual-mode (Runtime + Source AST) evaluation of https://www.worldmonitor.app.",
@@ -196,15 +196,15 @@
   },
   {
     "index": 16,
-    "filename": "16_full_sih_demo.mp4",
-    "title": "Full SIH PS 26163 Demonstration",
+    "filename": "16_full_enterprise_demo.mp4",
+    "title": "Full KAVACH Enterprise Demonstration",
     "category": "SIH BENCHMARK",
     "duration": "1:30",
     "status": "VERIFIED_RECORDED",
-    "description": "Complete 17-step end-to-end evaluation executing clean-state SIH benchmark.",
-    "video": "demos/16_full_sih_demo.mp4",
-    "thumbnail": "images/16_full_sih_demo.png",
-    "docs_image_path": "docs/images/16_full_sih_demo.png",
-    "web_image_path": "/images/16_full_sih_demo.png"
+    "description": "Complete 17-step end-to-end evaluation executing clean-state enterprise benchmark.",
+    "video": "demos/16_full_enterprise_demo.mp4",
+    "thumbnail": "images/16_full_enterprise_demo.png",
+    "docs_image_path": "docs/images/16_full_enterprise_demo.png",
+    "web_image_path": "/images/16_full_enterprise_demo.png"
   }
 ]

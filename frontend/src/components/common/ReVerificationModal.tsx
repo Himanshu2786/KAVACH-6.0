@@ -118,7 +118,7 @@ export const ReVerificationModal: React.FC<ReVerificationModalProps> = ({
               <div className="flex items-center gap-2">
                 <h3 className="font-semibold text-white tracking-tight uppercase">EMPIRICAL RE-TEST & RE-VERIFICATION</h3>
                 <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
-                  SIH PS 26163
+                  KAVACH Enterprise
                 </span>
               </div>
               <p className="text-[11px] text-neutral-400 font-sans">

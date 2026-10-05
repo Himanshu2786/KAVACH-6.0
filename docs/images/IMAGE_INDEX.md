@@ -12,7 +12,7 @@ This directory (`docs/images/`) and its mirrored web counterpart (`frontend/publ
 | 02 | [`02_url_check.png`](file:///c:/Users/Himanshu%20Raj/OneDrive/Desktop/KHAALI%20KAVACH/KAVACH%205.0/docs/images/02_url_check.png) | Fast URL Header Scanner | `02_url_check.mp4` | `/images/02_url_check.png` |
 | 03 | [`03_ai_ready.png`](file:///c:/Users/Himanshu%20Raj/OneDrive/Desktop/KHAALI%20KAVACH/KAVACH%205.0/docs/images/03_ai_ready.png) | AI Ready & Truth Hierarchy | `03_ai_ready.mp4` | `/images/03_ai_ready.png` |
 | 04 | [`04_assess_target.png`](file:///c:/Users/Himanshu%20Raj/OneDrive/Desktop/KHAALI%20KAVACH/KAVACH%205.0/docs/images/04_assess_target.png) | 17-Step Autonomous Pipeline | `04_assess_target.mp4` | `/images/04_assess_target.png` |
-| 05 | [`05_world_monitor.png`](file:///c:/Users/Himanshu%20Raj/OneDrive/Desktop/KHAALI%20KAVACH/KAVACH%205.0/docs/images/05_world_monitor.png) | World Monitor (PS 26163) Audit | `05_world_monitor.mp4` | `/images/05_world_monitor.png` |
+| 05 | [`05_world_monitor.png`](file:///c:/Users/Himanshu%20Raj/OneDrive/Desktop/KHAALI%20KAVACH/KAVACH%205.0/docs/images/05_world_monitor.png) | World Monitor (Enterprise VAPT) Audit | `05_world_monitor.mp4` | `/images/05_world_monitor.png` |
 | 06 | [`06_local_posture.png`](file:///c:/Users/Himanshu%20Raj/OneDrive/Desktop/KHAALI%20KAVACH/KAVACH%205.0/docs/images/06_local_posture.png) | USB Host Scanner | `06_local_posture.mp4` | `/images/06_local_posture.png` |
 | 07 | [`07_finding.png`](file:///c:/Users/Himanshu%20Raj/OneDrive/Desktop/KHAALI%20KAVACH/KAVACH%205.0/docs/images/07_finding.png) | Finding Triage & CVSS Scoring | `07_finding.mp4` | `/images/07_finding.png` |
 | 08 | [`08_evidence.png`](file:///c:/Users/Himanshu%20Raj/OneDrive/Desktop/KHAALI%20KAVACH/KAVACH%205.0/docs/images/08_evidence.png) | Cryptographic SHA-256 Evidence | `08_evidence.mp4` | `/images/08_evidence.png` |
@@ -23,7 +23,7 @@ This directory (`docs/images/`) and its mirrored web counterpart (`frontend/publ
 | 13 | [`13_user_manual.png`](file:///c:/Users/Himanshu%20Raj/OneDrive/Desktop/KHAALI%20KAVACH/KAVACH%205.0/docs/images/13_user_manual.png) | Searchable User Manual | `13_user_manual.mp4` | `/images/13_user_manual.png` |
 | 14 | [`14_report_generation.png`](file:///c:/Users/Himanshu%20Raj/OneDrive/Desktop/KHAALI%20KAVACH/KAVACH%205.0/docs/images/14_report_generation.png) | Forensic HTML Dossier Export | `14_report_generation.mp4` | `/images/14_report_generation.png` |
 | 15 | [`15_retest.png`](file:///c:/Users/Himanshu%20Raj/OneDrive/Desktop/KHAALI%20KAVACH/KAVACH%205.0/docs/images/15_retest.png) | Re-Test BEFORE/AFTER Diff | `15_retest.mp4` | `/images/15_retest.png` |
-| 16 | [`16_full_sih_demo.png`](file:///c:/Users/Himanshu%20Raj/OneDrive/Desktop/KHAALI%20KAVACH/KAVACH%205.0/docs/images/16_full_sih_demo.png) | Full 17-Step SIH Journey | `16_full_sih_demo.mp4` | `/images/16_full_sih_demo.png` |
+| 16 | [`16_full_enterprise_demo.png`](file:///c:/Users/Himanshu%20Raj/OneDrive/Desktop/KHAALI%20KAVACH/KAVACH%205.0/docs/images/16_full_enterprise_demo.png) | Full 17-Step SIH Journey | `16_full_enterprise_demo.mp4` | `/images/16_full_enterprise_demo.png` |
 
 ---
 

@@ -152,7 +152,7 @@ export const HomePage: React.FC = () => {
                   flexShrink: 0,
                 }}
               />
-              SIH Problem Statement 26163
+              Enterprise Security Audit Standard
               <span style={{ color: "#52525b" }}>/</span>
               <span style={{ color: "#a1a1aa" }}>Evidence-First Security</span>
             </div>

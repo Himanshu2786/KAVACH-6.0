@@ -80,7 +80,7 @@ export const TestCenterPage: React.FC = () => {
               <FlaskConical className="w-5 h-5 text-amber-400" />
               <span>Module 9: Test Center</span>
             </h1>
-            <Badge variant="outline">SIH PS 26163</Badge>
+            <Badge variant="outline">KAVACH Enterprise</Badge>
             <span className="px-2 py-0.5 text-xs font-mono rounded bg-amber-950 text-amber-300 border border-amber-800">
               SAFE SANDBOX
             </span>

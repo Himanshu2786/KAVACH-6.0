@@ -296,7 +296,7 @@ class AssessmentEngine:
         mode: str = "HYBRID"
     ) -> Dict[str, Any]:
         """
-        Executes real World Monitor assessment (SIH PS 26163) across live URL and source repository.
+        Executes real World Monitor assessment (KAVACH Enterprise) across live URL and source repository.
         Zero synthetic findings.
         """
         import asyncio

@@ -63,13 +63,15 @@ echo.
 echo [1/3] Starting FastAPI Backend on http://127.0.0.1:8000 ...
 start "KAVACH FastAPI Backend" cmd /k "cd /d "%PROJECT_ROOT%" && "%PYTHON_EXE%" -m uvicorn backend.app.main:app --host 127.0.0.1 --port 8000 --reload"
 
-ping 127.0.0.1 -n 3 >nul
+echo [*] Waiting for FastAPI Backend to be ready on port 8000...
+powershell -NoProfile -Command "$sw = [Diagnostics.Stopwatch]::StartNew(); while ($sw.Elapsed.TotalSeconds -lt 15) { try { $c = New-Object Net.Sockets.TcpClient; $c.Connect('127.0.0.1', 8000); $c.Close(); Write-Host ' [FastAPI] Backend is ONLINE on port 8000!'; exit 0 } catch { Start-Sleep -Milliseconds 400 } }; Write-Host ' [FastAPI] Continuing...'"
 
 :: 2. Start Vite React Frontend
 echo [2/3] Starting Vite React Frontend on http://localhost:5173 ...
 start "KAVACH Vite Frontend" cmd /k "cd /d "%PROJECT_ROOT%\frontend" && npm run dev -- --host 127.0.0.1 --port 5173"
 
-ping 127.0.0.1 -n 4 >nul
+echo [*] Waiting for Vite Frontend to be ready on port 5173...
+powershell -NoProfile -Command "$sw = [Diagnostics.Stopwatch]::StartNew(); while ($sw.Elapsed.TotalSeconds -lt 12) { try { $c = New-Object Net.Sockets.TcpClient; $c.Connect('127.0.0.1', 5173); $c.Close(); Write-Host ' [Vite] Frontend is ONLINE on port 5173!'; exit 0 } catch { Start-Sleep -Milliseconds 300 } }; Write-Host ' [Vite] Continuing...'"
 
 :: 3. Open Browser
 echo [3/3] Opening KAVACH Web Dashboard in default browser...

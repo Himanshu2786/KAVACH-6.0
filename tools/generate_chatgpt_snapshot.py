@@ -33,7 +33,7 @@ EXCLUDED_DIRS = {
 # File exclusions
 EXCLUDED_FILES = {
     "KAVACH_COMPLETE_PROJECT.md",  # Avoid self-recursion
-    "2.0 KAVACH_COMPLETE_PROJECT.md",
+    "..KAVACH_COMPLETE_PROJECT.md",
     "KAVACH 6.0.1 .zip",
     ".zip"
 }
@@ -262,7 +262,7 @@ def build_snapshot(root_dir: Path, output_file: Path):
         out.write("Project:             KAVACH (Sovereign Security Intelligence Platform)\n")
         out.write("Snapshot Version:    6.0.0-MASTER-SNAPSHOT\n")
         out.write("KAVACH Version:      6.0 (Unified Sovereign Release)\n")
-        out.write("Target Problem:      SIH 2026 Problem Statement 26163 (World Monitor Assessment)\n")
+        out.write("Target Problem:      Enterprise VAPT Benchmark (World Monitor Assessment)\n")
         out.write(f"Snapshot Generated:  {now_utc}\n")
         out.write(f"Source Root:         {root_dir}\n")
         out.write("Purpose:             Complete textual representation of the KAVACH project for AI/ChatGPT context.\n")
@@ -553,10 +553,10 @@ if __name__ == "__main__":
     script_dir = Path(__file__).resolve().parent
     project_root = script_dir.parent
 
-    target_root_snapshot = project_root / "2.0 KAVACH_COMPLETE_PROJECT.md"
+    target_root_snapshot = project_root / "..KAVACH_COMPLETE_PROJECT.md"
     target_info = project_root / "INFO" / "KAVACH_COMPLETE_PROJECT.md"
 
-    # Build primary snapshot directly to root 2.0 KAVACH_COMPLETE_PROJECT.md
+    # Build primary snapshot directly to root ..KAVACH_COMPLETE_PROJECT.md
     build_snapshot(project_root, target_root_snapshot)
 
     # Mirror to INFO folder if it exists

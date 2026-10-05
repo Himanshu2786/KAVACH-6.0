@@ -2,7 +2,7 @@
   "provider": "ollama",
   "model_name": "phi3",
   "endpoint": "http://127.0.0.1:11434",
-  "timeout_seconds": 30.0,
+  "timeout_seconds": 60.0,
   "enabled": true,
   "auto_start": true,
   "fallback_to_rules": true,

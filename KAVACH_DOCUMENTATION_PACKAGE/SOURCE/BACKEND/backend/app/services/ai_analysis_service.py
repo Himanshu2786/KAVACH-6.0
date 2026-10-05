@@ -281,6 +281,7 @@ class AIAnalysisService:
             "remediation_explanation": remediation_exp,
             "judge_friendly_explanation": judge_exp,
             "provenance": "DETERMINISTIC",
+            "ai_provider": "fallback",
             "discovered_by": detector,
             "analyzed_by": "DETERMINISTIC (Rule Template Engine)",
             "truth_hierarchy": TRUTH_HIERARCHY,
@@ -340,6 +341,7 @@ class AIAnalysisService:
                 "remediation_explanation": "Collect empirical network probe or source code evidence before deploying remediation.",
                 "judge_friendly_explanation": f"1. Observation: None | 2. Finding: {title} | 3. Evidence: Insufficient evidence | 4. Impact: Unverified | 5. Remediation: Retest required",
                 "provenance": "DETERMINISTIC",
+                "ai_provider": "fallback",
                 "discovered_by": detector,
                 "analyzed_by": "DETERMINISTIC (Evidence Guard)",
                 "truth_hierarchy": TRUTH_HIERARCHY,
@@ -376,6 +378,7 @@ class AIAnalysisService:
                             "remediation_explanation": data["remediation_explanation"],
                             "judge_friendly_explanation": data["judge_friendly_explanation"],
                             "provenance": "AI-ASSISTED",
+                            "ai_provider": "ollama",
                             "discovered_by": detector,
                             "analyzed_by": f"AI-ASSISTED (Ollama: {ollama_service.selected_model})",
                             "truth_hierarchy": TRUTH_HIERARCHY,
@@ -395,6 +398,7 @@ class AIAnalysisService:
             "remediation_explanation": fallback["remediation_explanation"],
             "judge_friendly_explanation": fallback["judge_friendly_explanation"],
             "provenance": "DETERMINISTIC",
+            "ai_provider": "fallback",
             "discovered_by": detector,
             "analyzed_by": "DETERMINISTIC (Rule Template Engine)",
             "truth_hierarchy": TRUTH_HIERARCHY,
@@ -489,6 +493,7 @@ class AIAnalysisService:
                             data["how_to_verify"] = canonical["how_to_verify"]
 
                         data["ai_mode"] = "OLLAMA_RAG"
+                        data["ai_provider"] = "ollama"
                         data["provenance"] = "AI-ASSISTED"
                         data["discovered_by"] = finding.cwe_id or finding.category or "DETERMINISTIC_DETECTOR"
                         data["analyzed_by"] = f"AI-ASSISTED (Ollama: {ollama_service.selected_model})"
@@ -511,6 +516,7 @@ class AIAnalysisService:
         # Fallback to deterministic rule provider
         fallback = self._generate_structured_rule_fallback(finding, evidence)
         fallback["ai_mode"] = "DETERMINISTIC_RULE_FALLBACK"
+        fallback["ai_provider"] = "fallback"
         fallback["retrieval_mode"] = retrieval_mode
         fallback["embedding_model"] = embedding_model
         fallback["retrieved_sources"] = retrieved_sources_dicts
@@ -658,6 +664,7 @@ class AIAnalysisService:
     async def explain_risk(self, finding: Finding) -> Dict[str, Any]:
         """AI Function 2: Risk Explanation (Possible impact, Affected component, Reason for severity)."""
         explanation = await self.explain_finding(finding)
+        provider = explanation.get("ai_provider", "fallback")
         return {
             "finding_id": finding.id,
             "title": finding.title,
@@ -667,6 +674,7 @@ class AIAnalysisService:
             "possible_impact": explanation["possible_impact"],
             "why_it_matters": explanation["why_it_matters"],
             "ai_mode": explanation.get("ai_mode", "DETERMINISTIC_RULE_FALLBACK"),
+            "ai_provider": provider,
             "provenance": explanation.get("provenance", "DETERMINISTIC"),
             "truth_hierarchy": TRUTH_HIERARCHY
         }
@@ -674,6 +682,7 @@ class AIAnalysisService:
     async def remediation_guide(self, finding: Finding) -> Dict[str, Any]:
         """AI Function 3: Step-by-step remediation, safe recommendations, how to verify."""
         explanation = await self.explain_finding(finding)
+        provider = explanation.get("ai_provider", "fallback")
         return {
             "finding_id": finding.id,
             "title": finding.title,
@@ -681,6 +690,7 @@ class AIAnalysisService:
             "how_to_fix": explanation["how_to_fix"],
             "how_to_verify": explanation["how_to_verify"],
             "ai_mode": explanation.get("ai_mode", "DETERMINISTIC_RULE_FALLBACK"),
+            "ai_provider": provider,
             "provenance": explanation.get("provenance", "DETERMINISTIC"),
             "truth_hierarchy": TRUTH_HIERARCHY
         }
@@ -715,6 +725,7 @@ class AIAnalysisService:
                 try:
                     data = self._extract_json(raw_res)
                     data["ai_mode"] = "OLLAMA_LLM"
+                    data["ai_provider"] = "ollama"
                     data["provenance"] = "AI-ASSISTED"
                     data["truth_hierarchy"] = TRUTH_HIERARCHY
                     return data
@@ -731,6 +742,7 @@ class AIAnalysisService:
             "how_to_fix": "1. Review Findings Catalog.\n2. Assign defects to team members via Team Desk.\n3. Apply targeted patches.",
             "how_to_verify": "Trigger re-verification probes on patched findings to prove resolution with SHA-256 evidence diffs.",
             "ai_mode": "DETERMINISTIC_RULE_FALLBACK",
+            "ai_provider": "fallback",
             "provenance": "DETERMINISTIC",
             "truth_hierarchy": TRUTH_HIERARCHY
         }
@@ -754,6 +766,7 @@ class AIAnalysisService:
             "how_to_fix": f"Currently {resolved_count} patches proven effective through differential probe executions.",
             "how_to_verify": "Inspect Audit Trail table and verify cryptographic SHA-256 hashes on all Evidence Records.",
             "ai_mode": "DETERMINISTIC_RULE_FALLBACK",
+            "ai_provider": "fallback",
             "provenance": "DETERMINISTIC",
             "truth_hierarchy": TRUTH_HIERARCHY,
             "total_events_audited": len(events),
@@ -778,6 +791,7 @@ class AIAnalysisService:
                 try:
                     data = self._extract_json(raw_res)
                     data["ai_mode"] = "OLLAMA_LLM"
+                    data["ai_provider"] = "ollama"
                     data["provenance"] = "AI-ASSISTED"
                     data["truth_hierarchy"] = TRUTH_HIERARCHY
                     return data
@@ -793,6 +807,7 @@ class AIAnalysisService:
             "how_to_fix": "1. Inspect request origin.\n2. Block suspicious IP/user session if abusive.\n3. Strengthen input filtering.",
             "how_to_verify": "Confirm threat activity ceases and local security monitoring logs return to baseline.",
             "ai_mode": "DETERMINISTIC_RULE_FALLBACK",
+            "ai_provider": "fallback",
             "provenance": "DETERMINISTIC",
             "truth_hierarchy": TRUTH_HIERARCHY
         }
@@ -804,6 +819,7 @@ class AIAnalysisService:
         """
         evidence = finding.evidence_records[0] if finding.evidence_records else None
         explanation = await self.explain_finding(finding, evidence)
+        provider = explanation.get("ai_provider", "fallback")
 
         # Update Finding columns
         finding.ai_summary = explanation["what_was_found"]
@@ -811,7 +827,7 @@ class AIAnalysisService:
         finding.ai_potential_impact = explanation["possible_impact"]
         finding.ai_reasoning_summary = explanation["recommended_action"]
         finding.ai_confidence = 88.0
-        finding.ai_analysis_status = "COMPLETED" if explanation.get("ai_mode") == "OLLAMA_LLM" else "RULE_BASED_FALLBACK"
+        finding.ai_analysis_status = "COMPLETED" if provider == "ollama" else "RULE_BASED_FALLBACK"
 
         # Update recommended steps
         if isinstance(explanation.get("how_to_fix"), str):
@@ -830,6 +846,7 @@ class AIAnalysisService:
             status="SUCCESS",
             metadata={
                 "ai_mode": explanation.get("ai_mode"),
+                "ai_provider": provider,
                 "provenance": explanation.get("provenance"),
                 "model": explanation.get("model_used")
             }
@@ -847,8 +864,10 @@ class AIAnalysisService:
                 "confidence": 88.0,
                 "reasoning_summary": explanation["recommended_action"],
                 "recommended_validation": [explanation["how_to_verify"]],
-                "recommended_remediation": explanation["how_to_fix"].split("\n") if isinstance(explanation["how_to_fix"], str) else explanation["how_to_fix"]
+                "recommended_remediation": explanation["how_to_fix"].split("\n") if isinstance(explanation["how_to_fix"], str) else explanation["how_to_fix"],
+                "ai_provider": provider
             },
+            "ai_provider": provider,
             "structured_7_sections": explanation,
             "source": explanation.get("provenance", "DETERMINISTIC"),
             "provenance": explanation.get("provenance", "DETERMINISTIC"),

@@ -1,6 +1,6 @@
 # KAVACH 6.0 — END-USER OPERATOR & EVALUATION MANUAL
 > **Document Version:** 5.0.0-PROD-MANUAL  
-> **Target Audience:** Smart India Hackathon Judges, Security Auditors, SOC Operators, Developers, and First-Time Users  
+> **Target Audience:** Enterprise Security Audit Judges, Security Auditors, SOC Operators, Developers, and First-Time Users  
 > **Scope:** End-to-End Operational Manual with Playable Demonstration Recordings  
 > **Classification:** [OFFICIAL OPERATOR GUIDE]  
 
@@ -27,7 +27,7 @@
 18. [USER MANUAL Viewer](#18-user-manual)
 19. [Forensic Reporting (HTML Dossier & JSON Manifest)](#19-reports)
 20. [Re-Test & Verification Engine](#20-re-test--verification)
-21. [SIH Demonstration Workflow (PS 26163 Quick Start)](#21-sih-demonstration-workflow)
+21. [Enterprise Demonstration Workflow (Enterprise VAPT Quick Start)](#21-sih-demonstration-workflow)
 22. [Troubleshooting & Error Recovery](#22-troubleshooting)
 23. [Important Limitations & Technical Reality](#23-important-limitations)
 24. [Safe and Authorized Usage Guidelines](#24-safe-and-authorized-usage)
@@ -60,7 +60,7 @@ LOCAL AI EXPLANATION (Ollama LLM with Rule Fallback)
 
 # 2. WHAT KAVACH IS DESIGNED TO DO
 
-KAVACH 6.0 is built to address Smart India Hackathon **Problem Statement PS 26163** (*AI-based Cyber Security Assessment Tool / Framework for Web Applications*):
+KAVACH 6.0 is built to address Enterprise Security Audit **Problem Statement Enterprise VAPT** (*AI-based Cyber Security Assessment Tool / Framework for Web Applications*):
 
 1. **Autonomous 7-Domain Web Auditing:**
    - *Authentication & Session Management* (Cookie security, session hijacking, JWT validation).
@@ -230,7 +230,7 @@ Executes `world_monitor_assessment_engine.py:WorldMonitorAssessmentEngine.run_as
 # 10. WORLD MONITOR
 
 ### Simple Explanation
-World Monitor (`https://www.worldmonitor.app`) is the real-world target application audited for Smart India Hackathon PS 26163. KAVACH audits both its live website and its source code repository (`github.com/koala73/worldmonitor`).
+World Monitor (`https://www.worldmonitor.app`) is the real-world target application audited for KAVACH Enterprise VAPT. KAVACH audits both its live website and its source code repository (`github.com/koala73/worldmonitor`).
 
 ### Technical Explanation
 World Monitor assessment supports 3 operational modes:
@@ -332,8 +332,8 @@ The Guide page provides a dual-tab experience:
 # 18. REPORTS
 
 ### Standalone HTML Dossier & JSON Manifest
-1. **Interactive HTML Dossier (`SIH_FORENSIC_DOSSIER_*.html`):** Single self-contained file with embedded dark glassmorphic styling, interactive evidence inspector, and zero cloud dependencies.
-2. **Reproducible JSON Package (`SIH_FORENSIC_PACKAGE_*.json`):** 13 mandatory sections with a cryptographic SHA-256 hash manifest for every section.
+1. **Interactive HTML Dossier (`KAVACH_FORENSIC_DOSSIER_*.html`):** Single self-contained file with embedded dark glassmorphic styling, interactive evidence inspector, and zero cloud dependencies.
+2. **Reproducible JSON Package (`KAVACH_FORENSIC_PACKAGE_*.json`):** 13 mandatory sections with a cryptographic SHA-256 hash manifest for every section.
 
 [▶ WATCH DEMO: 14 Forensic Reporting](file:///c:/Users/Himanshu%20Raj/OneDrive/Desktop/KHAALI%20KAVACH/KAVACH%205.0/docs/user_manual/demos/14_report_generation.mp4) *(Web UI: `/demos/14_report_generation.mp4`)*
 
@@ -353,18 +353,18 @@ When a developer fixes a vulnerability, clicking `⚡ Run Verification Test` re-
 
 # 20. SIH DEMONSTRATION WORKFLOW
 
-### Quick Start Guide for SIH PS 26163 Evaluators
+### Quick Start Guide for KAVACH Enterprise Evaluators
 
 1. **Step 1: Launch Platform** -> Run `START KAVACH 1.0 .bat` or `START KAVACH 2.0 .bat`.
 2. **Step 2: Verify Status** -> Check top header: `🟢 AI READY` and `SQLite: kavach.db`.
 3. **Step 3: 1-Click Demo Journey** -> Click `▶ START DEMO JOURNEY` on the top Demo Journey Bar.
-4. **Step 4: Execute SIH Demo** -> Click `RUN SIH DEMO (17 STEPS)`.
+4. **Step 4: Execute Enterprise Demo** -> Click `RUN SIH DEMO (17 STEPS)`.
 5. **Step 5: Review Findings & Evidence** -> Inspect finding `FND-WM-SEC-01`, view raw HTTP evidence, and verify SHA-256 hash.
 6. **Step 6: Terminal Verification** -> Click `Technical Terminal` to view the non-destructive `curl` reproduction command.
 7. **Step 7: Re-Test Diff** -> Click `⚡ Re-Verify` to view the BEFORE vs. AFTER defensive resolution.
 8. **Step 8: Export Forensic Dossier** -> Navigate to `Security Reports` and download the standalone HTML dossier.
 
-[▶ WATCH DEMO: 16 Full SIH 17-Step Demonstration](file:///c:/Users/Himanshu%20Raj/OneDrive/Desktop/KHAALI%20KAVACH/KAVACH%205.0/docs/user_manual/demos/16_full_sih_demo.mp4) *(Web UI: `/demos/16_full_sih_demo.mp4`)*
+[▶ WATCH DEMO: 16 Full SIH 17-Step Demonstration](file:///c:/Users/Himanshu%20Raj/OneDrive/Desktop/KHAALI%20KAVACH/KAVACH%205.0/docs/user_manual/demos/16_full_enterprise_demo.mp4) *(Web UI: `/demos/16_full_enterprise_demo.mp4`)*
 
 ---
 
@@ -408,7 +408,7 @@ When a developer fixes a vulnerability, clicking `⚡ Run Verification Test` re-
 - **User Sees:** Step-by-step guidance banner with active progress indicator.
 - **Expected Result:** Smooth progression through all 17 assessment stages.
 - **Possible States:** Initialized, In-Progress, Completed.
-- **Next Action:** Click `Run SIH Demo`.
+- **Next Action:** Click `Run Enterprise Demo`.
 - **Demo:** `getting_started.mp4`
 
 #### 2. `🚀 SCAN URL`
@@ -485,4 +485,4 @@ When a developer fixes a vulnerability, clicking `⚡ Run Verification Test` re-
 | 13 | **Interactive User Manual** | Section 18 | `13_user_manual.mp4` | `/demos/13_user_manual.mp4` | `VERIFIED_RECORDED` |
 | 14 | **Forensic Dossier Reporting** | Section 19 | `14_report_generation.mp4` | `/demos/14_report_generation.mp4` | `VERIFIED_RECORDED` |
 | 15 | **Re-Test & State Comparison** | Section 20 | `15_retest.mp4` | `/demos/15_retest.mp4` | `VERIFIED_RECORDED` |
-| 16 | **Full SIH 17-Step Demo** | Section 21 | `16_full_sih_demo.mp4` | `/demos/16_full_sih_demo.mp4` | `VERIFIED_RECORDED` |
+| 16 | **Full SIH 17-Step Demo** | Section 21 | `16_full_enterprise_demo.mp4` | `/demos/16_full_enterprise_demo.mp4` | `VERIFIED_RECORDED` |

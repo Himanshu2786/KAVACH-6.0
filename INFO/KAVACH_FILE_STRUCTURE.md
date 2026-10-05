@@ -111,7 +111,7 @@
  └── 📁 INFO/                          # Curated Architecture & Guide Documentation
       ├── FINAL_WORKING_STATUS.md      # Current verified QA status & SIH demo readiness
       ├── LIMITATIONS.md               # Honest engineering constraints & boundaries
-      ├── PS_26163_COMPLIANCE.md       # Requirement-by-requirement SIH mapping
+      ├── ENTERPRISE_COMPLIANCE.md       # Requirement-by-requirement SIH mapping
       ├── UI_CHANGELOG.md              # User interface fixes and enhancements
       ├── FEATURE_FILE_MAP.md          # Technical cross-reference map
       ├── ASSESSMENT_FLOW.md           # 17-step workflow vs 8-stage pipeline

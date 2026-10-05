@@ -139,7 +139,7 @@ def list_test_suites():
         "count": len(TEST_SUITES),
         "suites": TEST_SUITES,
         "environment": "Controlled Safe Sandbox",
-        "guarantee": "Zero active malware, zero weaponized exploits, strictly SIH PS 26163 compliant."
+        "guarantee": "Zero active malware, zero weaponized exploits, strictly KAVACH Enterprise compliant."
     }
 
 @router.post("/run")

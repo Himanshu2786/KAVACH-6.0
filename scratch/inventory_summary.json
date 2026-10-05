@@ -1,0 +1,360 @@
+{
+  "total": 868,
+  "root_items": [
+    {
+      "rel_path": ".env.example",
+      "filename": ".env.example",
+      "ext": ".example",
+      "size": 365,
+      "category": "deployment",
+      "is_root": true
+    },
+    {
+      "rel_path": ".env.production.example",
+      "filename": ".env.production.example",
+      "ext": ".example",
+      "size": 1602,
+      "category": "deployment",
+      "is_root": true
+    },
+    {
+      "rel_path": ".gitignore",
+      "filename": ".gitignore",
+      "ext": "",
+      "size": 662,
+      "category": "git",
+      "is_root": true
+    },
+    {
+      "rel_path": "1.0 UPDATE CONTEXT.bat",
+      "filename": "1.0 UPDATE CONTEXT.bat",
+      "ext": ".bat",
+      "size": 951,
+      "category": "scripts",
+      "is_root": true
+    },
+    {
+      "rel_path": "..KAVACH_COMPLETE_PROJECT.md",
+      "filename": "..KAVACH_COMPLETE_PROJECT.md",
+      "ext": ".md",
+      "size": 59353779,
+      "category": "docs",
+      "is_root": true
+    },
+    {
+      "rel_path": "build_exe.bat",
+      "filename": "build_exe.bat",
+      "ext": ".bat",
+      "size": 878,
+      "category": "scripts",
+      "is_root": true
+    },
+    {
+      "rel_path": "build_exe.ps1",
+      "filename": "build_exe.ps1",
+      "ext": ".ps1",
+      "size": 1030,
+      "category": "scripts",
+      "is_root": true
+    },
+    {
+      "rel_path": "build_portable.bat",
+      "filename": "build_portable.bat",
+      "ext": ".bat",
+      "size": 1002,
+      "category": "scripts",
+      "is_root": true
+    },
+    {
+      "rel_path": "Caddyfile",
+      "filename": "Caddyfile",
+      "ext": "",
+      "size": 1735,
+      "category": "deployment",
+      "is_root": true
+    },
+    {
+      "rel_path": "CHALLENGES_TO_SOLUTIONS.md",
+      "filename": "CHALLENGES_TO_SOLUTIONS.md",
+      "ext": ".md",
+      "size": 57851,
+      "category": "docs",
+      "is_root": true
+    },
+    {
+      "rel_path": "CLEANUP_CHANGELOG.md",
+      "filename": "CLEANUP_CHANGELOG.md",
+      "ext": ".md",
+      "size": 5031,
+      "category": "docs",
+      "is_root": true
+    },
+    {
+      "rel_path": "DEBUG_BASELINE.md",
+      "filename": "DEBUG_BASELINE.md",
+      "ext": ".md",
+      "size": 7501,
+      "category": "docs",
+      "is_root": true
+    },
+    {
+      "rel_path": "DEPLOYMENT.md",
+      "filename": "DEPLOYMENT.md",
+      "ext": ".md",
+      "size": 8692,
+      "category": "docs",
+      "is_root": true
+    },
+    {
+      "rel_path": "docker-compose.yml",
+      "filename": "docker-compose.yml",
+      "ext": ".yml",
+      "size": 3758,
+      "category": "deployment",
+      "is_root": true
+    },
+    {
+      "rel_path": "Dockerfile.backend",
+      "filename": "Dockerfile.backend",
+      "ext": ".backend",
+      "size": 1687,
+      "category": "deployment",
+      "is_root": true
+    },
+    {
+      "rel_path": "Dockerfile.frontend",
+      "filename": "Dockerfile.frontend",
+      "ext": ".frontend",
+      "size": 876,
+      "category": "deployment",
+      "is_root": true
+    },
+    {
+      "rel_path": "DOCUMENTATION_UPDATE_REPORT.md",
+      "filename": "DOCUMENTATION_UPDATE_REPORT.md",
+      "ext": ".md",
+      "size": 12709,
+      "category": "docs",
+      "is_root": true
+    },
+    {
+      "rel_path": "kavach.db",
+      "filename": "kavach.db",
+      "ext": ".db",
+      "size": 40181760,
+      "category": "database",
+      "is_root": true
+    },
+    {
+      "rel_path": "KAVACH.spec",
+      "filename": "KAVACH.spec",
+      "ext": ".spec",
+      "size": 1439,
+      "category": "build",
+      "is_root": true
+    },
+    {
+      "rel_path": "KAVACH_5_VALIDATION_REPORT.md",
+      "filename": "KAVACH_5_VALIDATION_REPORT.md",
+      "ext": ".md",
+      "size": 11620,
+      "category": "docs",
+      "is_root": true
+    },
+    {
+      "rel_path": "KAVACH_BACKEND_ARCHITECTURE.md",
+      "filename": "KAVACH_BACKEND_ARCHITECTURE.md",
+      "ext": ".md",
+      "size": 6259,
+      "category": "docs",
+      "is_root": true
+    },
+    {
+      "rel_path": "KAVACH_DEPENDENCIES.md",
+      "filename": "KAVACH_DEPENDENCIES.md",
+      "ext": ".md",
+      "size": 4487,
+      "category": "docs",
+      "is_root": true
+    },
+    {
+      "rel_path": "KAVACH_DEVELOPER_DOCUMENTATION.md",
+      "filename": "KAVACH_DEVELOPER_DOCUMENTATION.md",
+      "ext": ".md",
+      "size": 38299,
+      "category": "docs",
+      "is_root": true
+    },
+    {
+      "rel_path": "KAVACH_MASTER_CONTEXT.md",
+      "filename": "KAVACH_MASTER_CONTEXT.md",
+      "ext": ".md",
+      "size": 5482,
+      "category": "docs",
+      "is_root": true
+    },
+    {
+      "rel_path": "main.py",
+      "filename": "main.py",
+      "ext": ".py",
+      "size": 863,
+      "category": "desktop_entry",
+      "is_root": true
+    },
+    {
+      "rel_path": "PERMISSION_SYSTEM.md",
+      "filename": "PERMISSION_SYSTEM.md",
+      "ext": ".md",
+      "size": 5481,
+      "category": "docs",
+      "is_root": true
+    },
+    {
+      "rel_path": "README.md",
+      "filename": "README.md",
+      "ext": ".md",
+      "size": 8678,
+      "category": "docs",
+      "is_root": true
+    },
+    {
+      "rel_path": "requirements.txt",
+      "filename": "requirements.txt",
+      "ext": ".txt",
+      "size": 96,
+      "category": "build",
+      "is_root": true
+    },
+    {
+      "rel_path": "run_tests.bat",
+      "filename": "run_tests.bat",
+      "ext": ".bat",
+      "size": 253,
+      "category": "scripts",
+      "is_root": true
+    },
+    {
+      "rel_path": "START KAVACH 1.0 .bat",
+      "filename": "START KAVACH 1.0 .bat",
+      "ext": ".bat",
+      "size": 4056,
+      "category": "scripts",
+      "is_root": true
+    },
+    {
+      "rel_path": "START KAVACH 2.0 .bat",
+      "filename": "START KAVACH 2.0 .bat",
+      "ext": ".bat",
+      "size": 2419,
+      "category": "scripts",
+      "is_root": true
+    },
+    {
+      "rel_path": "START_KAVACH_GUIDE.md",
+      "filename": "START_KAVACH_GUIDE.md",
+      "ext": ".md",
+      "size": 5656,
+      "category": "docs",
+      "is_root": true
+    },
+    {
+      "rel_path": "TEAM_ACCOUNT_SYSTEM.md",
+      "filename": "TEAM_ACCOUNT_SYSTEM.md",
+      "ext": ".md",
+      "size": 5659,
+      "category": "docs",
+      "is_root": true
+    },
+    {
+      "rel_path": "TEAM_ACTIVITY_TRACKING.md",
+      "filename": "TEAM_ACTIVITY_TRACKING.md",
+      "ext": ".md",
+      "size": 5765,
+      "category": "docs",
+      "is_root": true
+    },
+    {
+      "rel_path": "TEAM_WEB_DEPLOYMENT.md",
+      "filename": "TEAM_WEB_DEPLOYMENT.md",
+      "ext": ".md",
+      "size": 7977,
+      "category": "docs",
+      "is_root": true
+    },
+    {
+      "rel_path": "TEAM_WEB_GUIDE.md",
+      "filename": "TEAM_WEB_GUIDE.md",
+      "ext": ".md",
+      "size": 16183,
+      "category": "docs",
+      "is_root": true
+    },
+    {
+      "rel_path": "TEAM_WEB_IMPLEMENTATION_REPORT.md",
+      "filename": "TEAM_WEB_IMPLEMENTATION_REPORT.md",
+      "ext": ".md",
+      "size": 9930,
+      "category": "docs",
+      "is_root": true
+    },
+    {
+      "rel_path": "test_desktop_app.py",
+      "filename": "test_desktop_app.py",
+      "ext": ".py",
+      "size": 1042,
+      "category": "tests",
+      "is_root": true
+    },
+    {
+      "rel_path": "TEST_KAVACH.bat",
+      "filename": "TEST_KAVACH.bat",
+      "ext": ".bat",
+      "size": 2918,
+      "category": "scripts",
+      "is_root": true
+    },
+    {
+      "rel_path": "test_scanner_suite.py",
+      "filename": "test_scanner_suite.py",
+      "ext": ".py",
+      "size": 4757,
+      "category": "tests",
+      "is_root": true
+    },
+    {
+      "rel_path": "walkthrough.md",
+      "filename": "walkthrough.md",
+      "ext": ".md",
+      "size": 9001,
+      "category": "docs",
+      "is_root": true
+    }
+  ],
+  "categories": {
+    "deployment": 7,
+    "git": 1,
+    "scripts": 13,
+    "docs": 107,
+    "database": 1,
+    "build": 18,
+    "desktop_entry": 1,
+    "tests": 2,
+    "legacy": 34,
+    "AI": 3,
+    "desktop_app": 5,
+    "backend": 111,
+    "desktop_core": 9,
+    "demo": 5,
+    "frontend": 138,
+    "docs/legacy_package": 132,
+    "portable_usb": 27,
+    "logs": 1,
+    "portable": 2,
+    "reports": 182,
+    "scratch": 39,
+    "desktop_services": 5,
+    "tools": 1,
+    "desktop_ui": 16,
+    "desktop_widgets": 8
+  }
+}

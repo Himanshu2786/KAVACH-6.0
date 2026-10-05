@@ -294,7 +294,7 @@ def seed_database(db: Session):
     # Seed Discovery items for demo assessment
     discovery_service.seed_demo_discovery(db, demo_asm_id)
 
-    # Seed Demo Findings covering all 7 SIH PS 26163 Categories
+    # Seed Demo Findings covering all 7 Security Categories
     demo_findings = [
         {
             "id": "KAV-2026-001",
@@ -661,4 +661,4 @@ def seed_database(db: Session):
             evidence_nature="DEMO DATA"
         )
 
-    print("KAVACH demo scenario ('World Monitor Application') seeded successfully with 7 SIH categories.")
+    print("KAVACH demo scenario ('World Monitor Application') seeded successfully with 7 security categories.")

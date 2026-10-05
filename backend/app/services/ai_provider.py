@@ -17,7 +17,7 @@ class RuleBasedSecurityProvider:
         title_lower = (finding.title or "").lower()
         component = finding.affected_component or "Application Surface"
 
-        # SIH Category 1: Authentication
+        # Category 1: Authentication
         if "auth" in cat_lower or "token" in title_lower or "jwt" in title_lower:
             return {
                 "summary": f"Observed potential authentication weakness in {component}. The handler may permit algorithm confusion or unverified claims.",
@@ -38,7 +38,7 @@ class RuleBasedSecurityProvider:
                 ]
             }
 
-        # SIH Category 2: Authorization & Access Control
+        # Category 2: Authorization & Access Control
         elif "access control" in cat_lower or "idor" in title_lower or "authorization" in cat_lower:
             return {
                 "summary": f"Observed authorization weakness on {component}. The endpoint allows direct object references without tenancy validation.",
@@ -59,7 +59,7 @@ class RuleBasedSecurityProvider:
                 ]
             }
 
-        # SIH Category 3: Input Validation & Data Handling
+        # Category 3: Input Validation & Data Handling
         elif "injection" in cat_lower or "sql" in title_lower or "input" in cat_lower:
             return {
                 "summary": f"Input validation vulnerability detected in {component}. Raw input influences backend query or command structures.",
@@ -80,7 +80,7 @@ class RuleBasedSecurityProvider:
                 ]
             }
 
-        # SIH Category 4: API Security
+        # Category 4: API Security
         elif "api" in cat_lower or "traceback" in title_lower or "error" in title_lower or "debug" in title_lower:
             return {
                 "summary": f"API security misconfiguration identified on {component}. Unhandled exceptions disclose internal runtime state.",
@@ -101,7 +101,7 @@ class RuleBasedSecurityProvider:
                 ]
             }
 
-        # SIH Category 5: Client-Side Security & Security Headers
+        # Category 5: Client-Side Security & Security Headers
         elif "header" in cat_lower or "client" in cat_lower or "csp" in title_lower or "clickjacking" in title_lower:
             return {
                 "summary": f"Missing defensive security headers on {component}.",
@@ -122,7 +122,7 @@ class RuleBasedSecurityProvider:
                 ]
             }
 
-        # SIH Category 6: Secure Communication
+        # Category 6: Secure Communication
         elif "communication" in cat_lower or "transport" in cat_lower or "tls" in title_lower or "cookie" in title_lower:
             return {
                 "summary": f"Insecure transport or session cookie flags on {component}.",
@@ -143,7 +143,7 @@ class RuleBasedSecurityProvider:
                 ]
             }
 
-        # SIH Category 7: Data Storage & Privacy / Default
+        # Category 7: Data Storage & Privacy / Default
         else:
             return {
                 "summary": f"Security observation recorded for {component}: {finding.title}.",
@@ -187,6 +187,7 @@ class AIProviderAdapter:
             logger.info("Server-side Ollama is offline. Employing deterministic Rule-Based Security Provider.")
             result = self.rule_provider.analyze(finding, evidence)
             result["provider_used"] = "RULE_BASED_FALLBACK"
+            result["ai_provider"] = "fallback"
             return result
 
         # Construct evidence-constrained prompt
@@ -209,6 +210,7 @@ class AIProviderAdapter:
             try:
                 parsed = json.loads(raw_response)
                 parsed["provider_used"] = "SERVER_SIDE_OLLAMA"
+                parsed["ai_provider"] = "ollama"
                 return parsed
             except Exception:
                 import re
@@ -216,12 +218,14 @@ class AIProviderAdapter:
                 if match:
                     parsed = json.loads(match.group(0))
                     parsed["provider_used"] = "SERVER_SIDE_OLLAMA"
+                    parsed["ai_provider"] = "ollama"
                     return parsed
                 raise ValueError("JSON parsing failed")
         except Exception as ex:
             logger.warning(f"Ollama generation failed ({ex}); utilizing deterministic Rule-Based Security Provider.")
             result = self.rule_provider.analyze(finding, evidence)
             result["provider_used"] = "RULE_BASED_FALLBACK"
+            result["ai_provider"] = "fallback"
             return result
 
 ai_provider = AIProviderAdapter()

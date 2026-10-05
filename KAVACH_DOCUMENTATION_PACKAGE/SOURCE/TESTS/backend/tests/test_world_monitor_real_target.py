@@ -273,7 +273,7 @@ def test_hybrid_assessment_and_correlation(tmp_path, cleanup_test_assessment):
 
 
 def test_seven_domain_coverage_matrix_structure():
-    """Verify 7-domain coverage matrix encompasses all mandated SIH 26163 categories."""
+    """Verify 7-domain coverage matrix encompasses all mandated Enterprise VAPT categories."""
     matrix = world_monitor_assessment_engine.generate_coverage_matrix(
         findings=[],
         evidence=[],

@@ -1,5 +1,5 @@
 """
-KAVACH 5.0 — Real World Monitor Security Assessment Engine (SIH PS 26163)
+KAVACH 6.0 — Real World Monitor Security Assessment Engine (Enterprise VAPT)
 Performs genuine, non-destructive, empirical security evaluations across:
   A. Authorized World Monitor Live/Local Deployment (Runtime HTTP/TLS/API/Auth Probing)
   B. Authorized World Monitor Source-Code Repository (Static White-Box Analysis across all 7 Domains)
@@ -16,7 +16,7 @@ Strict Integrity Rules:
 7. Safe PoC: Non-destructive, zero data loss, zero DoS, minimal proof.
 8. Zero results: "No confirmed vulnerabilities identified" or "Potential issues requiring further validation".
 9. Deterministic CVSS v3.1 calculation and structured 5-point realistic business impact.
-10. Generates full SIH 26163 7-Domain Validation Coverage Matrix.
+10. Generates full 7-Domain Validation Coverage Matrix.
 """
 
 import os
@@ -46,7 +46,7 @@ from core.target_config import WORLD_MONITOR_TARGET, get_world_monitor_target
 
 
 # ═════════════════════════════════════════════════════════════════════════════
-# 7 MANDATED SCOPE CATEGORIES & LIMITATIONS (SIH PS 26163)
+# 7 MANDATED SCOPE CATEGORIES & LIMITATIONS (ENTERPRISE VAPT)
 # ═════════════════════════════════════════════════════════════════════════════
 SCOPE_CATEGORIES = {
     "AUTH": "Authentication and session management",
@@ -72,7 +72,7 @@ CATEGORY_LIMITATIONS = {
 class WorldMonitorAssessmentEngine:
     """
     Empirical, non-destructive security assessment engine for World Monitor target.
-    Implements complete FINDING → EVIDENCE → SAFE PoC pipeline across all 7 SIH 26163 domains.
+    Implements complete FINDING → EVIDENCE → SAFE PoC pipeline across all 7 security domains.
     """
 
     def __init__(self):
@@ -1676,7 +1676,7 @@ class WorldMonitorAssessmentEngine:
 
     def audit_source_code(self, source_path: str, asm_id: str) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]], List[Dict[str, Any]]]:
         """
-        Performs static white-box inspection across source code files covering all 7 SIH domains.
+        Performs static white-box inspection across source code files covering all 7 security domains.
         Extracts file, line number, symbol/function, code pattern, security relevance, detector,
         confidence, and runtime validation status.
         """
@@ -2517,7 +2517,7 @@ class WorldMonitorAssessmentEngine:
         source_audited: bool
     ) -> List[Dict[str, Any]]:
         """
-        Generates the formal SIH Problem Statement 26163 Domain Validation Coverage Matrix.
+        Generates the formal Domain Validation Coverage Matrix.
         Determines: IMPLEMENTED, FUNCTIONAL, REAL TARGET CONNECTED, REAL EVIDENCE GENERATED, VALIDATED, NOT VALIDATED.
         """
         matrix: List[Dict[str, Any]] = []
@@ -2570,7 +2570,7 @@ class WorldMonitorAssessmentEngine:
         """
         Executes end-to-end empirical assessment on the real World Monitor target.
         Enforces:
-        - 7 Mandated SIH 26163 Security Domains Coverage Matrix
+        - 7 Mandated Security Domains Coverage Matrix
         - Finding-specific CVSS 3.1 & Risk evaluation
         - Structured 5-point Business Impact
         - Finding without evidence -> NOT CONFIRMED / POTENTIAL
@@ -3042,18 +3042,18 @@ class WorldMonitorAssessmentEngine:
         validated_domains = sum(1 for d in coverage_matrix if d["validation_status"] == "VALIDATED")
 
         if confirmed_count > 0 and potential_count > 0:
-            summary = f"Audited {validated_domains}/7 SIH security domains across World Monitor target. Identified {confirmed_count} confirmed findings and {potential_count} potential issues across {len(all_evidence)} verified evidence records."
+            summary = f"Audited {validated_domains}/7 security domains across World Monitor target. Identified {confirmed_count} confirmed findings and {potential_count} potential issues across {len(all_evidence)} verified evidence records."
         elif confirmed_count > 0:
-            summary = f"Audited {validated_domains}/7 SIH security domains across World Monitor target. Identified {confirmed_count} confirmed findings across {len(all_evidence)} verified evidence records."
+            summary = f"Audited {validated_domains}/7 security domains across World Monitor target. Identified {confirmed_count} confirmed findings across {len(all_evidence)} verified evidence records."
         elif potential_count > 0:
-            summary = f"Audited {validated_domains}/7 SIH security domains across World Monitor target. Potential issues requiring further validation ({potential_count} candidate observations). Zero confirmed vulnerabilities."
+            summary = f"Audited {validated_domains}/7 security domains across World Monitor target. Potential issues requiring further validation ({potential_count} candidate observations). Zero confirmed vulnerabilities."
         else:
-            summary = f"Audited {validated_domains}/7 SIH security domains across World Monitor target. No confirmed vulnerabilities established during this assessment. Target exhibits clean defensive posture for evaluated checks."
+            summary = f"Audited {validated_domains}/7 security domains across World Monitor target. No confirmed vulnerabilities established during this assessment. Target exhibits clean defensive posture for evaluated checks."
 
         stages_executed.append({
             "stage": "CORRELATION_AND_EVIDENCE",
             "status": "COMPLETED",
-            "details": f"Synthesized {len(risk_records)} deterministic CVSS 3.1 risk evaluations across {validated_domains}/7 validated SIH domains with {len(correlation_records)} hybrid correlation links."
+            "details": f"Synthesized {len(risk_records)} deterministic CVSS 3.1 risk evaluations across {validated_domains}/7 validated security domains with {len(correlation_records)} hybrid correlation links."
         })
 
         for f in all_findings:

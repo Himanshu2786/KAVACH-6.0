@@ -31,7 +31,7 @@ build/
 .cache/
 
 # Large monolithic documentation snapshots
-2.0 KAVACH_COMPLETE_PROJECT.md
+..KAVACH_COMPLETE_PROJECT.md
 INFO/KAVACH_COMPLETE_PROJECT.md
 
 # Pre-compiled USB distributable binaries
@@ -42,3 +42,6 @@ reports/
 
 # Unused USB demo fixture
 KAVACH_USB/DEMO/
+
+# Legacy monolithic documentation snapshots
+legacy/..KAVACH_COMPLETE_PROJECT.md

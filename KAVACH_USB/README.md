@@ -1,5 +1,5 @@
-﻿# KAVACH 6.0 — PORTABLE USB EDITION
-## AI-Assisted Security Assessment Platform (SIH PS 26163)
+# KAVACH 6.0 — PORTABLE USB EDITION
+## AI-Assisted Security Assessment Platform (Enterprise VAPT)
 
 Welcome to the portable distribution of **KAVACH**. This package is structured to execute directly from a USB drive or portable storage on Windows systems without requiring permanent system installation.
 
@@ -7,7 +7,7 @@ Welcome to the portable distribution of **KAVACH**. This package is structured t
 
 ## Directory Structure
 
-`
+```
 KAVACH_USB/
 │
 ├── KAVACH.exe                 # Single-file portable launcher & core engine (~55MB)
@@ -26,13 +26,13 @@ KAVACH_USB/
 ├── database/                  # Assessment database and audit storage
 │   └── kavach.db              # SQLite relational store with CWE/OWASP knowledge
 │
-├── DEMO/                      # SIH Presentation test suites and training samples
+├── DEMO/                      # Presentation test suites and training samples
 │   └── training_samples/      # Pre-built mock and synthetic test targets
 │
 ├── INFO/                      # Full platform architectural documentation
 │   ├── AI_SYSTEM.md
 │   ├── EVIDENCE_SYSTEM.md
-│   ├── PS_26163_COMPLIANCE.md
+│   ├── ENTERPRISE_COMPLIANCE.md
 │   └── ...
 │
 ├── logs/                      # Audit trails and engine execution logs

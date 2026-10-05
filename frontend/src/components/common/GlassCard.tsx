@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import { AiProvenanceDot } from './AiProvenanceDot';
 
 interface GlassCardProps {
   children: React.ReactNode;
@@ -10,6 +11,7 @@ interface GlassCardProps {
   glow?: 'cyan' | 'red' | 'green' | 'amber' | 'none';
   glassLevel?: 1 | 2 | 3 | 4;
   onClick?: () => void;
+  aiProvider?: string;
 }
 
 /**
@@ -25,7 +27,8 @@ export const GlassCard: React.FC<GlassCardProps> = ({
   action,
   glow = 'none',
   glassLevel = 2,
-  onClick
+  onClick,
+  aiProvider
 }) => {
   const cardRef = useRef<HTMLDivElement | null>(null);
 
@@ -53,10 +56,15 @@ export const GlassCard: React.FC<GlassCardProps> = ({
       ref={cardRef}
       onClick={onClick}
       onMouseMove={handleMouseMove}
-      className={`${levelClass} rounded-xl p-5 ${glowStyles} ${
+      className={`relative ${levelClass} rounded-xl p-5 ${glowStyles} ${
         onClick ? 'cursor-pointer' : ''
       } ${className}`}
     >
+      {aiProvider === 'ollama' && (
+        <div className="absolute top-4 right-4 z-10 pointer-events-auto">
+          <AiProvenanceDot provider={aiProvider} />
+        </div>
+      )}
       {(title || action) && (
         <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-white/[0.06]">
           <div className="flex items-center space-x-2.5">
@@ -66,7 +74,7 @@ export const GlassCard: React.FC<GlassCardProps> = ({
               {subtitle && <p className="text-xs text-neutral-400 mt-0.5">{subtitle}</p>}
             </div>
           </div>
-          {action && <div>{action}</div>}
+          {action && <div className={aiProvider === 'ollama' ? 'mr-5' : ''}>{action}</div>}
         </div>
       )}
       {children}

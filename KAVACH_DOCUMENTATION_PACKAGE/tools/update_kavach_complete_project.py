@@ -2,7 +2,7 @@
 """
 KAVACH 6.0 — Autonomous Project Documentation & Snapshot Generator
 Builds and updates:
-  - 2.0 KAVACH_COMPLETE_PROJECT.md
+  - ..KAVACH_COMPLETE_PROJECT.md
   - PROJECT_FILE_MANIFEST.md
   - SNAPSHOT/latest_update.json
   - SOURCE/ (Curated copy of relevant project source files with secrets redacted)
@@ -144,7 +144,7 @@ CURATED_FILES = [
     ("backend/tests/test_rag.py", "TESTS", "RAG vector store, similarity ranking, and query grounding suite", "SOURCE_OF_TRUTH"),
     ("backend/tests/test_priority6_forensics.py", "TESTS", "14 lifecycle audit actions and cryptographic hash chaining suite", "SOURCE_OF_TRUTH"),
     ("backend/tests/test_priority7_ollama_analyst.py", "TESTS", "Ollama LLM reasoning, fallback, and masking suite", "SOURCE_OF_TRUTH"),
-    ("backend/tests/test_sih_full_demonstration.py", "TESTS", "Complete 17-step SIH demonstration workflow suite", "SOURCE_OF_TRUTH"),
+    ("backend/tests/test_enterprise_full_demonstration.py", "TESTS", "Complete 17-step SIH demonstration workflow suite", "SOURCE_OF_TRUTH"),
     ("backend/tests/test_three_real_detections.py", "TESTS", "End-to-end empirical detection verification suite", "SOURCE_OF_TRUTH"),
     ("backend/tests/test_web_desktop_parity.py", "TESTS", "Shared database parity between Web and Desktop clients", "SOURCE_OF_TRUTH"),
     ("backend/tests/test_world_monitor_real_target.py", "TESTS", "Empirical World Monitor target assessment tests", "SOURCE_OF_TRUTH"),
@@ -352,7 +352,7 @@ def build_master_documentation(project_root: Path, routes: list, models: list) -
     doc = f"""# KAVACH 6.0 — MASTER ARCHITECTURE & COMPLETE SYSTEM SPECIFICATION
 
 > **Platform Version**: KAVACH 6.0  
-> **Target Scope**: SIH Problem Statement 26163 — Security Assessment of the World Monitor application (`https://www.worldmonitor.app`)  
+> **Target Scope**: Enterprise Security Audit Standard — Security Assessment of the World Monitor application (`https://www.worldmonitor.app`)  
 > **Core Principle**: *AI Hypothesizes. Evidence Confirms. Zero Demo Contamination. 100% Relational Integrity.*  
 > **Generated Timestamp**: {now_iso}  
 > **Verification Status**: 84/84 Regression Tests Passing (100% PASS)  
@@ -362,14 +362,14 @@ def build_master_documentation(project_root: Path, routes: list, models: list) -
 <!-- AUTO-GENERATED:START -->
 
 ## 1. Project Identity & Overview
-KAVACH 6.0 is an enterprise-grade, evidence-driven cybersecurity assessment platform built for SIH Problem Statement 26163. Unlike conventional vulnerability scanners that emit speculative alerts or unverified text summaries, KAVACH enforces a strict **Truth Hierarchy**:
+KAVACH 6.0 is an enterprise-grade, evidence-driven cybersecurity assessment platform built for Enterprise Security Audit Standard. Unlike conventional vulnerability scanners that emit speculative alerts or unverified text summaries, KAVACH enforces a strict **Truth Hierarchy**:
 - **Code & Network Packets** are the absolute empirical truth.
 - **Deterministic Security Rules** validate findings with cryptographically hashed technical observations.
 - **AI / LLMs** generate contextual hypotheses, explain root causes, and recommend remediations, but **never invent findings, CVSS scores, or evidence without verifiable proof**.
 
 ---
 
-## 2. SIH Problem Statement 26163 Alignment
+## 2. Enterprise Security Audit Standard Alignment
 - **Problem Statement**: Security Assessment of the World Monitor application.
 - **Live Target**: `https://www.worldmonitor.app`
 - **Authorized Scope**: Non-destructive, read-only security assessment across seven distinct security domains:
@@ -542,7 +542,7 @@ All platform test suites pass with 100% success rate:
 - **`test_rag.py`**: 8/8 PASSED (Vector store indexing, chunking, similarity ranking)
 - **`test_priority6_forensics.py`**: 7/7 PASSED (14 lifecycle audit events, hash chaining, secret redaction)
 - **`test_priority7_ollama_analyst.py`**: 8/8 PASSED (Ollama reasoning, prompt masking, rule-based fallback)
-- **`test_sih_full_demonstration.py`**: 3/3 PASSED (Complete 17-step demonstration run)
+- **`test_enterprise_full_demonstration.py`**: 3/3 PASSED (Complete 17-step demonstration run)
 - **`test_three_real_detections.py`**: 4/4 PASSED (Empirical network, web, and file detection)
 - **`test_web_desktop_parity.py`**: 6/6 PASSED (Dual persistence parity between Web and Desktop)
 - **`test_world_monitor_real_target.py`**: 8/8 PASSED (Live World Monitor probing and 7-domain matrix)
@@ -558,7 +558,7 @@ All platform test suites pass with 100% success rate:
 ### Updating This Document:
 To update this document and refresh the curated source file snapshot at any time:
 1. Double-click or execute `UPDATE_KAVACH_COMPLETE_PROJECT.bat` inside `KAVACH_DOCUMENTATION_PACKAGE/`.
-2. The batch script automatically detects the repository root, inspects all routers and models, redacts any sensitive keys, rebuilds the curated `SOURCE/` directory, updates `PROJECT_FILE_MANIFEST.md`, regenerates the auto-generated sections of `2.0 KAVACH_COMPLETE_PROJECT.md`, and computes `SNAPSHOT/latest_update.json`.
+2. The batch script automatically detects the repository root, inspects all routers and models, redacts any sensitive keys, rebuilds the curated `SOURCE/` directory, updates `PROJECT_FILE_MANIFEST.md`, regenerates the auto-generated sections of `..KAVACH_COMPLETE_PROJECT.md`, and computes `SNAPSHOT/latest_update.json`.
 3. Any manual notes written outside the `<!-- AUTO-GENERATED:START -->` and `<!-- AUTO-GENERATED:END -->` tags will be preserved.
 """
     return doc
@@ -712,7 +712,7 @@ The following directories are deliberately excluded from this documentation pack
     models = parse_database_models(project_root)
     print(f"    Discovered {len(routes)} FastAPI routes and {len(models)} SQLAlchemy ORM models.")
 
-    master_md_file = package_dir / "2.0 KAVACH_COMPLETE_PROJECT.md"
+    master_md_file = package_dir / "..KAVACH_COMPLETE_PROJECT.md"
     new_doc_content = build_master_documentation(project_root, routes, models)
 
     # Check for manual section preservation outside AUTO-GENERATED tags
@@ -740,7 +740,7 @@ The following directories are deliberately excluded from this documentation pack
     with open(master_md_file, "w", encoding="utf-8") as mdf:
         mdf.write(new_doc_content)
     master_hash = compute_file_sha256(master_md_file)
-    print(f"[V] 2.0 KAVACH_COMPLETE_PROJECT.md generated (Hash: {master_hash[:16]}...)")
+    print(f"[V] ..KAVACH_COMPLETE_PROJECT.md generated (Hash: {master_hash[:16]}...)")
     print()
 
     # 6. Generate UPDATE_README.md
@@ -749,7 +749,7 @@ The following directories are deliberately excluded from this documentation pack
     readme_content = f"""# KAVACH 6.0 — Self-Updating Documentation Package Guide
 
 ## Overview
-This package (`KAVACH_DOCUMENTATION_PACKAGE`) is the authoritative, self-contained documentation and source artifact bundle for **KAVACH 6.0** (SIH Problem Statement 26163).
+This package (`KAVACH_DOCUMENTATION_PACKAGE`) is the authoritative, self-contained documentation and source artifact bundle for **KAVACH 6.0** (Enterprise Security Audit Standard).
 
 ## How to Update
 To regenerate and update the complete documentation package at any time:
@@ -763,7 +763,7 @@ To regenerate and update the complete documentation package at any time:
 ```
 KAVACH_DOCUMENTATION_PACKAGE/
 │
-├── 2.0 KAVACH_COMPLETE_PROJECT.md  <-- Master System Architecture & Implementation Document
+├── ..KAVACH_COMPLETE_PROJECT.md  <-- Master System Architecture & Implementation Document
 ├── UPDATE_KAVACH_COMPLETE_PROJECT.bat <-- The ONLY file you need to run to update docs
 ├── PROJECT_FILE_MANIFEST.md        <-- Full manifest of all included files & exclusions
 ├── UPDATE_README.md               <-- This usage guide
@@ -784,7 +784,7 @@ KAVACH_DOCUMENTATION_PACKAGE/
 ```
 
 ## Preserving Manual Documentation
-The master document `2.0 KAVACH_COMPLETE_PROJECT.md` separates generated and manual sections:
+The master document `..KAVACH_COMPLETE_PROJECT.md` separates generated and manual sections:
 - Sections between `<!-- AUTO-GENERATED:START -->` and `<!-- AUTO-GENERATED:END -->` are updated dynamically from source code.
 - Any notes, appendices, or diagrams added outside these tags are **strictly preserved** across subsequent runs.
 

@@ -1,7 +1,7 @@
 """
 KAVACH 6.0 Desktop - Test Center & Empirical Probing Page.
 Executes controlled test suites validating defensive headers, endpoint posture,
-and Real World Monitor Security Assessment (SIH PS 26163).
+and Real World Monitor Security Assessment (Enterprise VAPT).
 """
 
 from PySide6.QtWidgets import (
@@ -38,7 +38,7 @@ class TestCenterPage(QWidget):
         layout.addWidget(sub)
 
         # Suite 1: World Monitor Real Assessment Benchmark
-        s1 = GlassCard("Suite 01: Real World Monitor Security Assessment (SIH PS 26163)", "Executes live runtime probe + source code audit across all 7 categories", "🛡️")
+        s1 = GlassCard("Suite 01: Real World Monitor Security Assessment (Enterprise VAPT)", "Executes live runtime probe + source code audit across all 7 categories", "🛡️")
         s1_btn = QPushButton("▶ Run Real World Monitor Assessment Benchmark")
         s1_btn.setObjectName("cyanBtn")
         s1_btn.clicked.connect(self._run_wm_assessment_suite)
@@ -83,7 +83,7 @@ class TestCenterPage(QWidget):
         QMessageBox.information(self, "Test Complete", f"{name}:\n{result_str}")
 
     def _run_wm_assessment_suite(self):
-        self.log_box.append("[SUITE-01] Executing Real World Monitor Security Assessment (SIH PS 26163)...")
+        self.log_box.append("[SUITE-01] Executing Real World Monitor Security Assessment (Enterprise VAPT)...")
         try:
             res = assessment_engine.run_world_monitor_assessment(
                 target_url="http://127.0.0.1:8000",

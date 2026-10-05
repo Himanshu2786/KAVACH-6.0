@@ -36,7 +36,7 @@ def get_forensic_package(
 ):
     """
     Generates and returns the complete reproducible forensic package in JSON format.
-    Includes SHA-256 hash manifest, 7 SIH categories, evidence, CVSS, and audit trail with credentials redacted.
+    Includes SHA-256 hash manifest, 7 security categories, evidence, CVSS, and audit trail with credentials redacted.
     """
     try:
         return forensic_export_service.generate_forensic_package(

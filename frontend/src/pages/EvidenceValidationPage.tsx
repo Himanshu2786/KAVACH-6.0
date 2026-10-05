@@ -18,16 +18,17 @@ import {
   ChevronRight,
   Shield,
   Sliders,
-  Wrench,
   Cpu,
   Clock,
-  Globe
+  Globe,
+  BrainCircuit
 } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 import { api } from '../services/api';
 import { Finding, EvidenceRecord, TerminalVerification } from '../types';
 import { TechnicalTerminalViewer } from '../components/common/TechnicalTerminalViewer';
 import { ReVerificationModal } from '../components/common/ReVerificationModal';
+import { AiProvenanceDot } from '../components/common/AiProvenanceDot';
 
 export const EvidenceValidationPage: React.FC = () => {
   const {
@@ -38,6 +39,7 @@ export const EvidenceValidationPage: React.FC = () => {
   const [selectedFinding, setSelectedFinding] = useState<Finding | null>(null);
   const [evidenceRecords, setEvidenceRecords] = useState<EvidenceRecord[]>([]);
   const [probing, setProbing] = useState(false);
+  const [analyzingAi, setAnalyzingAi] = useState(false);
   const [loading, setLoading] = useState(true);
   const [copiedHash, setCopiedHash] = useState(false);
   const [copiedRaw, setCopiedRaw] = useState(false);
@@ -227,6 +229,31 @@ export const EvidenceValidationPage: React.FC = () => {
     navigator.clipboard.writeText(cmd).catch(() => {});
     setUrlCopied(true);
     setTimeout(() => setUrlCopied(false), 2000);
+  };
+
+  const handleRunAiAnalysis = async () => {
+    if (!selectedFinding) return;
+    setAnalyzingAi(true);
+    try {
+      const res = await api.analyzeFinding(selectedFinding.id);
+      if (res?.updated_finding) {
+        const updated = {
+          ...res.updated_finding,
+          ai_provider: res.ai_provider || res.updated_finding.ai_provider
+        };
+        setSelectedFinding(updated);
+        setFindings(prev => prev.map(f => f.id === updated.id ? updated : f));
+      }
+      showToast(
+        'success',
+        'AI Analysis Complete',
+        `Generated advisory hypothesis (${res.ai_provider === 'ollama' ? 'Ollama LLM' : 'Deterministic Fallback'}).`
+      );
+    } catch (err: any) {
+      showToast('error', 'AI Analysis Failed', err.message || 'Failed to complete AI analysis');
+    } finally {
+      setAnalyzingAi(false);
+    }
   };
 
   return (
@@ -943,15 +970,35 @@ export const EvidenceValidationPage: React.FC = () => {
 
               {/* STAGE 5: AI ANALYSIS UI (CLEARLY SEPARATE FROM FACTS) */}
               <div ref={sectionRefs.ANALYSIS} className="space-y-3">
-                <div className="p-6 rounded-2xl glass-card border-purple-500/25 space-y-4">
-                  <div className="flex items-center justify-between pb-3 border-b border-purple-500/20">
+                <div className="relative p-6 rounded-2xl glass-card border-purple-500/25 space-y-4">
+                  {selectedFinding.ai_provider === 'ollama' && (
+                    <div className="absolute top-4 right-4 z-20 pointer-events-auto" data-testid="stage5-ai-provenance">
+                      <AiProvenanceDot provider={selectedFinding.ai_provider} />
+                    </div>
+                  )}
+                  <div className="flex items-center justify-between pb-3 border-b border-purple-500/20 pr-6">
                     <div className="flex items-center space-x-2 text-xs font-mono font-semibold text-purple-300">
                       <Cpu className="w-4 h-4 text-purple-400" />
                       <span>✦ AI ANALYSIS</span>
                     </div>
-                    <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-purple-950 text-purple-300 border border-purple-800">
-                      Local Offline Engine
-                    </span>
+                    <div className="flex items-center space-x-2.5">
+                      <button
+                        onClick={handleRunAiAnalysis}
+                        disabled={analyzingAi}
+                        className="px-2.5 py-1 rounded bg-purple-600/80 hover:bg-purple-500 text-white text-[11px] font-mono font-semibold flex items-center space-x-1.5 transition-all cursor-pointer disabled:opacity-50"
+                        title="Trigger AI Analysis on this finding"
+                      >
+                        {analyzingAi ? <RefreshCw className="w-3 h-3 animate-spin" /> : <BrainCircuit className="w-3 h-3" />}
+                        <span>{analyzingAi ? 'Reasoning...' : 'Dispatch AI Analysis'}</span>
+                      </button>
+                      <span className={`text-[10px] font-mono px-2 py-0.5 rounded border flex items-center space-x-1 ${
+                        selectedFinding.ai_provider === 'ollama'
+                          ? 'bg-blue-950/80 text-blue-300 border-blue-500/40 shadow-[0_0_8px_rgba(59,130,246,0.2)]'
+                          : 'bg-purple-950 text-purple-300 border-purple-800'
+                      }`}>
+                        {selectedFinding.ai_provider === 'ollama' ? 'Ollama Grounded' : 'Local Offline Engine'}
+                      </span>
+                    </div>
                   </div>
 
                   {/* 3-Step Completion Animation Check */}

@@ -28,6 +28,17 @@ class OllamaService:
         self.process_handle = None
         self.detected_ollama_path = self._locate_ollama_binary()
 
+    @property
+    def api_key(self) -> str:
+        return getattr(settings, "OLLAMA_API_KEY", "") or ""
+
+    def _get_headers(self) -> Dict[str, str]:
+        headers: Dict[str, str] = {}
+        key = self.api_key.strip()
+        if key:
+            headers["Authorization"] = f"Bearer {key}"
+        return headers
+
     def _locate_ollama_binary(self) -> Optional[str]:
         """Check for local Ollama executable in PATH or standard installation locations."""
         # 1. System PATH
@@ -86,6 +97,13 @@ class OllamaService:
 
     def attempt_auto_start(self) -> Dict[str, Any]:
         """Transparent, documented background startup of local Ollama service if installed."""
+        is_local = "127.0.0.1" in self.base_url or "localhost" in self.base_url
+        if self.api_key.strip() or not is_local:
+            return {
+                "success": False,
+                "message": "Remote or Cloud Ollama configured. Local background service startup skipped."
+            }
+
         if not self.detected_ollama_path:
             return {
                 "success": False,
@@ -146,7 +164,7 @@ class OllamaService:
         start_time = time.time()
         try:
             async with httpx.AsyncClient(timeout=3.0) as client:
-                res = await client.get(f"{self.base_url}/api/tags")
+                res = await client.get(f"{self.base_url}/api/tags", headers=self._get_headers())
                 elapsed_ms = round((time.time() - start_time) * 1000, 2)
                 
                 if res.status_code == 200:
@@ -221,8 +239,9 @@ class OllamaService:
                     "message": "Local Ollama service is initializing..."
                 }
 
-            # If auto_start is enabled and binary exists, trigger one attempt
-            if settings.AI_AUTO_START and self.detected_ollama_path and not self.is_starting:
+            # If auto_start is enabled, binary exists, and not remote/cloud, trigger one attempt
+            is_local = "127.0.0.1" in self.base_url or "localhost" in self.base_url
+            if settings.AI_AUTO_START and self.detected_ollama_path and is_local and not self.api_key.strip() and not self.is_starting:
                 self.attempt_auto_start()
 
             return {
@@ -236,7 +255,7 @@ class OllamaService:
                 "has_configured_model": False,
                 "response_time_ms": None,
                 "ollama_binary": self.detected_ollama_path,
-                "message": "Ollama service is not reachable on localhost:11434. Running in deterministic rule mode."
+                "message": f"Ollama service is not reachable on {self.base_url}. Running in deterministic rule mode."
             }
 
     async def generate_completion(self, system_prompt: str, user_prompt: str) -> Optional[str]:
@@ -259,7 +278,7 @@ class OllamaService:
                     "format": "json",
                     "stream": False
                 }
-                res = await client.post(f"{self.base_url}/api/generate", json=payload)
+                res = await client.post(f"{self.base_url}/api/generate", json=payload, headers=self._get_headers())
                 if res.status_code == 200:
                     data = res.json()
                     return data.get("response", "")

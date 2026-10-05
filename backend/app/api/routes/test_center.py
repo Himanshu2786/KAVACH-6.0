@@ -52,7 +52,7 @@ TEST_SUITES = [
             {"key": "WEBHOOK_URL_EXPOSURE", "expected": "Unauthenticated Slack incoming webhook endpoint", "severity": "MEDIUM"}
         ],
         "permission_required": "None (Sandboxed local demo file read)",
-        "limitations": "Tested strings are synthetic dummy values compliant with SIH ethical research constraints."
+        "limitations": "Tested strings are synthetic dummy values compliant with ethical security research constraints."
     },
     {
         "id": "synthetic_cve_package_audit",
@@ -139,7 +139,7 @@ def list_test_suites():
         "count": len(TEST_SUITES),
         "suites": TEST_SUITES,
         "environment": "Controlled Safe Sandbox",
-        "guarantee": "Zero active malware, zero weaponized exploits, strictly SIH PS 26163 compliant."
+        "guarantee": "Zero active malware, zero weaponized exploits, strictly enterprise VAPT compliant."
     }
 
 @router.post("/run")

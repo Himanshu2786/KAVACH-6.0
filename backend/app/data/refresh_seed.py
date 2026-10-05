@@ -5,7 +5,7 @@ from backend.app.data.seed_data import seed_database
 def refresh():
     db = SessionLocal()
     try:
-        # Remove old demo findings and evidence to populate with new 7 SIH categories
+        # Remove old demo findings and evidence to populate with new 7 security categories
         demo_asm = db.query(Assessment).filter(Assessment.id == "ASM-DEMO-001").first()
         if demo_asm:
             print("Refreshing demo assessment findings and evidence...")

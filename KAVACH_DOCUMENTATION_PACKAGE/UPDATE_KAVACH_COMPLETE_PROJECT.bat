@@ -75,7 +75,7 @@ if %EXIT_CODE% neq 0 (
 echo.
 echo ===============================================================================
 echo [V] SUCCESS: KAVACH 6.0 Documentation Package has been updated successfully!
-echo     - Master Document : %PACKAGE_DIR%\2.0 KAVACH_COMPLETE_PROJECT.md
+echo     - Master Document : %PACKAGE_DIR%\..KAVACH_COMPLETE_PROJECT.md
 echo     - File Manifest   : %PACKAGE_DIR%\PROJECT_FILE_MANIFEST.md
 echo     - Curated Source  : %PACKAGE_DIR%\SOURCE\
 echo     - Latest Snapshot : %PACKAGE_DIR%\SNAPSHOT\latest_update.json

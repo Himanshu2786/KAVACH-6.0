@@ -204,11 +204,11 @@ const AppContent: React.FC = () => {
           <button
             onClick={() => setShowDemoBar(true)}
             title="Open the SIH Hackathon guided demo flow"
-            aria-label="Open SIH Demo Flow"
+            aria-label="Open Enterprise Demo Flow"
             className="flex items-center space-x-1.5 px-3 py-2 rounded-full bg-neutral-900/90 border border-white/[0.1] hover:border-white/30 text-neutral-300 hover:text-white text-xs font-mono backdrop-blur-md shadow-lg transition-all min-h-[40px]"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse flex-shrink-0" />
-            <span>SIH Demo Flow</span>
+            <span>Enterprise Demo Flow</span>
           </button>
         )}
       </div>

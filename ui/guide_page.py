@@ -37,7 +37,7 @@ class GuidePage(QWidget):
         # User Manual & Demos Card
         c_manual = GlassCard("📘 KAVACH 6.0 Complete User Manual & Demos", "Full Operator Manual (INFO/USER_MANUAL.md)", "🎬", glow="cyan")
         t_manual = QLabel(
-            "• End-to-End User Manual: 25 comprehensive chapters covering all buttons, workflows, and SIH PS 26163 evaluation criteria.\n"
+            "• End-to-End User Manual: 25 comprehensive chapters covering all buttons, workflows, and enterprise evaluation criteria.\n"
             "• 16 Playable Demonstration Recordings: High-Definition video captures saved in docs/user_manual/demos/ and frontend/public/demos/.\n"
             "• Truth Hierarchy: 'AI Hypothesizes. Evidence Confirms. Ollama is NEVER the detector.'\n"
             "• Verification Standard: 100% Deterministic FIRST.org CVSS 3.1 & Merkle-style SHA-256 audit chaining."

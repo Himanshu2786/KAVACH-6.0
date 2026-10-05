@@ -56,7 +56,7 @@ def get_current_user(
                 headers={"WWW-Authenticate": "Bearer"}
             )
         
-        # In non-production testing ONLY: fallback to ADMIN001 for legacy SIH assessment test suites
+        # In non-production testing ONLY: fallback to ADMIN001 for automated test suites
         if not settings.AUTH_ENABLED or "pytest" in sys.modules or os.getenv("PYTEST_CURRENT_TEST"):
             admin = db.query(User).filter(User.user_id == "ADMIN001").first()
             if admin:

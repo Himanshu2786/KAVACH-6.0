@@ -195,6 +195,7 @@ class FindingResponse(BaseModel):
     created_at: Optional[str] = ""
     updated_at: Optional[str] = ""
     evidence_records: List[EvidenceResponse] = []
+    ai_provider: Optional[str] = "fallback"
 
 # AI Structured Response Specification
 class AIStructuredAnalysis(BaseModel):
@@ -206,6 +207,7 @@ class AIStructuredAnalysis(BaseModel):
     reasoning_summary: str
     recommended_validation: List[str]
     recommended_remediation: List[str]
+    ai_provider: Optional[str] = "fallback"
 
 # System & Ollama Schemas
 class OllamaStatusResponse(BaseModel):

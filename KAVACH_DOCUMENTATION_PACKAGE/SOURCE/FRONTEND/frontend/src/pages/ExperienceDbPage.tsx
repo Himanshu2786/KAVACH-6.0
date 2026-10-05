@@ -88,7 +88,7 @@ export const ExperienceDbPage: React.FC = () => {
               <Database className="w-5 h-5 text-purple-400" />
               <span>Module 7: Experience DB</span>
             </h1>
-            <Badge variant="outline">SIH PS 26163</Badge>
+            <Badge variant="outline">KAVACH Enterprise</Badge>
             <span className="px-2 py-0.5 text-xs font-mono rounded bg-purple-950 text-purple-300 border border-purple-800">
               REMEMBER
             </span>

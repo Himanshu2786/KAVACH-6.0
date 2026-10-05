@@ -1,0 +1,284 @@
+[
+  {
+    "old_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\..KAVACH_COMPLETE_PROJECT",
+    "new_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\legacy\\..KAVACH_COMPLETE_PROJECT",
+    "status": "MOVED",
+    "notes": "Legacy project directory"
+  },
+  {
+    "old_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\..KAVACH_COMPLETE_PROJECT.md",
+    "new_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\legacy\\..KAVACH_COMPLETE_PROJECT.md",
+    "status": "MOVED",
+    "notes": "Legacy project monolithic markdown"
+  },
+  {
+    "old_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\CHALLENGES_TO_SOLUTIONS.md",
+    "new_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\docs\\CHALLENGES_TO_SOLUTIONS.md",
+    "status": "MOVED",
+    "notes": "Root documentation"
+  },
+  {
+    "old_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\CLEANUP_CHANGELOG.md",
+    "new_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\docs\\CLEANUP_CHANGELOG.md",
+    "status": "MOVED",
+    "notes": "Root documentation"
+  },
+  {
+    "old_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\DEBUG_BASELINE.md",
+    "new_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\docs\\DEBUG_BASELINE.md",
+    "status": "MOVED",
+    "notes": "Root documentation"
+  },
+  {
+    "old_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\DEPLOYMENT.md",
+    "new_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\docs\\DEPLOYMENT.md",
+    "status": "MOVED",
+    "notes": "Root documentation"
+  },
+  {
+    "old_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\DOCUMENTATION_UPDATE_REPORT.md",
+    "new_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\docs\\DOCUMENTATION_UPDATE_REPORT.md",
+    "status": "MOVED",
+    "notes": "Root documentation"
+  },
+  {
+    "old_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\KAVACH_5_VALIDATION_REPORT.md",
+    "new_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\docs\\KAVACH_5_VALIDATION_REPORT.md",
+    "status": "MOVED",
+    "notes": "Root documentation"
+  },
+  {
+    "old_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\KAVACH_BACKEND_ARCHITECTURE.md",
+    "new_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\docs\\KAVACH_BACKEND_ARCHITECTURE.md",
+    "status": "MOVED",
+    "notes": "Root documentation"
+  },
+  {
+    "old_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\KAVACH_DEPENDENCIES.md",
+    "new_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\docs\\KAVACH_DEPENDENCIES.md",
+    "status": "MOVED",
+    "notes": "Root documentation"
+  },
+  {
+    "old_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\KAVACH_DEVELOPER_DOCUMENTATION.md",
+    "new_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\docs\\KAVACH_DEVELOPER_DOCUMENTATION.md",
+    "status": "MOVED",
+    "notes": "Root documentation"
+  },
+  {
+    "old_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\KAVACH_MASTER_CONTEXT.md",
+    "new_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\docs\\KAVACH_MASTER_CONTEXT.md",
+    "status": "MOVED",
+    "notes": "Root documentation"
+  },
+  {
+    "old_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\PERMISSION_SYSTEM.md",
+    "new_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\docs\\PERMISSION_SYSTEM.md",
+    "status": "MOVED",
+    "notes": "Root documentation"
+  },
+  {
+    "old_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\START_KAVACH_GUIDE.md",
+    "new_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\docs\\START_KAVACH_GUIDE.md",
+    "status": "MOVED",
+    "notes": "Root documentation"
+  },
+  {
+    "old_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\TEAM_ACCOUNT_SYSTEM.md",
+    "new_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\docs\\TEAM_ACCOUNT_SYSTEM.md",
+    "status": "MOVED",
+    "notes": "Root documentation"
+  },
+  {
+    "old_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\TEAM_ACTIVITY_TRACKING.md",
+    "new_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\docs\\TEAM_ACTIVITY_TRACKING.md",
+    "status": "MOVED",
+    "notes": "Root documentation"
+  },
+  {
+    "old_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\TEAM_WEB_DEPLOYMENT.md",
+    "new_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\docs\\TEAM_WEB_DEPLOYMENT.md",
+    "status": "MOVED",
+    "notes": "Root documentation"
+  },
+  {
+    "old_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\TEAM_WEB_GUIDE.md",
+    "new_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\docs\\TEAM_WEB_GUIDE.md",
+    "status": "MOVED",
+    "notes": "Root documentation"
+  },
+  {
+    "old_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\TEAM_WEB_IMPLEMENTATION_REPORT.md",
+    "new_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\docs\\TEAM_WEB_IMPLEMENTATION_REPORT.md",
+    "status": "MOVED",
+    "notes": "Root documentation"
+  },
+  {
+    "old_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\walkthrough.md",
+    "new_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\docs\\walkthrough.md",
+    "status": "MOVED",
+    "notes": "Root documentation"
+  },
+  {
+    "old_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\test_desktop_app.py",
+    "new_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\tests\\test_desktop_app.py",
+    "status": "COPIED",
+    "notes": "Desktop app test"
+  },
+  {
+    "old_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\test_scanner_suite.py",
+    "new_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\tests\\test_scanner_suite.py",
+    "status": "COPIED",
+    "notes": "Scanner suite test"
+  },
+  {
+    "old_path": "root/test_desktop_app.py",
+    "new_path": "tests/test_desktop_app.py",
+    "status": "SHIMMED",
+    "notes": "Backwards compatibility wrapper"
+  },
+  {
+    "old_path": "root/test_scanner_suite.py",
+    "new_path": "tests/test_scanner_suite.py",
+    "status": "SHIMMED",
+    "notes": "Backwards compatibility wrapper"
+  },
+  {
+    "old_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\1.0 UPDATE CONTEXT.bat",
+    "new_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\scripts\\1.0 UPDATE CONTEXT.bat",
+    "status": "COPIED",
+    "notes": "Automation / launcher script"
+  },
+  {
+    "old_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\build_exe.bat",
+    "new_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\scripts\\build_exe.bat",
+    "status": "COPIED",
+    "notes": "Automation / launcher script"
+  },
+  {
+    "old_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\build_exe.ps1",
+    "new_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\scripts\\build_exe.ps1",
+    "status": "COPIED",
+    "notes": "Automation / launcher script"
+  },
+  {
+    "old_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\build_portable.bat",
+    "new_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\scripts\\build_portable.bat",
+    "status": "COPIED",
+    "notes": "Automation / launcher script"
+  },
+  {
+    "old_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\run_tests.bat",
+    "new_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\scripts\\run_tests.bat",
+    "status": "COPIED",
+    "notes": "Automation / launcher script"
+  },
+  {
+    "old_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\START KAVACH 2.0 .bat",
+    "new_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\scripts\\START KAVACH 2.0 .bat",
+    "status": "COPIED",
+    "notes": "Automation / launcher script"
+  },
+  {
+    "old_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\TEST_KAVACH.bat",
+    "new_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\scripts\\TEST_KAVACH.bat",
+    "status": "COPIED",
+    "notes": "Automation / launcher script"
+  },
+  {
+    "old_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\1.0 UPDATE CONTEXT.bat",
+    "new_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\scripts\\1.0 UPDATE CONTEXT.bat",
+    "status": "MOVED_TO_SCRIPTS",
+    "notes": "Removed redundant root copy"
+  },
+  {
+    "old_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\build_exe.bat",
+    "new_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\scripts\\build_exe.bat",
+    "status": "MOVED_TO_SCRIPTS",
+    "notes": "Removed redundant root copy"
+  },
+  {
+    "old_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\build_exe.ps1",
+    "new_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\scripts\\build_exe.ps1",
+    "status": "MOVED_TO_SCRIPTS",
+    "notes": "Removed redundant root copy"
+  },
+  {
+    "old_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\build_portable.bat",
+    "new_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\scripts\\build_portable.bat",
+    "status": "MOVED_TO_SCRIPTS",
+    "notes": "Removed redundant root copy"
+  },
+  {
+    "old_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\START KAVACH 2.0 .bat",
+    "new_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\scripts\\START KAVACH 2.0 .bat",
+    "status": "MOVED_TO_SCRIPTS",
+    "notes": "Removed redundant root copy"
+  },
+  {
+    "old_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\Dockerfile.backend",
+    "new_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\deployment\\Dockerfile.backend",
+    "status": "COPIED",
+    "notes": "Backend Dockerfile"
+  },
+  {
+    "old_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\Dockerfile.frontend",
+    "new_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\deployment\\Dockerfile.frontend",
+    "status": "COPIED",
+    "notes": "Frontend Dockerfile"
+  },
+  {
+    "old_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\Caddyfile",
+    "new_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\deployment\\Caddyfile",
+    "status": "COPIED",
+    "notes": "Reverse proxy Caddyfile"
+  },
+  {
+    "old_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\deploy\\nginx-frontend.conf",
+    "new_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\deployment\\nginx-frontend.conf",
+    "status": "COPIED",
+    "notes": "Nginx config"
+  },
+  {
+    "old_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\.env.example",
+    "new_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\deployment\\.env.example",
+    "status": "COPIED",
+    "notes": "Environment example"
+  },
+  {
+    "old_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\.env.production.example",
+    "new_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\deployment\\.env.production.example",
+    "status": "COPIED",
+    "notes": "Production env example"
+  },
+  {
+    "old_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\docker-compose.yml",
+    "new_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\deployment\\docker-compose.yml",
+    "status": "COPIED",
+    "notes": "Docker Compose stack definition"
+  },
+  {
+    "old_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\KAVACH.spec",
+    "new_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\build\\KAVACH.spec",
+    "status": "COPIED",
+    "notes": "PyInstaller spec"
+  },
+  {
+    "old_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\requirements.txt",
+    "new_path": "c:\\Users\\Himanshu Raj\\OneDrive\\Desktop\\KHAALI KAVACH\\KAVACH 6.0\\build\\requirements.txt",
+    "status": "COPIED",
+    "notes": "Root requirements definition"
+  },
+  {
+    "old_path": "data/README.md",
+    "new_path": "data/README.md",
+    "status": "CREATED",
+    "notes": "Data architecture documentation"
+  },
+  {
+    "old_path": ".gitignore",
+    "new_path": ".gitignore",
+    "status": "UPDATED",
+    "notes": "Added legacy path exclusion"
+  }
+]

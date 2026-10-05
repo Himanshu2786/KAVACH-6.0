@@ -187,6 +187,7 @@ class AIProviderAdapter:
             logger.info("Server-side Ollama is offline. Employing deterministic Rule-Based Security Provider.")
             result = self.rule_provider.analyze(finding, evidence)
             result["provider_used"] = "RULE_BASED_FALLBACK"
+            result["ai_provider"] = "fallback"
             return result
 
         # Construct evidence-constrained prompt
@@ -209,6 +210,7 @@ class AIProviderAdapter:
             try:
                 parsed = json.loads(raw_response)
                 parsed["provider_used"] = "SERVER_SIDE_OLLAMA"
+                parsed["ai_provider"] = "ollama"
                 return parsed
             except Exception:
                 import re
@@ -216,12 +218,14 @@ class AIProviderAdapter:
                 if match:
                     parsed = json.loads(match.group(0))
                     parsed["provider_used"] = "SERVER_SIDE_OLLAMA"
+                    parsed["ai_provider"] = "ollama"
                     return parsed
                 raise ValueError("JSON parsing failed")
         except Exception as ex:
             logger.warning(f"Ollama generation failed ({ex}); utilizing deterministic Rule-Based Security Provider.")
             result = self.rule_provider.analyze(finding, evidence)
             result["provider_used"] = "RULE_BASED_FALLBACK"
+            result["ai_provider"] = "fallback"
             return result
 
 ai_provider = AIProviderAdapter()

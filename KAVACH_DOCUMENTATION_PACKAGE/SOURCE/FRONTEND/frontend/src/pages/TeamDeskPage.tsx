@@ -147,7 +147,7 @@ export const TeamDeskPage: React.FC = () => {
               <Users className="w-5 h-5 text-indigo-400" />
               <span>Module 8: Team Desk</span>
             </h1>
-            <Badge variant="outline">SIH PS 26163</Badge>
+            <Badge variant="outline">KAVACH Enterprise</Badge>
             <span className="px-2 py-0.5 text-xs font-mono rounded bg-indigo-950 text-indigo-300 border border-indigo-800">
               ASSIGN
             </span>

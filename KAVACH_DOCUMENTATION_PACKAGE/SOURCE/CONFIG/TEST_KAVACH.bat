@@ -53,7 +53,7 @@ echo ------------------------------------------------------------
 set "TEST3_RES=%errorlevel%"
 
 echo.
-echo [4/4] Running Real World Monitor Assessment Suite (SIH PS 26163)...
+echo [4/4] Running Real World Monitor Assessment Suite (KAVACH Enterprise)...
 echo ------------------------------------------------------------
 "%PYTHON_EXE%" -m pytest "%PROJECT_ROOT%\backend\tests\test_world_monitor_assessment.py" -v
 set "TEST4_RES=%errorlevel%"
@@ -81,7 +81,7 @@ if %TEST3_RES% equ 0 (
 )
 
 if %TEST4_RES% equ 0 (
-    echo  [PASS] Real World Monitor Assessment Suite (SIH PS 26163)
+    echo  [PASS] Real World Monitor Assessment Suite (KAVACH Enterprise)
 ) else (
     echo  [FAIL] Real World Monitor Assessment Suite (Code: %TEST4_RES%)
 )

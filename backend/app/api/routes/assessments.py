@@ -144,7 +144,7 @@ def get_security_posture(assessment_id: str, db: Session = Depends(get_db)):
 
 
 # ─────────────────────────────────────────────────────────────────────────────
-# REAL WORLD MONITOR SECURITY ASSESSMENT (SIH PS 26163)
+# REAL WORLD MONITOR SECURITY ASSESSMENT (KAVACH ENTERPRISE)
 # ─────────────────────────────────────────────────────────────────────────────
 from pydantic import BaseModel, Field
 

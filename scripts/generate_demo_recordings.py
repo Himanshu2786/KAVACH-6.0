@@ -249,7 +249,7 @@ def build_all_recordings():
 
     # 05_world_monitor.mp4
     frames = []
-    img, draw = create_base_frame("World Monitor", "Target Application Dual-Mode Assessment (PS 26163)", "TARGET AUDIT", 1, 2)
+    img, draw = create_base_frame("World Monitor", "Target Application Dual-Mode Assessment (Enterprise VAPT)", "TARGET AUDIT", 1, 2)
     render_glass_panel(draw, (40, 130, 600, 640), "TARGET CONFIGURATION")
     draw.text((60, 180), "Target ID: TGT-WORLD-MONITOR-01", font=FONT_HEADING, fill=CYAN)
     draw.text((60, 230), "• Web Target: https://www.worldmonitor.app", font=FONT_BODY, fill=TEXT_WHITE)
@@ -257,7 +257,7 @@ def build_all_recordings():
     draw.text((60, 310), "• Assessment Modes: RUNTIME | SOURCE | HYBRID", font=FONT_BODY, fill=AMBER)
     draw.text((60, 350), "• Safety Policy: Read-Only, Non-Destructive", font=FONT_BODY, fill=EMERALD)
 
-    render_glass_panel(draw, (640, 130, 1240, 640), "7-DOMAIN SIH VALIDATION MATRIX")
+    render_glass_panel(draw, (640, 130, 1240, 640), "7-DOMAIN VALIDATION MATRIX")
     domains = [
         ("1. Authentication", "PASS", EMERALD),
         ("2. Authorization / IDOR", "PASS", EMERALD),
@@ -278,7 +278,7 @@ def build_all_recordings():
         "index": 5,
         "filename": "05_world_monitor.mp4",
         "title": "World Monitor Assessment",
-        "category": "SIH PS 26163",
+        "category": "KAVACH Enterprise",
         "duration": "1:00",
         "status": "VERIFIED_RECORDED",
         "description": "Dual-mode (Runtime + Source AST) evaluation of https://www.worldmonitor.app."
@@ -450,7 +450,7 @@ def build_all_recordings():
     img, draw = create_base_frame("Platform Guide", "Architecture & Operational Knowledge Base", "DOCUMENTATION", 1, 2)
     render_glass_panel(draw, (40, 130, 1240, 640), "EMBEDDED ARCHITECTURAL KNOWLEDGE SYSTEM")
     draw.text((60, 180), "Interactive FAQ and Technical Deep Dives:", font=FONT_HEADING, fill=TEXT_WHITE)
-    draw.text((60, 230), "• Section 1: What is KAVACH & SIH Problem Statement PS 26163", font=FONT_BODY, fill=CYAN)
+    draw.text((60, 230), "• Section 1: What is KAVACH & Enterprise VAPT Benchmark", font=FONT_BODY, fill=CYAN)
     draw.text((60, 270), "• Section 2: World Monitor Integration & Situational Awareness", font=FONT_BODY, fill=CYAN)
     draw.text((60, 310), "• Section 3: 17-Stage Deterministic Assessment Pipeline", font=FONT_BODY, fill=CYAN)
     draw.text((60, 350), "• Section 4: Cryptographic Evidence & Verification Procedures", font=FONT_BODY, fill=CYAN)
@@ -493,14 +493,14 @@ def build_all_recordings():
     frames = []
     img, draw = create_base_frame("Forensic Reporting", "HTML Dossier & Tamper-Evident JSON Package", "REPORTS", 1, 2)
     render_glass_panel(draw, (40, 130, 600, 640), "STANDALONE HTML DOSSIER")
-    draw.text((60, 180), "SIH_FORENSIC_DOSSIER_*.html", font=FONT_HEADING, fill=EMERALD)
+    draw.text((60, 180), "KAVACH_FORENSIC_DOSSIER_*.html", font=FONT_HEADING, fill=EMERALD)
     draw.text((60, 230), "• Self-contained offline single-file report", font=FONT_BODY, fill=TEXT_WHITE)
     draw.text((60, 270), "• Embedded dark glassmorphic styling", font=FONT_BODY, fill=TEXT_WHITE)
     draw.text((60, 310), "• Interactive evidence inspector", font=FONT_BODY, fill=CYAN)
     draw.text((60, 350), "• Zero external network dependencies", font=FONT_BODY, fill=EMERALD)
 
     render_glass_panel(draw, (640, 130, 1240, 640), "REPRODUCIBLE JSON PACKAGE")
-    draw.text((660, 180), "SIH_FORENSIC_PACKAGE_*.json", font=FONT_HEADING, fill=CYAN)
+    draw.text((660, 180), "KAVACH_FORENSIC_PACKAGE_*.json", font=FONT_HEADING, fill=CYAN)
     draw.text((660, 230), "13 Mandatory Forensic Sections:", font=FONT_BODY, fill=TEXT_WHITE)
     draw.text((660, 270), "1. metadata  2. scope  3. tests  4. findings  5. evidence", font=FONT_CODE, fill=TEXT_MUTED)
     draw.text((660, 305), "6. observations  7. source_refs  8. cvss_risk  9. safe_poc", font=FONT_CODE, fill=TEXT_MUTED)
@@ -543,26 +543,26 @@ def build_all_recordings():
         "description": "Differential re-verification proving vulnerability resolution upon developer patch."
     })
 
-    # 16_full_sih_demo.mp4
+    # 16_full_enterprise_demo.mp4
     frames = []
-    img, draw = create_base_frame("SIH Demonstration", "Full 17-Step SIH Problem Statement 26163 Workflow", "EVALUATION", 1, 3)
-    render_glass_panel(draw, (40, 130, 1240, 640), "SMART INDIA HACKATHON PS 26163 DEMONSTRATION")
+    img, draw = create_base_frame("Enterprise Demonstration", "Full 17-Step Enterprise VAPT Workflow", "EVALUATION", 1, 3)
+    render_glass_panel(draw, (40, 130, 1240, 640), "KAVACH ENTERPRISE VAPT DEMONSTRATION")
     draw.text((60, 180), "AI-Based Cyber Security Assessment Tool for Web Applications", font=FONT_HEADING, fill=CYAN)
-    draw.text((60, 230), "Execution Command: python scripts/run_sih_demo.py", font=FONT_CODE, fill=TEXT_WHITE)
+    draw.text((60, 230), "Execution Command: python scripts/run_enterprise_demo.py", font=FONT_CODE, fill=TEXT_WHITE)
     draw.text((60, 280), "• 17 Steps Executed with 100% Real Precision", font=FONT_BODY, fill=EMERALD)
     draw.text((60, 320), "• Target: World Monitor (https://www.worldmonitor.app)", font=FONT_BODY, fill=TEXT_WHITE)
     draw.text((60, 360), "• 0 Errors | 0 Mocked Vulnerabilities | 100% Grounded Evidence", font=FONT_BODY, fill=EMERALD)
     draw.text((60, 400), "• Forensic Package & Dossier Written to reports/", font=FONT_BODY, fill=CYAN)
     frames.append((img, 5.0))
-    generate_video("16_full_sih_demo.mp4", frames)
+    generate_video("16_full_enterprise_demo.mp4", frames)
     manifest.append({
         "index": 16,
-        "filename": "16_full_sih_demo.mp4",
-        "title": "Full SIH PS 26163 Demonstration",
-        "category": "SIH BENCHMARK",
+        "filename": "16_full_enterprise_demo.mp4",
+        "title": "Full Enterprise VAPT Demonstration",
+        "category": "ENTERPRISE BENCHMARK",
         "duration": "1:30",
         "status": "VERIFIED_RECORDED",
-        "description": "Complete 17-step end-to-end evaluation executing clean-state SIH benchmark."
+        "description": "Complete 17-step end-to-end evaluation executing clean-state enterprise benchmark."
     })
 
     manifest_file = docs_demo_dir / "demo_manifest.json"

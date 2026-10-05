@@ -150,7 +150,7 @@ export const SystemStatusPage: React.FC = () => {
       </div>
 
       {/* Subsystems Readiness Grid */}
-      <GlassCard title="Platform Subsystem Readiness Verification" subtitle="Exhaustive checks for Smart India Hackathon review">
+      <GlassCard title="Platform Subsystem Readiness Verification" subtitle="Exhaustive checks for Enterprise Security Audit review">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 font-mono-code text-xs">
           <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800">
             <div className="text-[10px] text-slate-500 uppercase">Knowledge Engine</div>

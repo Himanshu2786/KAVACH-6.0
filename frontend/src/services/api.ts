@@ -147,7 +147,7 @@ export const api = {
     return request<Finding[]>(`/findings${qs}`);
   },
   getFinding: (id: string) => request<Finding>(`/findings/${id}`),
-  analyzeFinding: (id: string) => request<{ success: boolean; data: any; updated_finding: Finding }>(`/findings/${id}/analyze`, {
+  analyzeFinding: (id: string) => request<{ success: boolean; ai_provider?: string; data: any; updated_finding: Finding }>(`/findings/${id}/analyze`, {
     method: 'POST'
   }),
 
@@ -245,27 +245,27 @@ export const api = {
   startAiService: () => request<{ success: boolean; status?: string; binary_path?: string; message: string }>('/ai/start', {
     method: 'POST'
   }),
-  explainFinding: (findingId: string) => request<{ success: boolean; finding_id: string; explanation: StructuredAiExplanation }>('/ai/explain-finding', {
+  explainFinding: (findingId: string) => request<{ success: boolean; finding_id: string; ai_provider?: string; explanation: StructuredAiExplanation }>('/ai/explain-finding', {
     method: 'POST',
     body: JSON.stringify({ finding_id: findingId })
   }),
-  explainRisk: (findingId: string) => request<{ success: boolean; risk_explanation: any }>('/ai/explain-risk', {
+  explainRisk: (findingId: string) => request<{ success: boolean; ai_provider?: string; risk_explanation: any }>('/ai/explain-risk', {
     method: 'POST',
     body: JSON.stringify({ finding_id: findingId })
   }),
-  getRemediationGuide: (findingId: string) => request<{ success: boolean; remediation_guide: any }>('/ai/remediation-guide', {
+  getRemediationGuide: (findingId: string) => request<{ success: boolean; ai_provider?: string; remediation_guide: any }>('/ai/remediation-guide', {
     method: 'POST',
     body: JSON.stringify({ finding_id: findingId })
   }),
-  getAssessmentSummary: (assessmentId: string) => request<{ success: boolean; assessment_id: string; summary: StructuredAiExplanation }>('/ai/assessment-summary', {
+  getAssessmentSummary: (assessmentId: string) => request<{ success: boolean; assessment_id: string; ai_provider?: string; summary: StructuredAiExplanation }>('/ai/assessment-summary', {
     method: 'POST',
     body: JSON.stringify({ assessment_id: assessmentId })
   }),
-  getAuditSummary: (assessmentId?: string) => request<{ success: boolean; audit_summary: any }>('/ai/audit-summary', {
+  getAuditSummary: (assessmentId?: string) => request<{ success: boolean; ai_provider?: string; audit_summary: any }>('/ai/audit-summary', {
     method: 'POST',
     body: JSON.stringify({ assessment_id: assessmentId })
   }),
-  explainThreatAlert: (alertText: string, component = 'Application Gateway', severity = 'HIGH') => request<{ success: boolean; alert_explanation: StructuredAiExplanation }>('/ai/threat-alert', {
+  explainThreatAlert: (alertText: string, component = 'Application Gateway', severity = 'HIGH') => request<{ success: boolean; ai_provider?: string; alert_explanation: StructuredAiExplanation }>('/ai/threat-alert', {
     method: 'POST',
     body: JSON.stringify({ alert_text: alertText, component, severity })
   }),

@@ -70,6 +70,7 @@ class RagResponse(BaseModel):
     raw_answer: Optional[str] = None
     model_used: str = Field(..., description="LLM model or deterministic rule engine used")
     execution_time_ms: float = 0.0
+    ai_provider: str = Field(default="fallback", description="AI provider: 'ollama' or 'fallback'")
 
 
 class RagIndexStatus(BaseModel):

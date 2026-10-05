@@ -1,6 +1,6 @@
 # KAVACH — Master Integration Plan & Architectural Preservation Specification
 **System Name**: KAVACH (AI-Assisted, Evidence-Driven Security Assessment Platform)  
-**Problem Statement**: SIH PS 26163 (Security Assessment of the World Monitor Application)  
+**Problem Statement**: KAVACH Enterprise (Security Assessment of the World Monitor Application)  
 **Status**: Pre-Implementation Integration Blueprint  
 **Date**: September 2026  
 
@@ -86,7 +86,7 @@ All routes are mounted under prefix `/api`:
                 ┌─────────────────────────────────┼─────────────────────────────────┐
                 ▼                                 ▼                                 ▼
         ASSESSMENT ENGINE                  DETECTION ENGINE                  EVIDENCE ENGINE
-        • World Monitor (PS 26163)         • File Scanner                    • SHA-256 Hashing
+        • World Monitor (Enterprise VAPT)         • File Scanner                    • SHA-256 Hashing
         • URL Assessment [FEAT 4]          • Process Scanner                 • Dual Perspective:
           └─ Real Vulnerabilities           • Network Scanner                   - Simple View
              [FEAT 5]                        ├─ Malware / Trojans [FEAT 1]      - Technical View

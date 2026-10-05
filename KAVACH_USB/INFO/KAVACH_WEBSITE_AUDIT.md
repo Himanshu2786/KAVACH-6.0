@@ -1,7 +1,7 @@
 # KAVACH Website Audit & Architectural Assessment
 **Generated**: September 2026 | Antigravity AI Architecture Team  
 **Scope**: Complete Workspace Audit of KAVACH 6.0 Codebase  
-**Alignment**: SIH Problem Statement 26163 (Security Assessment of the World Monitor Application)
+**Alignment**: Enterprise Security Audit Standard (Security Assessment of the World Monitor Application)
 
 ---
 
@@ -71,7 +71,7 @@ The audit identified strong underlying architecture (deterministic state machine
 
 ### 2.7 Existing SOC / System Features
 - Hardware metrics (CPU, Memory, Disk) and Windows process lists were part of system telemetry in `SystemStatusPage.tsx`.
-- **Finding**: These must remain auxiliary and must not distract from SIH Problem Statement 26163. They are grouped under "SOC Context".
+- **Finding**: These must remain auxiliary and must not distract from Enterprise Security Audit Standard. They are grouped under "SOC Context".
 
 ---
 
@@ -83,7 +83,7 @@ The audit identified strong underlying architecture (deterministic state machine
 | **Authorization Guard** | Incomplete | Target URL could be entered without explicit legal scope checkbox on homepage. | Add `AuthorizationModal.tsx` modal requiring dual-confirmation before launching assessment. |
 | **Terminal Verification** | Incomplete | Evidence page had raw output but lacked safe, copyable `curl` commands and expected vs. observed diffs. | Create `TechnicalTerminalViewer.tsx` linked to identical `Evidence ID`. |
 | **Re-Verification Engine** | Missing | No endpoint or UI to re-test after applying a patch and compare Before vs. After results. | Add `POST /api/evidence/{id}/re-verify` and `ReVerificationModal.tsx`. |
-| **SIH 26163 Coverage** | Partial | Focused on 4 categories (Auth, IDOR, SQLi, Headers). Missing explicit tests for all 7 areas. | Seed and model all 7 SIH categories for World Monitor. |
+| **Enterprise VAPT Coverage** | Partial | Focused on 4 categories (Auth, IDOR, SQLi, Headers). Missing explicit tests for all 7 areas. | Seed and model all 7 security categories for World Monitor. |
 | **Online AI Usage** | Addressed | Code attempted local Ollama call without adapter abstraction. | Implement `AIProvider` abstraction to explicitly manage server-side Ollama with zero client dependencies. |
 
 ---

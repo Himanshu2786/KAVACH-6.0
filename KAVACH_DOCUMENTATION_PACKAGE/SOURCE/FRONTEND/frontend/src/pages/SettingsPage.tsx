@@ -183,7 +183,7 @@ export const SettingsPage: React.FC = () => {
       </GlassCard>
 
       {/* Build & Runtime Info */}
-      <GlassCard title="Build & Architecture Profile" subtitle="Smart India Hackathon Prototype">
+      <GlassCard title="Build & Architecture Profile" subtitle="Enterprise Security Audit Prototype">
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 font-mono-code text-xs">
           <div className="p-3 rounded-lg bg-slate-900/70 border border-slate-800">
             <div className="text-[10px] text-slate-500 uppercase">Platform Version</div>

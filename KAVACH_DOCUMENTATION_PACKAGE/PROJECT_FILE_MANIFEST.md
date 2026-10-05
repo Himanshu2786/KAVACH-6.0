@@ -1,6 +1,6 @@
 # KAVACH 6.0 — PROJECT FILE MANIFEST
 
-> **Generated**: 2026-09-26 09:09:37 UTC  
+> **Generated**: 2026-09-28 16:11:05 UTC  
 > **Platform Version**: KAVACH 6.0  
 > **Total Curated Source Files**: 126  
 > **Total Categories**: 6  
@@ -14,14 +14,14 @@ The following files are materially involved in understanding, executing, testing
 | Relative Path | Category | Purpose | Source of Truth | SHA-256 Prefix |
 | :--- | :--- | :--- | :--- | :--- |
 | `frontend/package.json` | **FRONTEND** | Frontend dependencies and build scripts | `SOURCE_OF_TRUTH` | `d4699f14b4825af7...` |
-| `frontend/vite.config.ts` | **FRONTEND** | Vite build configuration and server proxy rules | `SOURCE_OF_TRUTH` | `c68c2a0caf233501...` |
+| `frontend/vite.config.ts` | **FRONTEND** | Vite build configuration and server proxy rules | `SOURCE_OF_TRUTH` | `7870a22e46b40b62...` |
 | `frontend/tsconfig.json` | **FRONTEND** | TypeScript compiler options and paths | `SOURCE_OF_TRUTH` | `770b4140bbb581e2...` |
 | `frontend/src/main.tsx` | **FRONTEND** | Application entry point and React root mounting | `SOURCE_OF_TRUTH` | `c89383baab814e13...` |
 | `frontend/src/App.tsx` | **FRONTEND** | Top-level layout, presentation bar, and route switching | `SOURCE_OF_TRUTH` | `b979160f04d05275...` |
 | `frontend/src/index.css` | **FRONTEND** | Core styling, Tailwind directives, dark theme tokens | `SOURCE_OF_TRUTH` | `c26be1b262e71989...` |
 | `frontend/src/App.css` | **FRONTEND** | Component utility styles and transitions | `SOURCE_OF_TRUTH` | `6e25a776d3e8102d...` |
-| `frontend/src/context/AppContext.tsx` | **FRONTEND** | Global state management: active assessment, findings, toasts, demo mode | `SOURCE_OF_TRUTH` | `63dbf074c58a458d...` |
-| `frontend/src/services/api.ts` | **FRONTEND** | REST API client mapping all backend endpoints | `SOURCE_OF_TRUTH` | `5a39e65203425632...` |
+| `frontend/src/context/AppContext.tsx` | **FRONTEND** | Global state management: active assessment, findings, toasts, demo mode | `SOURCE_OF_TRUTH` | `f95a485a2d412d14...` |
+| `frontend/src/services/api.ts` | **FRONTEND** | REST API client mapping all backend endpoints | `SOURCE_OF_TRUTH` | `009123751bcec0c7...` |
 | `frontend/src/types/index.ts` | **FRONTEND** | TypeScript domain interfaces for findings, evidence, assessments | `SOURCE_OF_TRUTH` | `64183d7c3fbdacbb...` |
 | `frontend/src/components/layout/Navbar.tsx` | **FRONTEND** | Top navigation bar, status indicators, and presentation dropdown | `SOURCE_OF_TRUTH` | `902c638a861180b3...` |
 | `frontend/src/components/layout/DemoJourneyBar.tsx` | **FRONTEND** | SIH hackathon presentation walkthrough bar | `SOURCE_OF_TRUTH` | `535da60f36630e59...` |
@@ -51,7 +51,7 @@ The following files are materially involved in understanding, executing, testing
 | `frontend/src/pages/GuidePage.tsx` | **FRONTEND** | Operating manual, architecture blueprints, and user guides | `SOURCE_OF_TRUTH` | `ef800d49ac5a67e7...` |
 | `frontend/src/pages/TeamDeskPage.tsx` | **FRONTEND** | Analyst task assignment and collaborative triage desk | `SOURCE_OF_TRUTH` | `ac41d0aa4ae1dad1...` |
 | `frontend/src/pages/TestCenterPage.tsx` | **FRONTEND** | Automated platform test runner and regression verification | `SOURCE_OF_TRUTH` | `b639979d9b655574...` |
-| `backend/requirements.txt` | **BACKEND** | Python backend package requirements | `SOURCE_OF_TRUTH` | `de109127edfc44f8...` |
+| `backend/requirements.txt` | **BACKEND** | Python backend package requirements | `SOURCE_OF_TRUTH` | `f1cab405df8bc8b1...` |
 | `backend/app/main.py` | **BACKEND** | FastAPI main application entry, CORS, lifespan, exception handlers | `SOURCE_OF_TRUTH` | `1350364f4135772d...` |
 | `backend/app/api/api.py` | **BACKEND** | Master API router aggregating all 18 route modules | `SOURCE_OF_TRUTH` | `4067ba347bfe9899...` |
 | `backend/app/api/routes/system.py` | **BACKEND** | System health, Ollama health, and audit query endpoints | `SOURCE_OF_TRUTH` | `f9e90e8567fec965...` |
@@ -72,17 +72,17 @@ The following files are materially involved in understanding, executing, testing
 | `backend/app/api/routes/team.py` | **BACKEND** | Team desk assignment and triage endpoints | `SOURCE_OF_TRUTH` | `51807d23bc5f7b99...` |
 | `backend/app/api/routes/test_center.py` | **BACKEND** | Platform test suites execution endpoints | `SOURCE_OF_TRUTH` | `872af8f88cec048b...` |
 | `backend/app/api/routes/forensic.py` | **BACKEND** | Immutable forensic package generation endpoints | `SOURCE_OF_TRUTH` | `5a64153e20309ba4...` |
-| `backend/app/core/config.py` | **BACKEND** | Pydantic system settings and environment variables | `SOURCE_OF_TRUTH` | `d9311ba7afc58c3a...` |
+| `backend/app/core/config.py` | **BACKEND** | Pydantic system settings and environment variables | `SOURCE_OF_TRUTH` | `655a4880bf632d79...` |
 | `backend/app/core/audit.py` | **BACKEND** | Structured audit logging function | `SOURCE_OF_TRUTH` | `f3b3db52616bd268...` |
 | `backend/app/core/time.py` | **BACKEND** | Standardized IST timestamp formatters | `SOURCE_OF_TRUTH` | `76728bcf78ca55a1...` |
 | `backend/app/core/target_config.py` | **BACKEND** | Centralized target definition for World Monitor | `SOURCE_OF_TRUTH` | `6a5ec70594b3ebc6...` |
 | `backend/app/services/assessment_service.py` | **BACKEND** | Assessment orchestration and 8-stage advance logic | `SOURCE_OF_TRUTH` | `96485861a0978916...` |
 | `backend/app/services/security_module_runner.py` | **BACKEND** | Automated non-destructive probe runner for ASSESS stage | `SOURCE_OF_TRUTH` | `6682b7b7d9cc3f7a...` |
 | `backend/app/services/world_monitor_assessment_engine.py` | **BACKEND** | World Monitor live runtime and static audit engine | `SOURCE_OF_TRUTH` | `f1a5afe37288157c...` |
-| `backend/app/services/world_monitor_service.py` | **BACKEND** | World Monitor target preflight and inventory service | `SOURCE_OF_TRUTH` | `adef833c865f81ee...` |
-| `backend/app/services/ai_analysis_service.py` | **BACKEND** | AI analysis orchestration and structured explanations | `SOURCE_OF_TRUTH` | `0108f0d4d24d2ea3...` |
-| `backend/app/services/ai_provider.py` | **BACKEND** | Ollama LLM provider interface and prompt dispatching | `SOURCE_OF_TRUTH` | `82717808e0565d86...` |
-| `backend/app/services/ollama_service.py` | **BACKEND** | Ollama health check and process supervisor | `SOURCE_OF_TRUTH` | `6d60107c563a5538...` |
+| `backend/app/services/world_monitor_service.py` | **BACKEND** | World Monitor target preflight and inventory service | `SOURCE_OF_TRUTH` | `bdf2d8baff3f9c55...` |
+| `backend/app/services/ai_analysis_service.py` | **BACKEND** | AI analysis orchestration and structured explanations | `SOURCE_OF_TRUTH` | `9a563989db49d8fe...` |
+| `backend/app/services/ai_provider.py` | **BACKEND** | Ollama LLM provider interface and prompt dispatching | `SOURCE_OF_TRUTH` | `73ae10460b2e336f...` |
+| `backend/app/services/ollama_service.py` | **BACKEND** | Ollama health check and process supervisor | `SOURCE_OF_TRUTH` | `c704b82f81968280...` |
 | `backend/app/services/discovery_service.py` | **BACKEND** | Asset cataloging and attack surface inventory service | `SOURCE_OF_TRUTH` | `8944f637d1e25cf2...` |
 | `backend/app/services/evidence_service.py` | **BACKEND** | Evidence persistence and SHA-256 calculation service | `SOURCE_OF_TRUTH` | `e36774cb5e499225...` |
 | `backend/app/services/knowledge_service.py` | **BACKEND** | CWE/OWASP taxonomic mapping service | `SOURCE_OF_TRUTH` | `5661ef7ff13241f6...` |
@@ -111,8 +111,8 @@ The following files are materially involved in understanding, executing, testing
 | `services/storage_service.py` | **BACKEND** | Dual SQLite raw query persistence layer | `SOURCE_OF_TRUTH` | `0029dcdf4647e972...` |
 | `backend/app/core/database.py` | **DATABASE** | SQLAlchemy engine, session factory, and schema migrations | `SOURCE_OF_TRUTH` | `1d93fb42398448cb...` |
 | `backend/app/models/models.py` | **DATABASE** | SQLAlchemy ORM models: Assessment, Finding, EvidenceRecord, AuditEvent | `SOURCE_OF_TRUTH` | `04c64972c84e81f2...` |
-| `backend/app/schemas/schemas.py` | **DATABASE** | Pydantic request and response schemas | `SOURCE_OF_TRUTH` | `66bc6da405a38b0b...` |
-| `backend/app/data/seed_data.py` | **DATABASE** | Seed demo dataset and synthetic baseline definitions | `SOURCE_OF_TRUTH` | `ee18f0ed931db8ea...` |
+| `backend/app/schemas/schemas.py` | **DATABASE** | Pydantic request and response schemas | `SOURCE_OF_TRUTH` | `108921d78aba1a52...` |
+| `backend/app/data/seed_data.py` | **DATABASE** | Seed demo dataset and synthetic baseline definitions | `SOURCE_OF_TRUTH` | `0915d974f01046b6...` |
 | `backend/tests/test_audit_matrix.py` | **TESTS** | Comprehensive 9-point end-to-end acceptance audit suite | `SOURCE_OF_TRUTH` | `e1de6910cce96983...` |
 | `backend/tests/test_data_isolation.py` | **TESTS** | Multi-assessment data isolation and demo contamination suite | `SOURCE_OF_TRUTH` | `85fb3d94b9bd7cb9...` |
 | `backend/tests/test_mandatory_modules.py` | **TESTS** | Team desk, experience DB, and test center verification suite | `SOURCE_OF_TRUTH` | `66b78cb2168d5b87...` |
@@ -120,7 +120,7 @@ The following files are materially involved in understanding, executing, testing
 | `backend/tests/test_rag.py` | **TESTS** | RAG vector store, similarity ranking, and query grounding suite | `SOURCE_OF_TRUTH` | `e94a46b604f6f609...` |
 | `backend/tests/test_priority6_forensics.py` | **TESTS** | 14 lifecycle audit actions and cryptographic hash chaining suite | `SOURCE_OF_TRUTH` | `e0b195f1150b3132...` |
 | `backend/tests/test_priority7_ollama_analyst.py` | **TESTS** | Ollama LLM reasoning, fallback, and masking suite | `SOURCE_OF_TRUTH` | `ca1be0d336fe2ec8...` |
-| `backend/tests/test_sih_full_demonstration.py` | **TESTS** | Complete 17-step SIH demonstration workflow suite | `SOURCE_OF_TRUTH` | `66229af5109fc05a...` |
+| `backend/tests/test_enterprise_full_demonstration.py` | **TESTS** | Complete 17-step SIH demonstration workflow suite | `SOURCE_OF_TRUTH` | `66229af5109fc05a...` |
 | `backend/tests/test_three_real_detections.py` | **TESTS** | End-to-end empirical detection verification suite | `SOURCE_OF_TRUTH` | `ab3227a9965339cb...` |
 | `backend/tests/test_web_desktop_parity.py` | **TESTS** | Shared database parity between Web and Desktop clients | `SOURCE_OF_TRUTH` | `b2915d0bb3495a50...` |
 | `backend/tests/test_world_monitor_real_target.py` | **TESTS** | Empirical World Monitor target assessment tests | `SOURCE_OF_TRUTH` | `2a804af8fa32b6ef...` |
@@ -129,7 +129,7 @@ The following files are materially involved in understanding, executing, testing
 | `test_scanner_suite.py` | **TESTS** | Root scanner integration test runner | `SOURCE_OF_TRUTH` | `8172ae73e9f3af41...` |
 | `.env.example` | **CONFIG** | Safe template of system configuration and environment variables | `SOURCE_OF_TRUTH` | `37b474f4d85764e2...` |
 | `requirements.txt` | **CONFIG** | Project root Python dependency manifest | `SOURCE_OF_TRUTH` | `9ce214ea783fe856...` |
-| `START KAVACH 1.0 .bat` | **CONFIG** | Windows one-click launcher for frontend and backend | `SOURCE_OF_TRUTH` | `baf6f4f88cc2b5a3...` |
+| `START KAVACH 1.0 .bat` | **CONFIG** | Windows one-click launcher for frontend and backend | `SOURCE_OF_TRUTH` | `17e0ffa8eed2cdfc...` |
 | `START KAVACH 2.0 .bat` | **CONFIG** | Alternative launcher with environment checks | `SOURCE_OF_TRUTH` | `ec6f6320789ac517...` |
 | `TEST_KAVACH.bat` | **CONFIG** | Windows test suite runner batch script | `SOURCE_OF_TRUTH` | `6c8e7d4cf16b62fc...` |
 | `KAVACH.spec` | **CONFIG** | PyInstaller specification for standalone binary bundling | `SOURCE_OF_TRUTH` | `3777379098aeb2e5...` |

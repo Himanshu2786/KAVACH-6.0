@@ -84,11 +84,13 @@ class RagPipeline:
         answer_data: Dict[str, Any] = {}
         model_used = ollama_service.selected_model if is_llm_ready else "KAVACH-RuleEngine"
 
+        ai_prov = "fallback"
         if is_llm_ready:
             raw_res = await ollama_service.generate_completion(self.RAG_SYSTEM_PROMPT, user_prompt)
             if raw_res:
                 try:
                     answer_data = ai_analysis_service._extract_json(raw_res)
+                    ai_prov = "ollama"
                 except Exception:
                     answer_data = {
                         "what_was_found": f"Analysis for query: {req.query}",
@@ -99,6 +101,7 @@ class RagPipeline:
                         "how_to_fix": "\n".join([f"- {s.title}" for s in retrieved_sources[:3]]),
                         "how_to_verify": "Perform validation testing according to retrieved baseline."
                     }
+                    ai_prov = "ollama"
 
         if not answer_data:
             # Deterministic synthesized answer
@@ -112,7 +115,9 @@ class RagPipeline:
                 "how_to_fix": "1. Consult retrieved remediation guidance.\n2. Implement least-privilege boundaries.\n3. Validate fix.",
                 "how_to_verify": "Execute verification probe on affected components."
             }
+            ai_prov = "fallback"
 
+        answer_data["ai_provider"] = ai_prov
         elapsed_ms = round((time.time() - start_time) * 1000, 2)
 
         return RagResponse(
@@ -123,7 +128,8 @@ class RagPipeline:
             context_tokens_approx=len(user_prompt) // 4,
             answer=answer_data,
             model_used=model_used,
-            execution_time_ms=elapsed_ms
+            execution_time_ms=elapsed_ms,
+            ai_provider=ai_prov
         )
 
     async def analyze_finding(
@@ -187,11 +193,13 @@ class RagPipeline:
         answer_data: Dict[str, Any] = {}
         model_used = ollama_service.selected_model if is_llm_ready else "KAVACH-RuleEngine"
 
+        ai_prov = "fallback"
         if is_llm_ready:
             raw_res = await ollama_service.generate_completion(self.RAG_SYSTEM_PROMPT, user_prompt)
             if raw_res:
                 try:
                     answer_data = ai_analysis_service._extract_json(raw_res)
+                    ai_prov = "ollama"
                 except Exception as e:
                     logger.warning("Could not parse LLM JSON response: %s", e)
 
@@ -199,7 +207,9 @@ class RagPipeline:
             # Deterministic rule fallback, but enhanced with retrieved knowledge
             fallback = ai_analysis_service._generate_structured_rule_fallback(finding, evidence)
             answer_data = fallback
+            ai_prov = "fallback"
 
+        answer_data["ai_provider"] = ai_prov
         elapsed_ms = round((time.time() - start_time) * 1000, 2)
 
         return RagResponse(
@@ -210,7 +220,8 @@ class RagPipeline:
             context_tokens_approx=len(user_prompt) // 4,
             answer=answer_data,
             model_used=model_used,
-            execution_time_ms=elapsed_ms
+            execution_time_ms=elapsed_ms,
+            ai_provider=ai_prov
         )
 
 

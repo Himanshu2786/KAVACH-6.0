@@ -1,7 +1,7 @@
 # KAVACH — Master Project Context & Specification
 **System Name**: KAVACH (AI-Assisted Security Assessment Platform)  
 **Version**: 5.0 Final  
-**Context**: Smart India Hackathon (SIH) Problem Statement 26163  
+**Context**: KAVACH Enterprise Security Problem Statement Enterprise VAPT  
 **Target Application**: World Monitor Situational Intelligence Platform  
 
 ---
@@ -38,7 +38,7 @@ $$\text{Facts Discovered} \longrightarrow \text{Evidence Recorded} \longrightarr
 
 ---
 
-## 3. SIH Problem Statement 26163 Alignment
+## 3. Enterprise Security Audit Standard Alignment
 
 KAVACH is custom-tailored to assess the **World Monitor Application**, covering all 7 mandated assessment categories:
 1. **Authentication**: JWT algorithm verification, session token longevity, and brute-force protections.

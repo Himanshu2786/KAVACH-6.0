@@ -38,7 +38,7 @@ interface AppContextType {
 
   setActiveAssessment: (assessment: Assessment | null) => void;
   setSelectedFindingId: (id: string | null) => void;
-  navigate: (page: string, findingId?: string | null) => void;
+  navigate: (page: string, findingId?: string | null, pushToHistory?: boolean) => void;
   setIsDemoMode: (val: boolean) => void;
   setPresentationStep: (step: number) => void;
   finishBootLoading: () => void;
@@ -60,6 +60,55 @@ interface AppContextType {
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
 
+const VALID_PAGES = new Set([
+  'home',
+  'url-check',
+  'guide',
+  'portable-assessment',
+  'command-center',
+  'world-monitor',
+  'world_monitor',
+  'situational-monitor',
+  'new-assessment',
+  'discovery',
+  'progress',
+  'findings',
+  'finding-detail',
+  'knowledge',
+  'ai-analysis',
+  'evidence',
+  'risk',
+  'remediation',
+  'report',
+  'history',
+  'system-status',
+  'team-desk',
+  'experience-db',
+  'test-center',
+  'audit-trail',
+  'settings',
+  'owner-admin',
+  'admin'
+]);
+
+function parseRouteFromUrl(): { page: string; findingId: string | null } {
+  if (typeof window === 'undefined') return { page: 'home', findingId: null };
+
+  const pathname = window.location.pathname.replace(/^\/+/, '').replace(/\/+$/, '');
+  const hash = window.location.hash.replace(/^#\/?/, '').split('?')[0];
+  const searchParams = new URLSearchParams(window.location.search);
+  const findingId = searchParams.get('findingId') || null;
+
+  let raw = pathname || hash || searchParams.get('page') || 'home';
+  if (raw === 'admin') raw = 'owner-admin';
+  if (raw === 'world_monitor' || raw === 'situational-monitor') raw = 'world-monitor';
+
+  if (VALID_PAGES.has(raw)) {
+    return { page: raw, findingId };
+  }
+  return { page: 'home', findingId };
+}
+
 const EMPTY_URL_STATE: UrlAssessmentState = {
   result: null,
   findingsViewed: false,
@@ -68,10 +117,11 @@ const EMPTY_URL_STATE: UrlAssessmentState = {
 };
 
 export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const initialRoute = parseRouteFromUrl();
   const [activeAssessment, setActiveAssessmentState] = useState<Assessment | null>(null);
   const [assessments, setAssessments] = useState<Assessment[]>([]);
-  const [selectedFindingId, setSelectedFindingId] = useState<string | null>(null);
-  const [activePage, setActivePage] = useState<string>('home');
+  const [selectedFindingId, setSelectedFindingId] = useState<string | null>(initialRoute.findingId);
+  const [activePage, setActivePage] = useState<string>(initialRoute.page);
   const [ollamaStatus, setOllamaStatus] = useState<OllamaStatus | null>(null);
   const [systemStatus, setSystemStatus] = useState<SystemStatus | null>(null);
   const [isDemoMode, setIsDemoMode] = useState<boolean>(false);
@@ -139,14 +189,66 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     setToasts((prev) => prev.filter((t) => t.id !== id));
   };
 
-  // ── Navigation ──────────────────────────────────────────────────────────
-  const navigate = (page: string, findingId?: string | null) => {
+  // ── Navigation with Browser History Integration ───────────────────────────
+  const navigate = useCallback((page: string, findingId?: string | null, pushToHistory = true) => {
     setActivePage(page);
     if (findingId !== undefined) {
       setSelectedFindingId(findingId);
     }
+
+    if (typeof window !== 'undefined') {
+      const targetPath = page === 'home' ? '/' : `/${page}`;
+      const query = findingId ? `?findingId=${encodeURIComponent(findingId)}` : '';
+      const targetUrl = `${targetPath}${query}`;
+      const currentUrl = window.location.pathname + window.location.search;
+
+      if (pushToHistory) {
+        if (currentUrl !== targetUrl) {
+          window.history.pushState({ page, findingId: findingId ?? null }, '', targetUrl);
+        }
+      } else {
+        window.history.replaceState({ page, findingId: findingId ?? null }, '', targetUrl);
+      }
+    }
+
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+  }, []);
+
+  // ── Browser Back / Forward Button Listeners (popstate & hashchange) ───────
+  useEffect(() => {
+    // Sync initial history state on page load
+    const initial = parseRouteFromUrl();
+    const targetPath = initial.page === 'home' ? '/' : `/${initial.page}`;
+    const query = initial.findingId ? `?findingId=${encodeURIComponent(initial.findingId)}` : '';
+    const currentUrl = `${targetPath}${query}`;
+    window.history.replaceState(
+      { page: initial.page, findingId: initial.findingId },
+      '',
+      currentUrl
+    );
+
+    const handlePopState = (event: PopStateEvent) => {
+      if (event.state && event.state.page) {
+        navigate(event.state.page, event.state.findingId ?? null, false);
+      } else {
+        const route = parseRouteFromUrl();
+        navigate(route.page, route.findingId, false);
+      }
+    };
+
+    const handleHashChange = () => {
+      const route = parseRouteFromUrl();
+      navigate(route.page, route.findingId, false);
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    window.addEventListener('hashchange', handleHashChange);
+
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+      window.removeEventListener('hashchange', handleHashChange);
+    };
+  }, [navigate]);
 
   const finishBootLoading = () => {
     setIsLoadingBoot(false);

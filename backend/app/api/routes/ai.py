@@ -75,6 +75,7 @@ async def explain_finding(req: FindingExplanationRequest, db: Session = Depends(
     return {
         "success": True,
         "finding_id": finding.id,
+        "ai_provider": explanation.get("ai_provider", "fallback"),
         "explanation": explanation
     }
 
@@ -88,6 +89,7 @@ async def explain_risk(req: FindingExplanationRequest, db: Session = Depends(get
     risk_data = await ai_analysis_service.explain_risk(finding)
     return {
         "success": True,
+        "ai_provider": risk_data.get("ai_provider", "fallback"),
         "risk_explanation": risk_data
     }
 
@@ -101,6 +103,7 @@ async def get_remediation_guide(req: FindingExplanationRequest, db: Session = De
     guide = await ai_analysis_service.remediation_guide(finding)
     return {
         "success": True,
+        "ai_provider": guide.get("ai_provider", "fallback"),
         "remediation_guide": guide
     }
 
@@ -116,6 +119,7 @@ async def get_assessment_summary(req: AssessmentSummaryRequest, db: Session = De
     return {
         "success": True,
         "assessment_id": assessment.id,
+        "ai_provider": summary.get("ai_provider", "fallback"),
         "summary": summary
     }
 
@@ -125,6 +129,7 @@ async def get_audit_summary(req: AuditSummaryRequest, db: Session = Depends(get_
     summary = await ai_analysis_service.audit_summary(db, req.assessment_id)
     return {
         "success": True,
+        "ai_provider": summary.get("ai_provider", "fallback"),
         "audit_summary": summary
     }
 
@@ -138,6 +143,7 @@ async def explain_threat_alert(req: ThreatAlertRequest):
     )
     return {
         "success": True,
+        "ai_provider": explanation.get("ai_provider", "fallback"),
         "alert_explanation": explanation
     }
 
@@ -163,6 +169,7 @@ async def explain_5_points(req: FindingExplanationRequest, db: Session = Depends
     return {
         "success": True,
         "finding_id": finding.id,
+        "ai_provider": result.get("ai_provider", "fallback"),
         "data": result
     }
 

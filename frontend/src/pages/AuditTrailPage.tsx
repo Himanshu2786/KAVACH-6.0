@@ -117,7 +117,7 @@ export const AuditTrailPage: React.FC = () => {
               <ShieldCheck className="w-5 h-5 text-emerald-400" />
               <span>Module 10: Audit Trail</span>
             </h1>
-            <Badge variant="outline">SIH PS 26163</Badge>
+            <Badge variant="outline">KAVACH Enterprise</Badge>
             <span className="px-2 py-0.5 text-xs font-mono rounded bg-emerald-950 text-emerald-300 border border-emerald-800">
               TAMPER-EVIDENT
             </span>

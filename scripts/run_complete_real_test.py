@@ -2,7 +2,7 @@
 KAVACH 6.0 — Complete Real-World Test & Validation Execution Engine
 Executes comprehensive tests across all 41 phases, captures raw evidence,
 verifies database state, checks cross-assessment isolation, validates all endpoints,
-and produces real artifacts in 2.0 KAVACH_COMPLETE_PROJECT/evidence/.
+and produces real artifacts in ..KAVACH_COMPLETE_PROJECT/evidence/.
 """
 
 import os
@@ -26,7 +26,7 @@ from backend.app.models.models import (
 from backend.app.services.ollama_service import ollama_service
 from backend.app.services.ai_analysis_service import ai_analysis_service
 
-EVIDENCE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "2.0 KAVACH_COMPLETE_PROJECT", "evidence"))
+EVIDENCE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..KAVACH_COMPLETE_PROJECT", "evidence"))
 os.makedirs(os.path.join(EVIDENCE_DIR, "backend"), exist_ok=True)
 os.makedirs(os.path.join(EVIDENCE_DIR, "api"), exist_ok=True)
 os.makedirs(os.path.join(EVIDENCE_DIR, "website"), exist_ok=True)

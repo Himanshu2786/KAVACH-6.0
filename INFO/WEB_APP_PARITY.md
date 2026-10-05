@@ -1,7 +1,7 @@
 # KAVACH 6.0 — Web & Desktop Feature Parity Matrix
 
 **Document Version:** 5.0.1-FINAL  
-**Standard:** SIH Problem Statement 26163 (World Monitor Assessment)  
+**Standard:** Enterprise Security Audit Standard (World Monitor Assessment)  
 **Architecture:** Single Sovereign Backend + Single Shared Database (`kavach.db`) + Two Presentation Clients (Web + Desktop)  
 **Master AI Guide:** See [INFO/CHATGPT_GUIDE.md](file:///c:/Users/Himanshu%20Raj/OneDrive/Desktop/KHAALI%20KAVACH/KAVACH%205.0/INFO/CHATGPT_GUIDE.md)
 

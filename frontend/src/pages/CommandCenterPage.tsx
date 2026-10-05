@@ -103,17 +103,17 @@ export const CommandCenterPage: React.FC = () => {
   const postureScore = posture?.score ?? (activeAssessment ? 70 : 100);
   const postureLabel = posture?.posture ?? (
     postureScore < 50 ? 'CRITICAL RISK' :
-    postureScore < 70 ? 'HIGH RISK' :
-    postureScore < 85 ? 'MODERATE RISK' :
-    'LOW RISK'
+      postureScore < 70 ? 'HIGH RISK' :
+        postureScore < 85 ? 'MODERATE RISK' :
+          'LOW RISK'
   );
 
   const riskLevel = posture?.risk_level ?? (
     severityCounts.CRITICAL > 0 ? 'CRITICAL' :
-    severityCounts.HIGH > 0 ? 'HIGH' :
-    severityCounts.MEDIUM > 0 ? 'MEDIUM' :
-    severityCounts.LOW > 0 ? 'LOW' :
-    'LOW'
+      severityCounts.HIGH > 0 ? 'HIGH' :
+        severityCounts.MEDIUM > 0 ? 'MEDIUM' :
+          severityCounts.LOW > 0 ? 'LOW' :
+            'LOW'
   );
 
   const PIPELINE_STAGES = [
@@ -221,11 +221,10 @@ export const CommandCenterPage: React.FC = () => {
                 <span className="text-white font-bold text-sm truncate max-w-md">
                   {activeAssessment.target_url}
                 </span>
-                <span className={`text-[10px] px-2 py-0.5 rounded font-bold uppercase ${
-                  activeAssessment.status === 'COMPLETED'
-                    ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'
-                    : 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/30'
-                }`}>
+                <span className={`text-[10px] px-2 py-0.5 rounded font-bold uppercase ${activeAssessment.status === 'COMPLETED'
+                  ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'
+                  : 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/30'
+                  }`}>
                   {activeAssessment.status}
                 </span>
               </div>
@@ -277,12 +276,11 @@ export const CommandCenterPage: React.FC = () => {
           <div className="flex flex-wrap items-baseline gap-2">
             <span className="text-3xl font-black text-white font-mono">{postureScore}</span>
             <span className="text-neutral-500 text-xs font-mono">/ 100</span>
-            <span className={`text-[10px] font-bold font-mono px-2 py-0.5 rounded ${
-              postureLabel === 'CRITICAL RISK' ? 'bg-red-500/20 text-red-400 border border-red-500/30' :
+            <span className={`text-[10px] font-bold font-mono px-2 py-0.5 rounded ${postureLabel === 'CRITICAL RISK' ? 'bg-red-500/20 text-red-400 border border-red-500/30' :
               postureLabel === 'HIGH RISK' ? 'bg-orange-500/20 text-orange-400 border border-orange-500/30' :
-              postureLabel === 'MODERATE RISK' ? 'bg-amber-500/20 text-amber-400 border border-amber-500/30' :
-              'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30'
-            }`}>
+                postureLabel === 'MODERATE RISK' ? 'bg-amber-500/20 text-amber-400 border border-amber-500/30' :
+                  'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30'
+              }`}>
               {postureLabel}
             </span>
           </div>
@@ -331,12 +329,11 @@ export const CommandCenterPage: React.FC = () => {
             <BarChart3 className="w-4 h-4 text-rose-400 group-hover:scale-110 transition-transform" />
           </div>
           <div className="flex items-baseline gap-2">
-            <span className={`text-3xl font-black font-mono ${
-              riskLevel === 'CRITICAL' ? 'text-red-400' :
+            <span className={`text-3xl font-black font-mono ${riskLevel === 'CRITICAL' ? 'text-red-400' :
               riskLevel === 'HIGH' ? 'text-orange-400' :
-              riskLevel === 'MEDIUM' ? 'text-amber-400' :
-              'text-emerald-400'
-            }`}>
+                riskLevel === 'MEDIUM' ? 'text-amber-400' :
+                  'text-emerald-400'
+              }`}>
               {riskLevel}
             </span>
           </div>
@@ -405,13 +402,12 @@ export const CommandCenterPage: React.FC = () => {
                   setSelectedStage({ id: stg.id, name: stg.name, idx });
                   setActiveResultModal('STAGE');
                 }}
-                className={`p-2.5 rounded-xl border text-center transition-all cursor-pointer group hover:border-cyan-400/60 hover:scale-[1.02] ${
-                  isCurrent
-                    ? 'bg-cyan-500/20 border-cyan-500/40 text-cyan-300 font-bold'
-                    : isCompleted
+                className={`p-2.5 rounded-xl border text-center transition-all cursor-pointer group hover:border-cyan-400/60 hover:scale-[1.02] ${isCurrent
+                  ? 'bg-cyan-500/20 border-cyan-500/40 text-cyan-300 font-bold'
+                  : isCompleted
                     ? 'bg-white/[0.06] border-white/10 text-neutral-200 hover:bg-white/[0.10]'
                     : 'bg-black/30 border-white/[0.04] text-neutral-600 hover:text-neutral-400'
-                }`}
+                  }`}
                 title={`Click to inspect Stage 0${idx + 1} (${stg.name}) results`}
               >
                 <div className="text-[10px] font-mono text-neutral-500 mb-0.5 group-hover:text-cyan-400">0{idx + 1}</div>
@@ -839,12 +835,11 @@ export const CommandCenterPage: React.FC = () => {
                   </div>
                   <div className="p-4 rounded-xl bg-white/[0.04] border border-white/10 text-center">
                     <span className="text-[11px] text-neutral-400 block uppercase">Posture State</span>
-                    <span className={`text-base font-bold mt-2 block ${
-                      postureLabel === 'CRITICAL RISK' ? 'text-red-400' :
+                    <span className={`text-base font-bold mt-2 block ${postureLabel === 'CRITICAL RISK' ? 'text-red-400' :
                       postureLabel === 'HIGH RISK' ? 'text-orange-400' :
-                      postureLabel === 'MODERATE RISK' ? 'text-amber-400' :
-                      'text-emerald-400'
-                    }`}>
+                        postureLabel === 'MODERATE RISK' ? 'text-amber-400' :
+                          'text-emerald-400'
+                      }`}>
                       {postureLabel}
                     </span>
                     <span className="text-[10px] text-neutral-500">{posture?.status_label || 'EVIDENCE VERIFIED'}</span>
@@ -956,12 +951,11 @@ export const CommandCenterPage: React.FC = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div className="p-4 rounded-xl bg-white/[0.04] border border-white/10 text-center">
                     <span className="text-[11px] text-neutral-400 block uppercase">Operational Risk Level</span>
-                    <span className={`text-2xl font-black mt-2 block ${
-                      riskLevel === 'CRITICAL' ? 'text-red-400' :
+                    <span className={`text-2xl font-black mt-2 block ${riskLevel === 'CRITICAL' ? 'text-red-400' :
                       riskLevel === 'HIGH' ? 'text-orange-400' :
-                      riskLevel === 'MEDIUM' ? 'text-amber-400' :
-                      'text-emerald-400'
-                    }`}>
+                        riskLevel === 'MEDIUM' ? 'text-amber-400' :
+                          'text-emerald-400'
+                      }`}>
                       {riskLevel}
                     </span>
                     <span className="text-[10px] text-neutral-500">CVSS v3.1 Deterministic Mapping</span>
@@ -1135,11 +1129,10 @@ export const CommandCenterPage: React.FC = () => {
                       Stage 0{selectedStage.idx + 1}: {selectedStage.name}
                     </span>
                   </div>
-                  <span className={`text-[10px] px-2 py-0.5 rounded font-bold uppercase ${
-                    selectedStage.idx <= currentStageIdx || activeAssessment?.status === 'COMPLETED'
-                      ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'
-                      : 'bg-neutral-800 text-neutral-400'
-                  }`}>
+                  <span className={`text-[10px] px-2 py-0.5 rounded font-bold uppercase ${selectedStage.idx <= currentStageIdx || activeAssessment?.status === 'COMPLETED'
+                    ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'
+                    : 'bg-neutral-800 text-neutral-400'
+                    }`}>
                     {selectedStage.idx <= currentStageIdx || activeAssessment?.status === 'COMPLETED'
                       ? 'COMPLETED'
                       : 'PENDING'}

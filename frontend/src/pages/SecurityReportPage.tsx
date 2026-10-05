@@ -4,6 +4,7 @@ import { useApp } from '../context/AppContext';
 import { api } from '../services/api';
 import { GlassCard } from '../components/common/GlassCard';
 import { Badge } from '../components/common/Badge';
+import { AiProvenanceDot } from '../components/common/AiProvenanceDot';
 
 export const SecurityReportPage: React.FC = () => {
   const { activeAssessment, showToast } = useApp();
@@ -172,8 +173,13 @@ export const SecurityReportPage: React.FC = () => {
           </h3>
           <div className="space-y-3 font-mono-code text-xs">
             {report.findings_detail.map((f: any) => (
-              <div key={f.id} className="p-4 rounded-xl bg-slate-900/70 border border-slate-800 space-y-3">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <div key={f.id} className="relative p-4 rounded-xl bg-slate-900/70 border border-slate-800 space-y-3">
+                {f.ai_provider === 'ollama' && (
+                  <div className="absolute top-4 right-4 z-10 pointer-events-auto" data-testid={`report-card-provenance-${f.id}`}>
+                    <AiProvenanceDot provider={f.ai_provider} />
+                  </div>
+                )}
+                <div className={`flex flex-col sm:flex-row sm:items-center justify-between gap-2 ${f.ai_provider === 'ollama' ? 'pr-5' : ''}`}>
                   <div className="flex items-center space-x-2">
                     <span className="font-bold text-cyan-400">[{f.id}]</span>
                     <span className="font-bold text-slate-100">{f.title}</span>
@@ -196,7 +202,12 @@ export const SecurityReportPage: React.FC = () => {
                 </div>
 
                 {/* AI Hypothesis */}
-                <div className="p-3 rounded bg-purple-950/20 border border-purple-500/20 text-purple-300">
+                <div className="relative p-3 rounded bg-purple-950/20 border border-purple-500/20 text-purple-300">
+                  {f.ai_provider === 'ollama' && (
+                    <div className="absolute top-2.5 right-2.5 pointer-events-auto" data-testid={`report-hypothesis-provenance-${f.id}`}>
+                      <AiProvenanceDot provider={f.ai_provider} />
+                    </div>
+                  )}
                   <div className="text-[10px] uppercase font-bold text-purple-400 mb-0.5">
                     AI Security Hypothesis (Confidence: {f.ai_confidence}%)
                   </div>

@@ -128,7 +128,7 @@ export const HomePage: React.FC = () => {
         >
           <div style={{ display: "flex", flexDirection: "column", gap: "20px", maxWidth: "520px", width: "100%" }}>
 
-            {/* SIH Badge */}
+            {/* Enterprise Badge */}
             <div
               style={{
                 display: "inline-flex",
@@ -152,7 +152,7 @@ export const HomePage: React.FC = () => {
                   flexShrink: 0,
                 }}
               />
-              SIH Problem Statement 26163
+              KAVACH Enterprise VAPT
               <span style={{ color: "#52525b" }}>/</span>
               <span style={{ color: "#a1a1aa" }}>Evidence-First Security</span>
             </div>

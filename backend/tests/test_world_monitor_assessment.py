@@ -364,11 +364,11 @@ def test_refresh_persistence(db_session):
 
 
 # ═════════════════════════════════════════════════════════════════════════════
-# PRIORITY 3: SIH 26163 7 SECURITY DOMAINS VALIDATION TESTS
+# PRIORITY 3: 7 SECURITY DOMAINS VALIDATION TESTS
 # ═════════════════════════════════════════════════════════════════════════════
 
-def test_sih_7_domains_coverage_matrix_structure():
-    """Verify all 7 SIH 26163 domains are present in the coverage matrix with mandated fields."""
+def test_seven_domains_coverage_matrix_structure():
+    """Verify all 7 security domains are present in the coverage matrix with mandated fields."""
     samples_dir = str(Path("demo/training_samples"))
 
     res = asyncio.run(world_monitor_assessment_engine.run_assessment(

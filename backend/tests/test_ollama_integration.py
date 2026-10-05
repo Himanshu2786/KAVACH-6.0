@@ -224,3 +224,80 @@ def test_api_key_never_exposed_in_status_or_errors(monkeypatch):
         assert "[MASKED_BEARER_TOKEN]" in masked
 
     asyncio.run(_run())
+
+
+def test_ai_provenance_fallback_when_offline():
+    """Verify ai_provider is 'fallback' when Ollama is offline or uncalled."""
+    findings_res = client.get("/api/findings?is_demo=true")
+    assert findings_res.status_code == 200
+    findings = findings_res.json()
+    assert len(findings) > 0
+    f = findings[0]
+    # Finding response includes ai_provider
+    assert "ai_provider" in f
+    assert f["ai_provider"] in ("ollama", "fallback")
+
+    # Call explain-finding under offline condition (side_effect)
+    with patch("httpx.AsyncClient.get", side_effect=httpx.ConnectError("Connection refused")):
+        res = client.post("/api/ai/explain-finding", json={"finding_id": f["id"]})
+        assert res.status_code == 200
+        data = res.json()
+        assert data["ai_provider"] == "fallback"
+        assert data["explanation"]["ai_provider"] == "fallback"
+
+
+def test_ai_provenance_ollama_when_success():
+    """Verify ai_provider is 'ollama' when Ollama completion actually succeeds."""
+    import json
+    findings_res = client.get("/api/findings?is_demo=true")
+    f = findings_res.json()[0]
+
+    mock_ollama_res = {
+        "what_was_found": "Ollama generated finding summary.",
+        "where": "/api/v1/resource",
+        "why_it_matters": "Ollama hypothesis.",
+        "possible_impact": "High risk impact.",
+        "severity_rationale": "Clear rationale.",
+        "recommended_action": "Apply patch.",
+        "how_to_fix": "Fix configuration.",
+        "how_to_verify": "Run verification curl."
+    }
+
+    # Mock health to ready, and generate_completion to return json
+    with patch.object(ollama_service, "check_health", return_value={"status_code": "ready", "status": "online"}):
+        with patch.object(ollama_service, "generate_completion", return_value=json.dumps(mock_ollama_res)):
+            res = client.post("/api/ai/explain-finding", json={"finding_id": f["id"]})
+            assert res.status_code == 200
+            data = res.json()
+            assert data["ai_provider"] == "ollama"
+            assert data["explanation"]["ai_provider"] == "ollama"
+
+
+def test_ai_provenance_analyze_finding_endpoint():
+    """Verify POST /api/findings/{id}/analyze returns ai_provider: 'ollama' when Ollama succeeds."""
+    import json
+    findings_res = client.get("/api/findings?is_demo=true")
+    f = findings_res.json()[0]
+
+    mock_ollama_res = {
+        "what_was_found": "Ollama generated finding summary.",
+        "where": "/api/v1/resource",
+        "why_it_matters": "Ollama hypothesis.",
+        "possible_impact": "High risk impact.",
+        "severity_rationale": "Clear rationale.",
+        "recommended_action": "Apply patch.",
+        "how_to_fix": "Fix configuration.",
+        "how_to_verify": "Run verification curl."
+    }
+
+    with patch.object(ollama_service, "check_health", return_value={"status_code": "ready", "status": "online"}):
+        with patch.object(ollama_service, "generate_completion", return_value=json.dumps(mock_ollama_res)):
+            res = client.post(f"/api/findings/{f['id']}/analyze")
+            assert res.status_code == 200
+            data = res.json()
+            assert data["success"] is True
+            assert data["ai_provider"] == "ollama"
+            assert data["updated_finding"]["ai_provider"] == "ollama"
+            assert data["updated_finding"]["ai_analysis_status"] == "COMPLETED"
+
+

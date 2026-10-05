@@ -1,6 +1,6 @@
 # KAVACH 6.0 — Final Debug, Dead-Code Cleanup & Project Hygiene Report
 **Document ID**: `INFO/FINAL_DEBUG_AND_CLEANUP_REPORT.md`  
-**Standard**: SIH Problem Statement 26163 Security Engineering Standard  
+**Standard**: Enterprise Security Audit Standard Security Engineering Standard  
 **Timestamp**: 2026-09-22 | Indian Standard Time (IST)  
 **Platform**: Windows 11 / Python 3.11.9 / PySide6 / React 18 + Vite + TypeScript / SQLite  
 
@@ -32,12 +32,12 @@
 
 ## 3. Dead Code Found
 - Legacy compression backups and unreferenced cache packages (`.pytest_cache.zip`, `.zip`).
-- Redundant 37MB root snapshot clone `2.0 KAVACH_COMPLETE_PROJECT.md` left over from prior manual export.
+- Redundant 37MB root snapshot clone `..KAVACH_COMPLETE_PROJECT.md` left over from prior manual export.
 
 ---
 
 ## 4. Dead Code Removed
-- Deleted root archive artifacts (`.pytest_cache.zip`, `.zip`, `2.0 KAVACH_COMPLETE_PROJECT.md`).
+- Deleted root archive artifacts (`.pytest_cache.zip`, `.zip`, `..KAVACH_COMPLETE_PROJECT.md`).
 - Eliminated legacy Pydantic v1 helper blocks and dead serializer methods.
 
 ---
@@ -57,14 +57,14 @@
 ## 7. Files Removed
 1. `.pytest_cache.zip` (448.3 MB) — Dead compressed cache archive.
 2. `.zip` (224.7 MB) — Dead unreferenced archive.
-3. `2.0 KAVACH_COMPLETE_PROJECT.md` (37.1 MB) — Duplicate of canonical `INFO/KAVACH_COMPLETE_PROJECT.md`.
+3. `..KAVACH_COMPLETE_PROJECT.md` (37.1 MB) — Duplicate of canonical `INFO/KAVACH_COMPLETE_PROJECT.md`.
 
 *Total Disk Space Recovered: **710+ MB***.
 
 ---
 
 ## 8. Files Intentionally Kept
-- All 32 documentation files in `INFO/` (SIH PS 26163 compliance, guides, user manuals, architecture, and threat models).
+- All 32 documentation files in `INFO/` (KAVACH Enterprise compliance, guides, user manuals, architecture, and threat models).
 - All 14 PySide6 UI screens in `ui/` and dialog widgets in `widgets/`.
 - All 6 local Windows audit scanners in `backend/app/scanners/`.
 - All test fixtures and safe training samples in `demo/training_samples/`.
@@ -127,8 +127,8 @@
 
 ---
 
-## 15. SIH Demo Verification
-- Verified end-to-end execution of `scripts/run_sih_demo.py` and `test_sih_full_demonstration.py`.
+## 15. Enterprise Demo Verification
+- Verified end-to-end execution of `scripts/run_enterprise_demo.py` and `test_enterprise_full_demonstration.py`.
 - 17-step full demonstration passed with bitwise hash integrity verification.
 
 ---
@@ -157,7 +157,7 @@
 ================================================================================
            KAVACH 6.0 — FINAL CLEANUP & HYGIENE VERIFICATION SUMMARY             
 ================================================================================
-TOTAL FILES REMOVED:              3 files (.pytest_cache.zip, .zip, 2.0 KAVACH_COMPLETE_PROJECT.md)
+TOTAL FILES REMOVED:              3 files (.pytest_cache.zip, .zip, ..KAVACH_COMPLETE_PROJECT.md)
 TOTAL DISK SPACE RECOVERED:       ~710 MB
 TOTAL CODE BLOCKS REMOVED/FIXED:  10 blocks (Pydantic V2 config, serialization, requirements)
 TOTAL BUGS FIXED:                 4 genuine bugs (Pydantic V1 syntax, Field example, model serialization, pip syntax)

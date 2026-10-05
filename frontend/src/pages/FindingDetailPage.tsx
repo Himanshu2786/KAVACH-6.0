@@ -60,8 +60,14 @@ export const FindingDetailPage: React.FC = () => {
     setAnalyzing(true);
     try {
       const res = await api.analyzeFinding(finding.id);
-      setFinding(res.updated_finding);
-      showToast('success', 'AI Analysis Complete', `Security hypothesis generated (${res.data.source_mode}).`);
+      if (res?.updated_finding) {
+        setFinding({
+          ...res.updated_finding,
+          ai_provider: res.ai_provider || res.updated_finding.ai_provider
+        });
+      }
+      const mode = res.ai_provider === 'ollama' ? 'Ollama LLM' : (res.data?.source || 'Deterministic Fallback');
+      showToast('success', 'AI Analysis Complete', `Security hypothesis generated (${mode}).`);
     } catch (err: any) {
       showToast('error', 'AI Error', err.message || 'Failed to complete AI analysis');
     } finally {
@@ -235,6 +241,7 @@ export const FindingDetailPage: React.FC = () => {
               subtitle="Testable thesis synthesized from context"
               icon={<BrainCircuit className="w-5 h-5 text-purple-400" />}
               className="lg:col-span-2 space-y-4"
+              aiProvider={finding.ai_provider}
             >
               <div>
                 <div className="text-[11px] font-mono-code text-slate-400 uppercase mb-1">Synthesized Thesis</div>
@@ -263,6 +270,7 @@ export const FindingDetailPage: React.FC = () => {
               title="Recommended Validation"
               subtitle="Safe non-destructive probe steps"
               icon={<FileCheck2 className="w-5 h-5 text-cyan-400" />}
+              aiProvider={finding.ai_provider}
             >
               <div className="space-y-2.5">
                 {finding.recommended_validation?.map((step, idx) => (
@@ -351,24 +359,30 @@ export const FindingDetailPage: React.FC = () => {
       {activeTab === 'overview' && (
         <GlassCard title="Finding Context & Description">
           <p className="text-xs text-slate-300 leading-relaxed font-mono-code mb-4">
-            {finding.description}
+            {finding.description || 'No detailed description available.'}
           </p>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 font-mono-code text-xs">
             <div className="p-2.5 rounded bg-slate-900/60 border border-slate-800">
               <div className="text-[10px] text-slate-500 uppercase">Assessment ID</div>
-              <div className="text-slate-200 mt-0.5">{finding.assessment_id}</div>
+              <div className="text-slate-200 mt-0.5">{finding.assessment_id || 'N/A'}</div>
             </div>
             <div className="p-2.5 rounded bg-slate-900/60 border border-slate-800">
               <div className="text-[10px] text-slate-500 uppercase">Priority Score</div>
-              <div className="text-cyan-400 font-bold mt-0.5">{finding.priority_score} / 10.0</div>
+              <div className="text-cyan-400 font-bold mt-0.5">
+                {finding.priority_score !== undefined && finding.priority_score !== null ? `${finding.priority_score} / 10.0` : 'N/A'}
+              </div>
             </div>
             <div className="p-2.5 rounded bg-slate-900/60 border border-slate-800">
               <div className="text-[10px] text-slate-500 uppercase">Created</div>
-              <div className="text-slate-400 mt-0.5">{finding.created_at.slice(0, 10)}</div>
+              <div className="text-slate-400 mt-0.5">
+                {finding.created_at ? String(finding.created_at).slice(0, 10) : 'N/A'}
+              </div>
             </div>
             <div className="p-2.5 rounded bg-slate-900/60 border border-slate-800">
               <div className="text-[10px] text-slate-500 uppercase">Updated</div>
-              <div className="text-slate-400 mt-0.5">{finding.updated_at.slice(0, 10)}</div>
+              <div className="text-slate-400 mt-0.5">
+                {finding.updated_at ? String(finding.updated_at).slice(0, 10) : 'N/A'}
+              </div>
             </div>
           </div>
         </GlassCard>

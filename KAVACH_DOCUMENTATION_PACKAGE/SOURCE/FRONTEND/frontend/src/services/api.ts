@@ -31,6 +31,7 @@ import {
   UserFeedbackRecord
 } from '../types';
 
+// Remote deployment note: keep '/api' as the default; Vite API_BASE_URL can later point this same frontend to the hosted KAVACH backend.
 const API_BASE = (import.meta.env.VITE_API_URL as string | undefined) || '/api';
 
 async function request<T>(endpoint: string, options: RequestInit = {}): Promise<T> {

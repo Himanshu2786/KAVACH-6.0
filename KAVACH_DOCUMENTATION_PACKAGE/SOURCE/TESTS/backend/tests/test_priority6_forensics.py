@@ -1,5 +1,5 @@
 """
-KAVACH 5.0 — Priority 6 Test Suite: Auditability & Forensic Package Reproducibility (SIH PS 26163)
+KAVACH 5.0 — Priority 6 Test Suite: Auditability & Forensic Package Reproducibility (KAVACH Enterprise)
 
 Validates:
 1. Complete action logging across the entire assessment lifecycle

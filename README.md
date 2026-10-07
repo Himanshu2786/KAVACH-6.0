@@ -59,7 +59,7 @@ KAVACH 6.0 is now fully enabled for **multi-user team web deployment**:
 - **Deterministic Usage Tracking**: Owner dashboard tracks authentic user participation categorized into `LOGIN ONLY`, `ACTIVE USE`, and `MEANINGFUL USE`.
 
 Default test credentials:
-- Developer/Owner: `ADMIN001` / `Admin@Kavach2026!`
+- Developer/Owner : ADMIN
 - Team Members: `TEAM001` through `TEAM010`
 
 See [TEAM_WEB_GUIDE.md](file:///c:/Users/Himanshu%20Raj/OneDrive/Desktop/KHAALI%20KAVACH/KAVACH%206.0/docs/TEAM_WEB_GUIDE.md) for full setup instructions.

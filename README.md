@@ -60,7 +60,7 @@ KAVACH 6.0 is now fully enabled for **multi-user team web deployment**:
 
 Default test credentials:
 - Developer/Owner: `ADMIN001` / `Admin@Kavach2026!`
-- Team Members: `TEAM001` through `TEAM010``
+- Team Members: `TEAM001` through `TEAM010`
 
 See [TEAM_WEB_GUIDE.md](file:///c:/Users/Himanshu%20Raj/OneDrive/Desktop/KHAALI%20KAVACH/KAVACH%206.0/docs/TEAM_WEB_GUIDE.md) for full setup instructions.
 
